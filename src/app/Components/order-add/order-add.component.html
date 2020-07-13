@@ -1,0 +1,89 @@
+
+
+ <section id="NewOrder">
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="newOrderForm" (ngSubmit)="onSubmit(newOrderForm)" autocomplete="off">
+        <mat-form-field >
+            <input 
+            matInput
+             [matDatepicker]="picker" 
+             id="OrderDate"
+              placeholder="תאריך הזמנה"
+               name="orderDate"
+               formControlName="OrderDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker  #picker></mat-datepicker>
+          </mat-form-field>
+      
+        <mat-form-field>
+            <input
+              matInput 
+               id="OrderTime" 
+               placeholder="שעת הזמנה"
+                name="orderTime"  
+                formControlName="OrderTime"
+                >
+         <mat-hint ></mat-hint>
+        </mat-form-field>
+         <mat-form-field>
+            <input
+              matInput 
+               id="Element" 
+               placeholder="אלמנט"
+                name="Element"  
+                formControlName="Element"
+                >
+         <mat-hint ></mat-hint>
+        </mat-form-field>
+         <mat-form-field>
+            <input
+              matInput 
+               id="SiteAdress" 
+               placeholder="כתובת אתר "
+                name="SiteAdress"  
+                formControlName="SiteAdress"
+                >
+         <mat-hint ></mat-hint>
+     </mat-form-field>
+     <mat-form-field>
+        <input
+          matInput 
+           id="ConcreteCheck" 
+           placeholder="האם נדרשת בדיקת בטון"
+            name="ConcreteCheck"  
+            formControlName="ConcreteCheck"
+            >
+     <mat-hint ></mat-hint>
+ </mat-form-field>
+
+
+
+
+ <mat-form-field>
+    <input
+      matInput 
+       id="PumpNeeded" 
+       placeholder="האם נדרשת משאבה"
+        name="PumpNeeded"  
+        formControlName="PumpNeeded"
+        >
+ <mat-hint ></mat-hint>
+</mat-form-field>
+<mat-form-field>
+    <input
+      matInput 
+       id="PumpType" 
+       placeholder="סוג משאבה"
+        name="PumpType"  
+        formControlName="PumpType"
+        >
+ <mat-hint ></mat-hint>
+</mat-form-field>
+
+
+
+
+       
+        <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
+    </form>
+</section>
+
