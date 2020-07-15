@@ -1,3 +1,14 @@
 .menu-spacer {
     flex: 1 1 auto;
   }
+
+  #TopNavBar{
+    background-color:orangered;
+    overflow: hidden;
+  
+}
+
+.navImg{
+  width: 100%;
+  height: auto;
+}
