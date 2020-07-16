@@ -12,3 +12,16 @@
   width: 100%;
   height: auto;
 }
+
+.all-wrap {
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  /* > *:not(router-outlet) {
+    flex: 1;
+    display: block;
+  } */
+}

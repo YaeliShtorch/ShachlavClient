@@ -1,0 +1,7 @@
+.footer{
+
+    background-color:orangered;
+    position: sticky;
+    bottom: 0; /* Sets the sticky toolbar to be on top */
+ 
+}

@@ -26,6 +26,7 @@ import { ProviderOrderComponent } from './Components/provider-order/provider-ord
 import { ProviderRegisterComponent } from './Components/provider-register/provider-register.component';
 import { SubHomeComponent } from './Components/sub-home/sub-home.component';
 import { OrderAddComponent } from './Components/order-add/order-add.component';
+import { FooterComponent } from './homeComponents/footer/footer.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { OrderAddComponent } from './Components/order-add/order-add.component';
     ProviderOrderComponent,
     ProviderRegisterComponent,
     SubHomeComponent,
-    OrderAddComponent
+    OrderAddComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
