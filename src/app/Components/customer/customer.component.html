@@ -1,1 +1,38 @@
 <p>customer works!</p>
+
+
+<mat-nav-list class="sidenav container-fluid">
+
+    <mat-list-item class="sidelink">
+       <a matLine [routerLink]="['order/openOrders']" routerLinkActive="active">הזמנות פעילות</a>
+    </mat-list-item>
+    <mat-list-item class="sidelink">
+      <a matLine [routerLink]="['order/allOrders']" routerLinkActive="active">כל ההזמנות</a>
+   </mat-list-item>
+   <mat-list-item class="sidelink">
+    <a matLine [routerLink]="['order']">מציאת הזמנה לפי תאריך</a>
+  </mat-list-item>
+  <mat-list-item class="sidelink">
+    <a matLine [routerLink]="['order']"> מציאת הזמנה לפי מספר הזמנה </a>
+  </mat-list-item>
+  <mat-list-item class="sidelink">
+    <a matLine [routerLink]="['order']" >עריכת הזמנה</a>
+  </mat-list-item>
+  
+  </mat-nav-list>
+  
+  <div class="content">
+    <p class="text-orange display-4">
+      שלום לקוח 
+    <br/>
+    </p>
+    <div>ניתוב לדף הזמנות</div>
+  <a  href="home/order">להזמנת מוצרים לחץ כאן</a>
+  <router-outlet></router-outlet>
+   <div>-Bodyתוכן הדף</div>
+   <div>פרופיל לקוח- צד שמאל</div>
+   <div> הצגת הזמנות פעילות בטבלה או מבצעים חדשים</div>
+   <div>?? בכרטיס או דיב מדיניות החברה ביטול הזמנות </div>
+   <div>אפשרות ליצירת קשר עם סוכן וירטואלי? בצד שמאל למטה יכול להיות שנעביר לדף בית</div>
+  </div>
+   

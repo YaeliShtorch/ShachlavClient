@@ -7,6 +7,9 @@ import {Order} from '../Models/order.models';
   providedIn: 'root'
 })
 export class OrderService {
+  currentUser;
+  curCustomerId;
+  userOrders=new Array<Order>();
   thisController:string="Order/";
   constructor(public Http:HttpClient) {}
  

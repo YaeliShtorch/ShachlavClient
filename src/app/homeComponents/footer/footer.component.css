@@ -1,7 +1,41 @@
 .footer{
 
-    background-color:orangered;
+    background-color:whitesmoke;
     position: sticky;
     bottom: 0; /* Sets the sticky toolbar to be on top */
+  
+
  
+}
+
+.footer-list{
+    margin: auto 0;
+    margin-right: 280px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    color:orangered;
+
+}
+.footerTitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    font-weight: bolder;
+    color:rgb(160, 88, 62);
+}
+
+.link{
+    color: rgb(92, 116, 124);
+    
+}
+
+.link:hover{
+    color: rgb(201, 147, 127);
+}
+
+.company{
+    margin-top: 40px;;
+    font-size: xx-large;
+    color: rgb(92, 116, 124);
+  
 }

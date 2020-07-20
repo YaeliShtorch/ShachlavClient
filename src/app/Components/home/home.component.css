@@ -3,7 +3,7 @@
   }
 
   #TopNavBar{
-    background-color:orangered;
+    background-color:rgb(218, 86, 47);
     overflow: hidden;
   
 }
@@ -24,4 +24,10 @@ main {
     flex: 1;
     display: block;
   } */
+}
+
+.link{
+ font-weight: bold;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-size: larger;
 }
