@@ -1,13 +1,3 @@
-#customer{
-    text-align: center;
-    direction: rtl;
-    margin-top: 20px;
-}
-.back-orange{
-    background-color: orangered;
-    color: white;
-    box-shadow: 0 0 0 0.2rem white;
-}
 
 .text-orange{
     color: orangered;
@@ -18,46 +8,31 @@
 }
 
 .sidenav{ 
-    text-align: right;
+
     float:right;
-        width:27%;
-        height: 400px;
-        background-color:	#E8E8E8;
+    height: 450px;
+    background-color:	#E8E8E8;
       
 }
 .sidelink{
+   
     font-family:Verdana, Geneva, Tahoma, sans-serif;
    color:coral;
-   font-size:30px;
+   font: size 1;;
   font-weight: normal;
-  margin: 3%;
-    size:45%;
+
+  /* margin: 3%; */
+    /* size:45%; */
+  
     
 }
 .sidelink:hover{
     color: orangered;
 }
-
-
-
-  .mainDiv{
-      height:100%;
-      width:100%;
-
-  }
-
-  .example-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: grey;
-  }
-
   .content{
     background-color:	#F5F5F5;
      text-align: center; 
      padding: 40px;
      height: 400px;
   }
+

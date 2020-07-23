@@ -1,10 +1,12 @@
 .footer{
 
     background-color:whitesmoke;
+    /* flex-wrap: wrap; */
     position: sticky;
     bottom: 0; /* Sets the sticky toolbar to be on top */
-  
-
+    width: 100%;
+    height: auto 0;
+    margin-top: 5%;
  
 }
 
@@ -16,6 +18,7 @@
     font-size: large;
     color:orangered;
 
+   
 }
 .footerTitle{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,3 +42,13 @@
     color: rgb(92, 116, 124);
   
 }
+
+/* פתרון למסך רספונסיבי להציב באבא flex-wrap ובילד את זה. לא עובד עם מסכים קטנים*/
+ /* .mat-list-item {
+  flex: 1 0 12em;
+  margin-top:5%
+  /* Change 12em to your breakpoint. */
+/* } */
+
+
+
