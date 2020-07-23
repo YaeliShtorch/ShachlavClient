@@ -1,0 +1,18 @@
+.mTable{
+    width:70%;
+    background-color:rgb(241, 232, 216);
+    
+}
+
+  mat-header-cell, mat-cell {
+   
+     /* למרכז את התוכן באמצע התא
+      text-align: center !important;  */
+    justify-content: center;
+
+  }
+  
+
+  .mheader{
+   background-color: orangered;
+  }

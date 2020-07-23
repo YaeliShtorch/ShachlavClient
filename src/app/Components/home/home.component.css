@@ -1,0 +1,33 @@
+.menu-spacer {
+    flex: 1 1 auto;
+  }
+
+  #TopNavBar{
+    background-color:rgb(218, 86, 47);
+    overflow: hidden;
+  
+}
+
+.navImg{
+  width: 100%;
+  height: auto;
+}
+
+.all-wrap {
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  /* > *:not(router-outlet) {
+    flex: 1;
+    display: block;
+  } */
+}
+
+.link{
+ font-weight: bold;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-size: larger;
+}

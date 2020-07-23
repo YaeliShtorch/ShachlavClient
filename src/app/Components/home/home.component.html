@@ -1,6 +1,41 @@
 <br/>
-
-
-
-<p>home works!</p>
+<div style="height: 100vh;" fxFlexFill>
+  <mat-toolbar color="primary" id="TopNavBar" dir="rtl">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="link">ש.ח.ל.ב</span>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a [routerLink]="['/home/login']" routerLinkActive="active" class="link" mat-button>מנהל</a>
+        <a [routerLink]="['/home/login']" routerLinkActive="active" class="link" mat-button>לקוח</a>
+        <a [routerLink]="['/home/login']"routerLinkActive="active" class="link" mat-button>ספק</a>
+        <a [routerLink]="['/home/login']" routerLinkActive="active" class="link" mat-button>נהג</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+    <mat-sidenav-container fxFlexFill>
+      <mat-sidenav #sidenav>
+        <mat-nav-list>
+          <a [routerLink]="['/home/login']" routerLinkActive="active" class="link" mat-list-item>מנהל</a>
+          <a [routerLink]="['/home/login']" routerLinkActive="active" mat-list-item>לקוח</a>
+          <a [routerLink]="['/home/login']" routerLinkActive="active" mat-list-item>ספק</a>
+          <a [routerLink]="['/home/login']" routerLinkActive="active" mat-list-item>נהג</a>
+          <a (click)="sidenav.toggle()" href="" mat-list-item>סגור</a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content fxLayout="column" fxLayoutAlign="center" fxFlexFill>
+        <img src="assets/Images/SecNavBar.jpg" alt='שחל"ב' class="navImg">
+        <p>home works!</p>
+        <main fxLayoutAlign="center center">
 <router-outlet></router-outlet>
+</main>
+<app-footer fxFlexOffset="auto"></app-footer>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  
+  </div>
+  
+  

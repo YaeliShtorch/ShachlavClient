@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment } from 'src/environments/environment';
-import {Order} from '../Modals/Order';
+import {Order} from '../Models/order.models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
+  currentUser;
+  curCustomerId;
+  userOrders=new Array<Order>();
   thisController:string="Order/";
   constructor(public Http:HttpClient) {}
  

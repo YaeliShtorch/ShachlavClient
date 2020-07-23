@@ -1,0 +1,77 @@
+<mat-toolbar color="primary" dir="rtl" class="footer">
+
+    <mat-toolbar-row>       
+  <mat-bottom-sheet class="mat-grid" fxLayout="row" layout-xs="c">
+    <div>
+      <mat-list fxLayoutAlign="center">
+       
+        <mat-list-item>
+            <div class="mat-grid-text" class="footer-list"> 
+                <h6 class="footerTitle">אודות</h6>
+                <p >
+                  <a [routerLink]="['/home']" class="link">MDBootstrap</a>
+                </p>
+                <p>
+                  <a [routerLink]="['/home']" class="link">MDWordPress</a>
+                </p>
+                <p>
+                  <a [routerLink]="['/home']" class="link">BrandFlow</a>
+                </p>
+                <p>
+                  <a [routerLink]="['/home']" class="link">Bootstrap Angular</a>
+                </p></div>
+          </mat-list-item>
+
+      <mat-list-item>
+        <div class="mat-grid-text" class="footer-list"> 
+            <h6 class="footerTitle">שירותים</h6>
+            <p>
+              <a [routerLink]="['/home']" class="link">לקוחות</a>
+            </p>
+            <p>
+              <a [routerLink]="['/home']" class="link">חומרי בניה</a>
+            </p>
+            <p>
+              <a [routerLink]="['/home']" class="link">פרוייקטים</a>
+            </p>
+            <p>
+              <a [routerLink]="['/home']"class="link" >עזרה</a>
+            </p>
+          </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div class="mat-grid-text" class="footer-list"> 
+                <h6 class="footerTitle">צור קשר</h6>
+                <p class="company">
+                    ש.ח.ל.ב חומרי בניין בע"מ
+                      <br>03-5701262
+                    </p></div>
+      </mat-list-item>
+  </mat-list>
+
+
+     
+    </div>
+  </mat-bottom-sheet>
+    </mat-toolbar-row>
+
+    
+
+    <mat-toolbar-row fxLayoutAlign="center" style="margin-top: 250px; color:rgb(92, 116, 124) ;">
+        <span >Second Line</span>
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+      </mat-toolbar-row>
+
+  
+  </mat-toolbar>
+
+  <!-- <md-bottom-sheet class="md-grid" layout="column" ng-cloak>
+    <div>
+      <md-list flex layout="row" layout-align="center center">
+        <md-list-item ng-repeat="item in items">
+          <div class="md-grid-text"> {{ item.name }} </div>
+        </md-list-item>
+      </md-list>px
+    </div>
+  </md-bottom-sheet> -->

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagerService } from 'src/app/Services/manager.service';
-import { Manager } from 'src/app/Modals/Manager';
+import { Manager } from 'src/app/Models/manager.models';
 import { TouchSequence } from 'selenium-webdriver';
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
 
