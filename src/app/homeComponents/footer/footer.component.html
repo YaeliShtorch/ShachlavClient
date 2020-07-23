@@ -1,12 +1,13 @@
-<mat-toolbar color="primary" dir="rtl" class="footer">
+<mat-toolbar dir="rtl" class="footer"> 
 
     <mat-toolbar-row>       
-  <mat-bottom-sheet class="mat-grid" fxLayout="row" layout-xs="c">
-    <div>
-      <mat-list fxLayoutAlign="center">
-       
+  <!-- <mat-bottom-sheet > -->
+  
+      <mat-list fxLayoutAlign="center" fxLayout="row" fxLayout.sm="column">
+        <!-- fxLayout.sm="column" fxLayout.xs="column"  -->
         <mat-list-item>
-            <div class="mat-grid-text" class="footer-list"> 
+            <div  class="footer-list" > 
+              <!-- class="mat-grid-text" -->
                 <h6 class="footerTitle">אודות</h6>
                 <p >
                   <a [routerLink]="['/home']" class="link">MDBootstrap</a>
@@ -23,7 +24,8 @@
           </mat-list-item>
 
       <mat-list-item>
-        <div class="mat-grid-text" class="footer-list"> 
+        <div  class="footer-list"> 
+          <!-- class="mat-grid-text" -->
             <h6 class="footerTitle">שירותים</h6>
             <p>
               <a [routerLink]="['/home']" class="link">לקוחות</a>
@@ -41,26 +43,28 @@
       </mat-list-item>
 
       <mat-list-item>
-        <div class="mat-grid-text" class="footer-list"> 
+        <div  class="footer-list"> 
+          <!-- class="mat-grid-text" -->
                 <h6 class="footerTitle">צור קשר</h6>
                 <p class="company">
                     ש.ח.ל.ב חומרי בניין בע"מ
                       <br>03-5701262
+                      <br> email - infon@.com
                     </p></div>
       </mat-list-item>
   </mat-list>
 
-
-     
-    </div>
-  </mat-bottom-sheet>
+  <!-- </mat-bottom-sheet> -->
     </mat-toolbar-row>
 
     
 
     <mat-toolbar-row fxLayoutAlign="center" style="margin-top: 250px; color:rgb(92, 116, 124) ;">
-        <span >Second Line</span>
-        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+        <span>ALL RIGHTS RESERVED</span>
+        <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon> -->
+        <span class="material-icons" style="margin-top: 3px;">
+          copyright
+          </span>
       </mat-toolbar-row>
 
   

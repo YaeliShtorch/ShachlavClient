@@ -10,21 +10,13 @@
 
 .navImg{
   width: 100%;
-  height: auto;
+  height: auto 0;
 }
 
 .all-wrap {
   min-height: 100vh;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  /* > *:not(router-outlet) {
-    flex: 1;
-    display: block;
-  } */
-}
 
 .link{
  font-weight: bold;
