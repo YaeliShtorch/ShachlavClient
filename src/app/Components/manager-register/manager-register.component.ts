@@ -26,7 +26,7 @@ registerForm:FormGroup;
       CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       Address:['',Validators.required],
       BirthDate:['',[Validators.required,ValidationService.BirthDate()]],
-      UserName:['',Validators.required],
+      UserName:['',[Validators.required,ValidationService.NewUserName(this.managerService)]],
       Password:['',Validators.required],
       CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
     });

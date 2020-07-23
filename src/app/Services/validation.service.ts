@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { ManagerService } from './manager.service';
 
 
 @Injectable({
@@ -71,15 +72,32 @@ export class ValidationService {
       }
     }
    
-     static matchValues(
-      Password: string 
-    ): (AbstractControl) => ValidationErrors | null {
-      return (control: AbstractControl): ValidationErrors | null => {
-        return !!control.parent &&
-          !!control.parent.value &&
-          control.value === control.parent.controls[Password].value
-          ? null
-          : { isMatching: false };
-      };
+     static NewUserName( ManagerService:ManagerService):ValidationErrors {
+      return (c:AbstractControl):{[key:string]:boolean}|null=>{
+      
+        ManagerService.GetManagerUN(c.value).subscribe(
+          suc=>{
+          if(suc!=null){
+            return {UserNameValid:true};
+          }
+          else{
+            return {UserNameValid:false};
+          }
+        }
+        ,err=>{return null},);
+        
+      return null;  
+      };    
   }
+  static matchValues(
+    Password: string 
+  ): (AbstractControl) => ValidationErrors | null {
+    return (control: AbstractControl): ValidationErrors | null => {
+      return !!control.parent &&
+        !!control.parent.value &&
+        control.value === control.parent.controls[Password].value
+        ? null
+        : { isMatching: false };
+    };
+}
   }
