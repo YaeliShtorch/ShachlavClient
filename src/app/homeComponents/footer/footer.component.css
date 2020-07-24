@@ -1,7 +1,7 @@
 .footer{
 
     background-color:whitesmoke;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     position: sticky;
     bottom: 0; /* Sets the sticky toolbar to be on top */
     width: 100%;
@@ -17,6 +17,7 @@
     font-weight: bold;
     font-size: large;
     color:orangered;
+  
 
    
 }
@@ -43,12 +44,40 @@
   
 }
 
-/* פתרון למסך רספונסיבי להציב באבא flex-wrap ובילד את זה. לא עובד עם מסכים קטנים*/
- /* .mat-list-item {
+
+/* פתרון למסך רספונסיבי להציב באבא flex-wrap  ובילד את זה*/
+/*עושה רווחים ביניהם כשמשתנה לCOLS */
+ .mat-list-item {
   flex: 1 0 12em;
-  margin-top:5%
+  margin-top:5%;
   /* Change 12em to your breakpoint. */
-/* } */
+ } 
+
+ /*meduim screen*/
+ @media screen and (max-width: 800px){
+    .footer-list{
+       margin: auto;
+       font-size: small;
+    }
+}
+
+/*small screen*/
+ @media screen and (max-width: 480px){
+
+    .footer-list{
+        margin-top:350px;
+        margin-right: 0;
+    }
+    .allRights{
+        margin-top:600px;
+    }
+
+    .mat-toolbar{
+
+        background-color: #fafafa;
+    }
+ }
+
 
 
 

@@ -26,13 +26,15 @@
           <a (click)="sidenav.toggle()" href="" mat-list-item>סגור</a>
         </mat-nav-list>
       </mat-sidenav>
-      <mat-sidenav-content fxLayout="column">
+      <mat-sidenav-content>
         <img src="assets/Images/SecNavBar.jpg" alt='שחל"ב' class="navImg">
         <p>home works!</p>
-        <!-- <main fxLayoutAlign="center center" style="width:100%"> -->
+    
 <router-outlet></router-outlet>
-<!-- </main> -->
+<main style="margin-top: 200px;">
 <app-footer></app-footer>
+</main>
+
       </mat-sidenav-content>
     </mat-sidenav-container>
   
