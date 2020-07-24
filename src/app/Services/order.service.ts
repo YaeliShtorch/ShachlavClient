@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment } from 'src/environments/environment';
 import {Order} from '../Models/order.models';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,9 @@ export class OrderService {
  UpdateOrder(uo:Order)
  {
   return this.Http.post(environment.baseUrl+this.thisController+"Update",uo);
+ }
+
+ getAllCustOrders(id:number):Observable<Order[]>{
+   return this.Http.get<Order[]>(environment.baseUrl+this.thisController+"GetAllCO?id="+id);
  }
 }

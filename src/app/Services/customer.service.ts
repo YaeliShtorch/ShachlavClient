@@ -31,6 +31,7 @@ constructor(public Http:HttpClient) { }
   }
   GetCustomerIN(identityNumber:string){
     return this.Http.get(environment.baseUrl+this.thisController+"GetIN?identityNumber="+identityNumber); 
+    // identityNumber
   }
   GetCustomersFLN(Name:string){
     return this.Http.get(environment.baseUrl+this.thisController+"GetFLN?Name="+Name); 

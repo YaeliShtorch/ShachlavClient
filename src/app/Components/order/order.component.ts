@@ -5,6 +5,8 @@ import { OrderService } from 'src/app/services/order.service';
 import{Router, ActivatedRoute}from '@angular/router'
 import { DataSource } from '@angular/cdk/table';
 import { MatTableDataSource } from '@angular/material';
+import { CustomerService } from 'src/app/services/customer.service';
+import { Customer } from 'src/app/Models/customer.models';
 
 @Component({
   selector: 'app-order',
@@ -16,14 +18,22 @@ export class OrderComponent implements OnInit {
   currentUser;
   // userOrders=new Array<Order>();
   orderFunc="";
+  customer:string="p";
+  OrderList=new Array<Order>();
   dataSource=new MatTableDataSource<Order>();
   displayedColumns=['Id', 'OrderTime','SiteAdress','PumpNeeded','PumpType','StartTime','ConcreteCheck','Status'];
  
-  constructor(public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute) { 
-   
+  constructor(public customerService:CustomerService,public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute) { 
+
    
   }  
-
+//השליפה לא נראית בטבלה
+  funcGetCust(){
+    // this.customerService.GetCustomerIN("123").subscribe(suc=>{ this.customer=suc.toString();console.log(this.customer)},err=>{
+    //   alert("error")});
+    this.orderService.getAllCustOrders(1).subscribe(suc=>{this.dataSource.data=[...suc];console.log(this.dataSource.data)},err=>{console.log("error")});
+    console.log(this.dataSource.data);
+  }
 // getOpenOrders(){
 //   alert('my open orders');
 //   this.dataSource.data=this.orderService.openOrders();
@@ -40,6 +50,7 @@ export class OrderComponent implements OnInit {
 
 
   ngOnInit() {
+   
 
   //this.activatedRoute.paramMap("")
   // console.log(this.activatedRoute.snapshot.routeConfig.path.split('/')[1]);
