@@ -18,6 +18,8 @@ export class OrderComponent implements OnInit {
   currentUser;
   // userOrders=new Array<Order>();
   orderFunc="";
+  orderNum:number;
+  show:boolean=true;
   customer:string="p";
   OrderList=new Array<Order>();
   dataSource=new MatTableDataSource<Order>();
@@ -27,26 +29,26 @@ export class OrderComponent implements OnInit {
 
    
   }  
-//השליפה לא נראית בטבלה
-  funcGetCust(){
+
+  getAllOrders(){
+
     // this.customerService.GetCustomerIN("123").subscribe(suc=>{ this.customer=suc.toString();console.log(this.customer)},err=>{
     //   alert("error")});
+    //קבלת הזמנות של לקוח שהID שלו 1
+  
+    this.show=true;
     this.orderService.getAllCustOrders(1).subscribe(suc=>{this.dataSource.data=[...suc];console.log(this.dataSource.data)},err=>{console.log("error")});
     console.log(this.dataSource.data);
   }
-// getOpenOrders(){
-//   alert('my open orders');
-//   this.dataSource.data=this.orderService.openOrders();
-//   // this.dataSource.data=this.orderService.openOrdersbyUserId();
-//   console.log(this.dataSource.data);
- 
-// }
 
-// getAllOrders(){
-//   alert('all orders');
-//   this.dataSource.data=this.orderService.userOrdersbyUserId();
-//   console.log(this.dataSource.data);
-// }
+  getOrderbyId(){
+  //לבדוק שמביא רק הזמנה של הלקוח הקיים
+    this.show=false;
+  }
+  getOrderbyId2(){
+    this.orderService.GetOrder(this.orderNum).subscribe(suc=>{this.dataSource.data=[];this.dataSource.data.push(suc);console.log(this.dataSource.data); this.show=true;}, err=>console.log("error"));
+  }
+
 
 
   ngOnInit() {
@@ -55,14 +57,14 @@ export class OrderComponent implements OnInit {
   //this.activatedRoute.paramMap("")
   // console.log(this.activatedRoute.snapshot.routeConfig.path.split('/')[1]);
 
-    // this.activatedRoute.params.subscribe(params=>
-    //   {this.orderFunc=this.activatedRoute.snapshot.routeConfig.path.split('/')[1];
-    //   if(this.orderFunc.match('openOrders'))
-    //   this.getOpenOrders();
-    //   if(this.orderFunc.match('allOrders'))
-    //   this.getAllOrders();
+    this.activatedRoute.params.subscribe(params=>
+      {this.orderFunc=this.activatedRoute.snapshot.routeConfig.path.split('/')[1];
+      if(this.orderFunc.match('getAllOrders()'))
+      this.getAllOrders();
+      if(this.orderFunc.match('getOrderbyId()'))
+      this.getOrderbyId();
      
-    // });
+    });
 
    
    

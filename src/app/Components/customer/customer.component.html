@@ -1,18 +1,18 @@
-<div fxFlexFill>
+<div fxFlex>
 
-<mat-nav-list class="sidenav" fxLayout="column" fxFlex="15">
+<mat-nav-list class="sidenav" fxLayout="column" fxFlex>
   <!-- fxFlex.sm="35"  fxFlex.md="30" fxFlex.xs="50"  fxFlex.lt-lg="50" -->
     <mat-list-item class="sidelink">
-       <a matLine [routerLink]="['order/openOrders']" routerLinkActive="active">הזמנות פעילות</a>
+       <a matLine [routerLink]="['order']" routerLinkActive="active">הזמנות פעילות</a>
     </mat-list-item>
     <mat-list-item class="sidelink">
-      <a matLine [routerLink]="['order/allOrders']" routerLinkActive="active">כל ההזמנות</a>
+      <a matLine [routerLink]="['order/getAllOrders']" routerLinkActive="active">כל ההזמנות</a>
    </mat-list-item>
    <mat-list-item class="sidelink">
-    <a matLine [routerLink]="['order']">מציאת הזמנה לפי תאריך</a>
+    <a matLine [routerLink]="['order/']">מציאת הזמנה לפי תאריך</a>
   </mat-list-item>
   <mat-list-item class="sidelink">
-    <a matLine [routerLink]="['order']"> מציאת הזמנה לפי מספר הזמנה </a>
+    <a matLine [routerLink]="['order/getOrderbyId']"> מציאת הזמנה לפי מספר הזמנה </a>
   </mat-list-item>
   <mat-list-item class="sidelink">
     <a matLine [routerLink]="['order']" >עריכת הזמנה</a>

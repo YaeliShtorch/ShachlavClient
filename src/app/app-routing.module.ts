@@ -18,14 +18,24 @@ import {OrderAddComponent } from './Components/order-add/order-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
-  { path: 'home/order',component: OrderComponent  },
+  { path: 'home/order',component: OrderComponent},
   { path: 'home/subHome',component: SubHomeComponent},
   { path: 'home/mangerRegister',component: ManagerRegisterComponent  },
   { path: 'home/driverRegister',component: DriverRegisterComponent  },
   { path: 'home/providerRegister',component: ProviderRegisterComponent  },
   { path: 'home/customerRegister', component: CustomerRegisterComponent },
+<<<<<<< HEAD
   { path: 'home/customer', component: CustomerComponent },
   { path: 'home/login/:typeP', component: LogInComponent },
+=======
+  { path: 'home/customer', component: CustomerComponent,
+  children: [
+    { path: 'order/getAllOrders', component:OrderComponent},
+    { path: 'order/getOrderbyId', component:OrderComponent},
+    { path: 'order', component:OrderComponent}
+  ]  },
+  { path: 'home/login', component: LogInComponent },
+>>>>>>> 37ca1cb6c56b39c9d32b7e217ad907342303381d
   { path: 'home/customerin', component: CustomerInComponent },
   { path: 'home/custdetails', component: CustDetailsComponent },
   { path: 'home/provider', component: ProviderComponent },
