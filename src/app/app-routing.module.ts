@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'home/providerRegister',component: ProviderRegisterComponent  },
   { path: 'home/customerRegister', component: CustomerRegisterComponent },
   { path: 'home/customer', component: CustomerComponent },
-  { path: 'home/login', component: LogInComponent },
+  { path: 'home/login/:typeP', component: LogInComponent },
   { path: 'home/customerin', component: CustomerInComponent },
   { path: 'home/custdetails', component: CustDetailsComponent },
   { path: 'home/provider', component: ProviderComponent },

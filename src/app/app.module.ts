@@ -59,7 +59,7 @@ import { FooterComponent } from './homeComponents/footer/footer.component';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-FormsModule,
+       FormsModule,
 ReactiveFormsModule
 
   ],
