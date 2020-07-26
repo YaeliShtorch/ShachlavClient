@@ -14,9 +14,9 @@ export class OrderService {
   thisController:string="Order/";
   constructor(public Http:HttpClient) {}
  
-  GetOrder(id:number):Observable<Order>{
+ GetOrder(id:number):Observable<Order>{
     return this.Http.get<Order>(environment.baseUrl+this.thisController+"GetId?id="+id)
-  }
+}
  AddOrder(o:Order){
    return this.Http.post(environment.baseUrl+this.thisController+"Add",o);
  }

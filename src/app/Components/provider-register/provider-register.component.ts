@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
 
 import {ValidationService} from 'src/app/Services/validation.service'
+import { ProviderService } from 'src/app/services/provider.service';
 
 @Component({
   selector: 'app-provider-register',
@@ -10,7 +11,7 @@ import {ValidationService} from 'src/app/Services/validation.service'
 })
 export class ProviderRegisterComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,public providerService:ProviderService) { }
   providerRegisterForm:FormGroup;
     CompanyName:string; 
     CompanyCode:string; 
@@ -32,7 +33,7 @@ export class ProviderRegisterComponent implements OnInit {
     //   CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
     //   Address:['',Validators.required],
     //   BirthDate:['',[Validators.required,ValidationService.BirthDate()]],
-    //   UserName:['',Validators.required],
+    //   UserName:['',[Validators.required,ValidationService.NewProvider(this.providerService)]],
     //   Password:['',Validators.required],
     //   CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
     // });

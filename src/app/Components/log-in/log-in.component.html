@@ -6,13 +6,16 @@
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="שם משתמש" formControlName="username">
+      <mat-error *ngIf="form.get('username').hasError('required')" >הכנס שם משתמש</mat-error> 
     </mat-form-field>
   </p>
 
   <p>
     <mat-form-field>
       <input type="password" matInput placeholder="סיסמא" formControlName="password">
+      <mat-error *ngIf="form.get('password').hasError('required')" >הכנס סיסמא</mat-error> 
     </mat-form-field>
+    <mat-error *ngIf="!(form.get('username').hasError('required')&&form.get('password').hasError('required'))&&got" >שם משתמש וסיסמא אינם נכונים</mat-error> 
   </p>
 
  

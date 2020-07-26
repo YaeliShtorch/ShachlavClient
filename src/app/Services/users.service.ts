@@ -11,21 +11,19 @@ import { DriverService } from './driver.service';
   providedIn: 'root'
 })
 export class UsersService {
-
-  currentUser={
-  }
-  
   constructor(public managerService:ManagerService,public customerService:CustomerService,
   public  providerService:ProviderService,public driverService:DriverService) {
-    this.currentUser
+
 
 }
+type:string;
 found:boolean;
 ManagerL:Manager;
 CustomerL:Customer;
 ProviderL:Provider;
 DriverL:Driver;
 setCurrentUser(username:string, password:string,type:string){
+  this.Logout();
   switch(type){
     case 'Manager':{
       this.managerService.GetManagerUP(username,password).subscribe(
@@ -107,17 +105,66 @@ alert("Server error")
   if(this.found){
   localStorage.setItem('name',username);
   localStorage.setItem('password',password);
+  localStorage.setItem('type',type);
+
 }
+return this.found;
 }
 
 getCurrentUser(){
-if(localStorage.getItem('userName')!=null&&localStorage.getItem('password')!=null){
-  this.currentUser['userName']=localStorage.getItem('userName');
-  this.currentUser['password']=localStorage.getItem('password');
-return this.currentUser;
+if(this.found==true){
+ switch( localStorage.getItem('type')){
+   case "Manager":{
+     return this.ManagerL;
+break;
+   }
+ 
+ case "Customer":{
+  return this.CustomerL;
+break;
 }
+case "Driver":{
+  return this.DriverL;
+break;
+}
+case "Provider":{
+  return this.ProviderL;
+break;
+}
+ }
+}
+else
 return null;
 }
+Logout(){
+ 
+  if(localStorage.getItem('userName')!=null&& localStorage.getItem('password')!=null){
+    localStorage.removeItem('userName');
+   
+    localStorage.removeItem('password');  
+    this.found=false;
+    switch( localStorage.getItem('type')){
+      case "Manager":{
+        this.ManagerL=null;
+   break;
+      }
+    
+    case "Customer":{
+     this.CustomerL=null;
+   break;
+   }
+   case "Driver":{
+     this.DriverL=null;
+   break;
+   }
+   case "Provider":{
+     this.ProviderL=null;
+   break;
+   }
+    }
+    localStorage.removeItem('type');
+   }
 
-
+  
+}
 }

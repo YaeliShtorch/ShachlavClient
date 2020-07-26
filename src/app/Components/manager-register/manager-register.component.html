@@ -94,7 +94,7 @@
               placeholder="שם משתמש" 
               name="username"
                 formControlName="UserName">
-                <mat-error *ngIf="!registerForm.get('UserName').hasError('required')||registerForm.get('UserName').hasError('UserNameValid')">שם משתמש כבר קיים במערכת</mat-error>
+                <mat-error *ngIf="!registerForm.get('UserName').hasError('required')||registerForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
  
         </mat-form-field> 
          <mat-form-field>

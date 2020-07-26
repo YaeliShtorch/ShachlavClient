@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
 
 import {ValidationService} from 'src/app/Services/validation.service'
+import { CustomerService } from 'src/app/services/customer.service';
 @Component({
   selector: 'app-customer-register',
   templateUrl: './customer-register.component.html',
@@ -10,7 +11,7 @@ import {ValidationService} from 'src/app/Services/validation.service'
 })
 export class CustomerRegisterComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,public customerService:CustomerService) { }
   customerRegisterForm:FormGroup;
   IdentityNumber:string;
    FirstName:string;
@@ -35,7 +36,7 @@ export class CustomerRegisterComponent implements OnInit {
       CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       Address:['',Validators.required],
       BirthDate:['',[Validators.required,ValidationService.BirthDate()]],
-      UserName:['',Validators.required],
+      UserName:['',[Validators.required,ValidationService.NewCustomer(this.customerService)]],
       Password:['',Validators.required],
       CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
     });

@@ -18,6 +18,9 @@ import { Manager } from '../Models/manager.models';
   providedIn: 'root'
 })
 export class ManagerService {
+  static GetCustomerUN(value: any) {
+    throw new Error("Method not implemented.");
+  }
 thisController:string="Manager/";
 
 constructor(public Http:HttpClient) { }

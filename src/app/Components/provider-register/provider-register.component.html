@@ -1,4 +1,4 @@
-<!-- <section id="ManagerRegidter">
+ <!-- <section id="ManagerRegidter">
     <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="providerRegisterForm" (ngSubmit)="onSubmit(providerRegisterForm)" autocomplete="off">
         <mat-form-field>
             <input
@@ -94,6 +94,7 @@
               placeholder="שם משתמש" 
               name="username"
                 formControlName="UserName">
+                 <mat-error *ngIf="!registerForm.get('UserName').hasError('required')||registerForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
         </mat-form-field> 
          <mat-form-field>
             <input
@@ -116,7 +117,7 @@
         </mat-form-field>
         <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
     </form>
-</section>
+</section> -->
 
       
        
@@ -124,4 +125,4 @@
                
         
                  
-                -->
+  

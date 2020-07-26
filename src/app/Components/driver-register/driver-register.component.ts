@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
 
 import {ValidationService} from 'src/app/Services/validation.service'
+import { DriverService } from 'src/app/services/driver.service';
 
 @Component({
   selector: 'app-driver-register',
@@ -10,7 +11,7 @@ import {ValidationService} from 'src/app/Services/validation.service'
 })
 export class DriverRegisterComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,public driverService:DriverService) { }
  driverRegisterForm:FormGroup;
          IdentityNumber:string;
          FirstName:string;
@@ -37,7 +38,7 @@ export class DriverRegisterComponent implements OnInit {
       CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       Address:['',Validators.required],
       BirthDate:['',[Validators.required,ValidationService.BirthDate()]],
-      UserName:['',Validators.required],
+      UserName:['',[Validators.required,ValidationService.NewDriver(this.driverService)]],
       Password:['',Validators.required],
       CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
     });

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/Models/customer.models';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-cust-details',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustDetailsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public UserService:UsersService) { }
+CurentCustomer;
   ngOnInit(): void {
+  this.CurentCustomer=this.UserService.getCurrentUser();
   }
 
 }

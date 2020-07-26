@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ManagerService } from './manager.service';
+import { CustomerService } from './customer.service';
+import { ProviderService } from './provider.service';
+import { DriverService } from './driver.service';
 
 
 @Injectable({
@@ -72,16 +75,16 @@ export class ValidationService {
       }
     }
    
-     static NewUserName( ManagerService:ManagerService):ValidationErrors {
+     static NewManager( ManagerService:ManagerService):ValidationErrors {
       return (c:AbstractControl):{[key:string]:boolean}|null=>{
       
         ManagerService.GetManagerUN(c.value).subscribe(
           suc=>{
           if(suc!=null){
-            return {UserNameValid:true};
+            return {UserNameMValid:true};
           }
           else{
-            return {UserNameValid:false};
+            return {UserNameMValid:false};
           }
         }
         ,err=>{return null},);
@@ -89,6 +92,57 @@ export class ValidationService {
       return null;  
       };    
   }
+  static NewCustomer( CustomerService:CustomerService):ValidationErrors {
+    return (c:AbstractControl):{[key:string]:boolean}|null=>{
+    
+      CustomerService.GetCustomerUN(c.value).subscribe(
+        suc=>{
+        if(suc!=null){
+          return {UserNameCValid:true};
+        }
+        else{
+          return {UserNameCValid:false};
+        }
+      }
+      ,err=>{return null},);
+      
+    return null;  
+    };    
+}
+static NewProvider( ProviderService:ProviderService):ValidationErrors {
+  return (c:AbstractControl):{[key:string]:boolean}|null=>{
+  
+    ProviderService.GetProviderUN(c.value).subscribe(
+      suc=>{
+      if(suc!=null){
+        return {UserNamePValid:true};
+      }
+      else{
+        return {UserNamePValid:false};
+      }
+    }
+    ,err=>{return null},);
+    
+  return null;  
+  };    
+}
+static NewDriver( DriverService:DriverService):ValidationErrors {
+  return (c:AbstractControl):{[key:string]:boolean}|null=>{
+  
+    DriverService.GetDriverUN(c.value).subscribe(
+      suc=>{
+      if(suc!=null){
+        return {UserNameDValid:true};
+      }
+      else{
+        return {UserNameDValid:false};
+      }
+    }
+    ,err=>{return null},);
+    
+  return null;  
+  };    
+}
   static matchValues(
     Password: string 
   ): (AbstractControl) => ValidationErrors | null {

@@ -10,13 +10,14 @@ import { Subscription } from 'rxjs';
 })
 export class LogInComponent implements OnInit {
 type:string;
+got:boolean=true;
 sub :Subscription;
-  constructor(private fb:FormBuilder,private route: ActivatedRoute) { }
+  constructor(private fb:FormBuilder,private route: ActivatedRoute,public userService:UsersService) { }
   form: FormGroup 
   ngOnInit(): void {
     this.form = this.fb.group({
-      username: new FormControl(''),
-      password: new FormControl(''),
+      username: new FormControl(localStorage.getItem('name'),Validators.required),
+      password: new FormControl(localStorage.getItem('password'),Validators.required),
     });
     this.route.paramMap.subscribe(params => {
       this.type = params.get('typeP');
@@ -26,6 +27,13 @@ sub :Subscription;
    alert(this.type);
   }
 onSubmit(){
+if(this.userService.setCurrentUser(this.form.value.username,this.form.value.password,this.type)){
+this.got=false;
+}
+else{
+  this.form.value.username="";
+  this.form.value.password="";
+}
 
 }
 }
