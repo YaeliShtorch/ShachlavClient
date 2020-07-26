@@ -1,15 +1,6 @@
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class ManagerService {
-
-//   constructor() { }
-// }
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Manager } from '../Models/manager.models';
 //import { Http } from '@angular/http';
 
@@ -18,9 +9,6 @@ import { Manager } from '../Models/manager.models';
   providedIn: 'root'
 })
 export class ManagerService {
-  static GetCustomerUN(value: any) {
-    throw new Error("Method not implemented.");
-  }
 thisController:string="Manager/";
 
 constructor(public Http:HttpClient) { }
