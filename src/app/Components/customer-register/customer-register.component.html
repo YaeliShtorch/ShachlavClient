@@ -36,6 +36,23 @@
               formControlName="LastName">
         </mat-form-field>
         <mat-form-field>
+            <input 
+            type="text"
+             matInput  
+             id="CompanyName" 
+             placeholder="חברה" 
+             name="companyName" 
+              formControlName="CompanyName">
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+            type="text" 
+            matInput id="BusinessCode" 
+            placeholder="קוד חברה" 
+            name="businessCode"
+              formControlName="BusinessCode">
+        </mat-form-field>
+        <mat-form-field>
             <input
              type="email" 
              matInput id="Email"
@@ -95,7 +112,7 @@
               placeholder="שם משתמש" 
               name="username"
                 formControlName="UserName">
-                <mat-error *ngIf="!registerForm.get('UserName').hasError('required')||registerForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
+                <mat-error *ngIf="!customerRegisterForm.get('UserName').hasError('required')||customerRegisterForm.get('UserName').hasError('UserNameCValid')">שם משתמש כבר קיים במערכת</mat-error>
         </mat-form-field> 
          <mat-form-field>
             <input

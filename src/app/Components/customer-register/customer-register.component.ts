@@ -31,6 +31,8 @@ export class CustomerRegisterComponent implements OnInit {
       IdentityNumber: ['', [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
       FirstName:['',Validators.required],
       LastName:['',Validators.required],
+      CompanyName:['',Validators.required],
+      BusinessCode:['',Validators.required],
       Email:['',[Validators.required,Validators.email]],
       PhoneNumber:['',[Validators.required,Validators.minLength(7),Validators.maxLength(10)]],
       CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
