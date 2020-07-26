@@ -25,7 +25,6 @@ const routes: Routes = [
   { path: 'home/providerRegister',component: ProviderRegisterComponent  },
   { path: 'home/customerRegister', component: CustomerRegisterComponent },
 <<<<<<< HEAD
-  { path: 'home/customer', component: CustomerComponent },
   { path: 'home/login/:typeP', component: LogInComponent },
 =======
   { path: 'home/customer', component: CustomerComponent,
