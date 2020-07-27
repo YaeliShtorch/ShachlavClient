@@ -3,7 +3,11 @@ import {Manager} from 'src/app/Models/manager.models';
 import {Customer} from 'src/app/Models/customer.models';
 import {Provider} from 'src/app/Models/provider.models';
 import {Driver} from 'src/app/Models/driver.models';
+<<<<<<< HEAD
 import {ManagerService} from './manager.service';
+=======
+// import {ManagerService} from './manager.service';
+>>>>>>> 69ef86e9d530e5b4c154d8958f2182ffef851a0d
 import { CustomerService } from './customer.service';
 import { ProviderService } from './provider.service';
 import { DriverService } from './driver.service';
@@ -12,7 +16,11 @@ import { DriverService } from './driver.service';
 })
 
 export class UsersService {
+<<<<<<< HEAD
   constructor(public managerService:ManagerService,  public customerService:CustomerService,
+=======
+  constructor(public customerService:CustomerService,
+>>>>>>> 69ef86e9d530e5b4c154d8958f2182ffef851a0d
   public  providerService:ProviderService,public driverService:DriverService) {
 
 
