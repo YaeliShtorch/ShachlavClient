@@ -19,11 +19,11 @@
     <mat-sidenav-container fxFlexFill>
       <mat-sidenav #sidenav>
         <mat-nav-list>
-          <a [routerLink]="['/home/login','Manager']" routerLinkActive="active" class="link" mat-list-item>מנהל</a>
-          <a [routerLink]="['/home/login','Customer']" routerLinkActive="active" mat-list-item>לקוח</a>
-          <a [routerLink]="['/home/login','Provider']" routerLinkActive="active" mat-list-item>ספק</a>
-          <a [routerLink]="['/home/login','Driver']" routerLinkActive="active" mat-list-item>נהג</a>
-          <a (click)="sidenav.toggle()" href="" mat-list-item>סגור</a>
+          <a [routerLink]="['/home/login','Manager']" routerLinkActive="active" class="sideLink" mat-list-item>מנהל</a>
+          <a [routerLink]="['/home/login','Customer']" routerLinkActive="active" class="sideLink" mat-list-item>לקוח</a>
+          <a [routerLink]="['/home/login','Provider']" routerLinkActive="active" class="sideLink" mat-list-item>ספק</a>
+          <a [routerLink]="['/home/login','Driver']" routerLinkActive="active" class="sideLink" mat-list-item>נהג</a>
+          <a (click)="sidenav.toggle()" href="" mat-list-item class="link" class="sideLink">סגור</a>
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>
