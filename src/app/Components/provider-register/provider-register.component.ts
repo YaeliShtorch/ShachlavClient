@@ -24,21 +24,19 @@ export class ProviderRegisterComponent implements OnInit {
     
     CheckPassword:string; 
   ngOnInit(): void {
-    // this.providerRegisterForm = this.fb.group({
-    //   IdentityNumber: ['', [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
-    //   FirstName:['',Validators.required],
-    //   LastName:['',Validators.required],
-    //   Email:['',[Validators.required,Validators.email]],
-    //   PhoneNumber:['',[Validators.required,Validators.minLength(7),Validators.maxLength(10)]],
-    //   CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
-    //   Address:['',Validators.required],
-    //   BirthDate:['',[Validators.required,ValidationService.BirthDate()]],
-    //   UserName:['',[Validators.required,ValidationService.NewProvider(this.providerService)]],
-    //   Password:['',Validators.required],
-    //   CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
-    // });
+    this.providerRegisterForm = this.fb.group({
+      CompanyCode: ['', [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
+      CompanyName:['',Validators.required],
+      Email:['',[Validators.required,Validators.email]],
+      PhoneNumber:['',[Validators.required,Validators.minLength(7),Validators.maxLength(10)]],
+      CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
+      Address:['',Validators.required],
+      UserName:['',[Validators.required,ValidationService.NewProvider(this.providerService)]],
+      Password:['',Validators.required],
+      CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
+    });
   }
-// OnSubmit(form:FormGroup){
+ OnSubmit(form:FormGroup){
 
-// }
+ }
 }

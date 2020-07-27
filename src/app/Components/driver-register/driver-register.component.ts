@@ -38,9 +38,13 @@ export class DriverRegisterComponent implements OnInit {
       CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       Address:['',Validators.required],
       BirthDate:['',[Validators.required,ValidationService.BirthDate()]],
+      EntryToWorkDate:['',[Validators.required,ValidationService.BirthDate()]],
+      IsActive:['',[Validators.required]],
       UserName:['',[Validators.required,ValidationService.NewDriver(this.driverService)]],
       Password:['',Validators.required],
       CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
+      VehicleId:['',Validators.required]
+
     });
   }
 onSubmit(form:FormGroup){

@@ -1,39 +1,30 @@
- <!-- <section id="ManagerRegidter">
-    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="providerRegisterForm" (ngSubmit)="onSubmit(providerRegisterForm)" autocomplete="off">
+ <section id="ManagerRegidter">
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="providerRegisterForm" (ngSubmit)="OnSubmit(providerRegisterForm)" autocomplete="off">
         <mat-form-field>
             <input
              type="text"
               matInput 
-               id="Tz" 
+               id="CompanyCode" 
                placeholder="תעודת זהות"
-                name="tz"  
-                formControlName="IdentityNumber"
+                name="companyCode"  
+                formControlName="CompanyCode"
             
 
               >
-         <mat-hint >הקש תעודת זהות כולל ספרת ביקןרת</mat-hint>
-      <mat-hint  align="end" >{{registerForm.get('IdentityNumber').value?.length}}/9</mat-hint>
-      <mat-error *ngIf="registerForm.get('IdentityNumber').hasError('required')" >נא הכנס ת"ז</mat-error> 
-      <mat-error *ngIf="!registerForm.get('IdentityNumber').hasError('required')||registerForm.get('IdentityNumber').hasError('minlength')||registerForm.get('IdentityNumber').hasError('maxlength')||registerForm.get('IdentityNumber').hasError('israeliIdOk')">תעודת זהות לא תקינה</mat-error>  
+   
+     
  
         </mat-form-field>
         <mat-form-field>
             <input 
             type="text"
              matInput  
-             id="Fname" 
+             id="CompanyName" 
              placeholder="שם פרטי" 
-             name="fname" 
-              formControlName="FirstName">
+             name="companyName" 
+              formControlName="CompanyName">
         </mat-form-field>
-        <mat-form-field>
-            <input 
-            type="text" 
-            matInput id="Lname" 
-            placeholder="שם משפחה" 
-            name="lname"
-              formControlName="LastName">
-        </mat-form-field>
+       
         <mat-form-field>
             <input
              type="email" 
@@ -73,18 +64,7 @@
                 name="adress" 
                  formControlName="Address">
         </mat-form-field>
-        <mat-form-field >
-            <input 
-            matInput
-             [matDatepicker]="picker" 
-           
-             id="BirthDate"
-              placeholder="תאריך לידה"
-               name="birthdate"
-               formControlName="BirthDate">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker  #picker></mat-datepicker>
-          </mat-form-field>
+      
       
         <mat-form-field>
             <input
@@ -94,7 +74,7 @@
               placeholder="שם משתמש" 
               name="username"
                 formControlName="UserName">
-                 <mat-error *ngIf="!registerForm.get('UserName').hasError('required')||registerForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
+                 <mat-error *ngIf="!providerRegisterForm.get('UserName').hasError('required')||providerRegisterForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
         </mat-form-field> 
          <mat-form-field>
             <input
@@ -113,11 +93,11 @@
              placeholder="הקש סיסמא פעם נוספת"
               name="tpassword"  
               formControlName="CheckPassword">
-              <mat-error *ngIf="!registerForm.get('CheckPassword').hasError('isMatching')" >סיסמאות אינן תואמות</mat-error>
+              <mat-error *ngIf="!providerRegisterForm.get('CheckPassword').hasError('isMatching')" >סיסמאות אינן תואמות</mat-error>
         </mat-form-field>
         <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
     </form>
-</section> -->
+</section> 
 
       
        

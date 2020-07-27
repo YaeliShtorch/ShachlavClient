@@ -3,7 +3,7 @@ import {Manager} from 'src/app/Models/manager.models';
 import {Customer} from 'src/app/Models/customer.models';
 import {Provider} from 'src/app/Models/provider.models';
 import {Driver} from 'src/app/Models/driver.models';
-import {ManagerService} from './manager.service'
+import {ManagerService} from './manager.service';
 import { CustomerService } from './customer.service';
 import { ProviderService } from './provider.service';
 import { DriverService } from './driver.service';
@@ -12,7 +12,7 @@ import { DriverService } from './driver.service';
 })
 
 export class UsersService {
-  constructor(public managerService:ManagerService,public customerService:CustomerService,
+  constructor(public managerService:ManagerService,  public customerService:CustomerService,
   public  providerService:ProviderService,public driverService:DriverService) {
 
 
@@ -26,25 +26,25 @@ DriverL:Driver;
 setCurrentUser(username:string, password:string,type:string){
   this.Logout();
   switch(type){
-//     case 'Manager':{
-//       this.managerService.GetManagerUP(username,password).subscribe(
-//         suc=>{
+    case 'Manager':{
+       this.managerService.GetManagerUP(username,password).subscribe(
+       suc=>{
       
-//          if(suc==null)
-//          {
-//            this.found=false
-//          }
-//          else{
-//           this.ManagerL=suc as Manager;
-//           this.found=true;
-//          }
-//         },
-//         err=>{
-// alert("Server error")
-//         }
-//       )
-//       break;
-//     }
+    if(suc==null)
+          {
+            this.found=false
+       }
+        else{
+           this.ManagerL=suc as Manager;
+         this.found=true;
+    }
+     },
+      err=>{
+ alert("Server error")
+        }
+      )
+     break;
+  }
     case 'Customer':{
       this.customerService.GetCustomerUP(username,password).subscribe(
         suc=>{
