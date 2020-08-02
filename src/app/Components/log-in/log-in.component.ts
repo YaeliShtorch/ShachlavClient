@@ -39,7 +39,7 @@ console.log("found");
 else{
   this.form.reset();
   console.log("didnt find");
-  this.router.navigate([`/home/login/${this.type}`]);
+  // this.router.navigate([`/home/login/${this.type}`]);
   // this.form.value.username="";
   // this.form.value.password="";
  
