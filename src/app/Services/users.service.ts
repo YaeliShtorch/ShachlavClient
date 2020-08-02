@@ -140,9 +140,8 @@ return null;
 }
 Logout(){
  
-  if(localStorage.getItem('userName')!=null&& localStorage.getItem('password')!=null){
+  // if(localStorage.getItem('userName')!=null&& localStorage.getItem('password')!=null){
     localStorage.removeItem('userName');
-   
     localStorage.removeItem('password');  
     this.found=false;
     switch( localStorage.getItem('type')){
@@ -168,5 +167,5 @@ Logout(){
    }
 
   
-}
+// }
 }
