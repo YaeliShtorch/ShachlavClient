@@ -1,5 +1,6 @@
 export class Customer{
     constructor(
+     public Id:number,
      public IdentityNumber:string,
      public FirstName:string,
      public LastName:string,
