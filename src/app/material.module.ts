@@ -5,13 +5,42 @@ import {MatInputModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
 import {MatCardModule} from '@angular/material';
-
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
+import {MatSelectModule} from '@angular/material';
 
 @NgModule({
-    imports:[MatTableModule,MatButtonModule,MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatToolbarModule, MatSidenavModule,MatListModule,MatIconModule
-        ,MatCardModule],
-    exports:[MatTableModule,MatButtonModule,MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule, MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule
-        ,MatCardModule]
+    imports:[MatTableModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatCardModule,
+        NgxMaterialTimepickerModule,
+        MaterialTimePickerModule, 
+        MatSelectModule
+
+],
+    exports:[MatTableModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatCardModule,
+        NgxMaterialTimepickerModule,
+        MaterialTimePickerModule,
+        MatSelectModule
+]
 })
 export class MaterialModule{
 

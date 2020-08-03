@@ -2,7 +2,7 @@ import { Time } from "@angular/common";
 
 export class DriverWork{
     constructor(
-        public Id:number,
+      
         public  DriverId:number,
         // public  Driver??
         public  OrderId:number, 

@@ -4,6 +4,7 @@ import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular
 
 import {ValidationService} from 'src/app/Services/validation.service'
 import { CustomerService } from 'src/app/services/customer.service';
+import { Customer } from 'src/app/Models/customer.models';
 @Component({
   selector: 'app-customer-register',
   templateUrl: './customer-register.component.html',
@@ -13,19 +14,20 @@ export class CustomerRegisterComponent implements OnInit {
 
   constructor(private fb:FormBuilder,public customerService:CustomerService) { }
   customerRegisterForm:FormGroup;
-  IdentityNumber:string;
-   FirstName:string;
-   LastName:string;
-   CompanyName:string;
-   Email:string;
-   PhoneNumber:string;
-   CellNumber:string;
-   Address:string;
-   UserName:string;
-   Password:string;
-   CheckPassword:string;
-   BirthDate:Date;
-   BirthDateAngular:string;
+  // IdentityNumber:string;
+  //  FirstName:string;
+  //  LastName:string;
+  //  CompanyName:string;
+  //  Email:string;
+  //  PhoneNumber:string;
+  //  CellNumber:string;
+  //  Address:string;
+  //  UserName:string;
+  //  Password:string;
+  //  CheckPassword:string;
+  //  BirthDate:Date;
+  //  BirthDateAngular:string;
+  CustomerAdd:Customer;
   ngOnInit(): void {
     this.customerRegisterForm = this.fb.group({
       IdentityNumber: ['', [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
@@ -43,7 +45,22 @@ export class CustomerRegisterComponent implements OnInit {
       CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
     });
   }
-  onSubmit(form:FormGroup){
-    console.log(form);
+  onSubmit(){
+    this.CustomerAdd=new Customer(this.customerRegisterForm.value.IdentityNumber,
+      this.customerRegisterForm.value.FirstName,
+      this.customerRegisterForm.value.LastName,
+      this.customerRegisterForm.value.CompanyName,
+      this.customerRegisterForm.value.BusinessCode,
+      this.customerRegisterForm.value.Email,
+      this.customerRegisterForm.value.PhoneNumber,
+      this.customerRegisterForm.value.CellNumber,
+      this.customerRegisterForm.value.Address,
+      this.customerRegisterForm.value.BirthDate,
+      this.customerRegisterForm.value.UserName,
+      this.customerRegisterForm.value.Password)
+    this.customerService.AddCustomer(this.CustomerAdd).subscribe(
+      suc=>{console.log(this.CustomerAdd.FirstName)},
+      err=>{console.log("didnt reach")}
+    )
   }
 }

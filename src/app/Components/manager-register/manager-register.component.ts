@@ -33,7 +33,7 @@ registerForm:FormGroup;
     
    
   }
-
+ManagerAdd:Manager;
    
 
 
@@ -54,14 +54,24 @@ registerForm:FormGroup;
   // ManagerAdd:Manager;
   // ToADD:boolean=true;
 
-  onSubmit(registerForm:FormGroup){}
+  onSubmit(){
+  this.ManagerAdd=new Manager(this.registerForm.value.IdentityNumber,
+    this.registerForm.value.FirstName,
+    this.registerForm.value.LastName,
+    this.registerForm.value.Email,
+    this.registerForm.value.PhoneNumber,
+    this.registerForm.value.CellNumber,
+    this.registerForm.value.Address,
+    this.registerForm.value.BirthDate,
+    this.registerForm.value.UserName,
+    this.registerForm.value.Password)
+  this.managerService.AddManager(this.ManagerAdd).subscribe(
+    suc=>{console.log(this.ManagerAdd.FirstName)},
+    err=>{console.log("didnt reach")}
+  )
+}
 
-//   AddManager(m:Manager){
-//     this.managerService.AddManager(m).subscribe(
-//     suc=>{
-//     alert(this.managerService.GetManagerIN(this.IdentityNumber))}
-//     ,err=>{alert("err")},);
-// }
+
 
 
 

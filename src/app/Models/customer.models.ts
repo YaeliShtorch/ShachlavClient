@@ -3,6 +3,7 @@ export class Customer{
      public IdentityNumber:string,
      public FirstName:string,
      public LastName:string,
+     public BusinessCode:string,
      public CompanyName:string,
      public Email:string,
      public PhoneNumber:string,

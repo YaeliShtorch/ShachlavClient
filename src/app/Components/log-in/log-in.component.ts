@@ -24,7 +24,7 @@ sub :Subscription;
     });
     // this.type=this.route.params['typeP'];
    
-   alert(this.type);
+ 
   }
 onSubmit(){
 if(this.userService.setCurrentUser(this.form.value.username,this.form.value.password,this.type)){

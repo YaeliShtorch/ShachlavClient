@@ -1,7 +1,20 @@
-<section id="ManagerRegidter">
-    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="driverTaskForm" (ngSubmit)="onSubmit(driverTaskForm)" autocomplete="off">
-      
+
+    <mat-card>
+    <mat-card-title>דווח עבודה</mat-card-title>
+    <mat-card-content>
+       
      
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="driverTaskForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <mat-form-field appearance="fill">
+            <mat-label>Favorite food</mat-label>
+            <mat-select>
+              <mat-option >fff</mat-option>
+              <mat-option >gg</mat-option>
+              <mat-option >ee</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <material-timepicker color="primary" label="שעת התחלה" appearance="standard" [userTime]="exportTime" (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>
+        <material-timepicker color="primary" label="שעת סיום" appearance="standard" [userTime]="exportTime" (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>
      
         <mat-form-field >
             <input 
@@ -28,7 +41,8 @@
         
         <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
     </form>
-</section>
+</mat-card-content>
+</mat-card>
 
       
        
