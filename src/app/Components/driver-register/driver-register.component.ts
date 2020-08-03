@@ -38,7 +38,7 @@ export class DriverRegisterComponent implements OnInit {
       CellNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       Address:['',Validators.required],
       BirthDate:['',[Validators.required,ValidationService.BirthDate()]],
-      EntryToWorkDate:['',[Validators.required,ValidationService.BirthDate()]],
+      EntryToWorkDate:['',[Validators.required,ValidationService.DisableDates]],
       IsActive:['',[Validators.required]],
       UserName:['',[Validators.required,ValidationService.NewDriver(this.driverService)]],
       Password:['',Validators.required],
@@ -47,7 +47,7 @@ export class DriverRegisterComponent implements OnInit {
 
     });
   }
-onSubmit(form:FormGroup){
-  console.log(form);
+onSubmit(){
+
 }
 }

@@ -1,9 +1,12 @@
+import { Optional } from '@angular/core';
+
 export class Customer{
     constructor(
-     public Id:number,
+        @Optional() public Id:number,
      public IdentityNumber:string,
      public FirstName:string,
      public LastName:string,
+     public BusinessCode:string,
      public CompanyName:string,
      public Email:string,
      public PhoneNumber:string,

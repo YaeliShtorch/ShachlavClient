@@ -15,6 +15,7 @@ import {SubHomeComponent} from './Components/sub-home/sub-home.component'
 import { ProviderComponent } from './Components/provider/provider.component';
 import { DriverComponent } from './Components/driver/driver.component';
 import {OrderAddComponent } from './Components/order-add/order-add.component';
+import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'home/custdetails', component: CustDetailsComponent },
   { path: 'home/provider', component: ProviderComponent },
   { path: 'home/driver', component: DriverComponent },
+  { path: 'home/driverTask', component: DriverTaskComponent },
   { path: 'home/newOrder', component: OrderAddComponent },
   { path: 'home/manager', component: ManagerComponent }
 

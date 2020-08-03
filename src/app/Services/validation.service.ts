@@ -154,4 +154,23 @@ static NewDriver( DriverService:DriverService):ValidationErrors {
         : { isMatching: false };
     };
 }
+static DisableDates():ValidationErrors {
+  return (c:AbstractControl):{[key:string]:boolean}|null=>{ 
+
+  const date = new Date();
+  
+  const year = date.getUTCFullYear();
+  
+  const month = date.getUTCMonth() +1;
+  
+  const day = date.getUTCDate() +1;
+  
+  const tomorrowDate =new Date( year, month, day);
+  if((c.value as Date)<tomorrowDate)
+  return {DisableDates:true};
+  else
+  return {DisableDates:true};
+  
   }
+  }
+}

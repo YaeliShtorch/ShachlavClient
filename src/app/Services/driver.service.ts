@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Driver } from '../Models/driver.models';
+import { DriverTaskComponent } from '../Components/driver-task/driver-task.component';
+import { DriverWork } from '../Models/driverWork.models';
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +62,12 @@ export class DriverService {
    {
     return this.Http.post(environment.baseUrl+this.thisController+"UpDate",um);
    }
+   AddDriverTask(am:DriverWork){
+    return this.Http.post(environment.baseUrl+this.thisController+"AddDriverWork",am);
+  }
+  GetAllVehicles(){
+    return this.Http.get(environment.baseUrl+this.thisController+"GetAllVehicles"); 
+  }
   //  IsExistUP(UserName:string,Password:string){
   //   return this.Http.post(environment.baseUrl+this.thisController+"Exist",{UserName,Password});
   //  }
