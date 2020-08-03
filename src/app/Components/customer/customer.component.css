@@ -12,14 +12,16 @@
     float:right;
     height: 450px;
     background-color:	#E8E8E8;
+    margin-top: 20px;
       
 }
 .sidelink{
    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
    color:coral;
-   font: size 1;;
+   font-size: 15px;
   font-weight: normal;
+
 
   /* margin: 3%; */
     /* size:45%; */
@@ -29,23 +31,34 @@
 .sidelink:hover{
     color: orangered;
 }
+
   .content{
     background-color:	#F5F5F5;
      text-align: center; 
-     padding: 40px;
      height: 400px;
-     width:100%
+     width:100%;
   }
-  @media screen and (max-width:400px){
+  /* @media screen and (max-width:400px){
     .sidenav{
-        width:35%;
+        width:20%;
+        
        
     }
-    .mat-list-item{
-        font-size: 3vw;
-       
+    .mat-list-item .mat-nav-list {
+        font-size: 7px;
+        height: 10px; /* default is 72px */
+        /* padding: 0!important; */
+/*        
     }
-  } 
+  }  */ 
+
+  .icon{
+      color: orangered;
+      font-weight: bold;
+      size: 30px;
+      
+  }
+  
 
 
 

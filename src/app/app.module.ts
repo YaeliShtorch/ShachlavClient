@@ -60,7 +60,7 @@ import { FooterComponent } from './homeComponents/footer/footer.component';
     FlexLayoutModule,
     HttpClientModule,
        FormsModule,
-ReactiveFormsModule
+ReactiveFormsModule,
 
   ],
   providers: [],

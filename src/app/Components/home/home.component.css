@@ -19,4 +19,16 @@
  font-weight: bold;
  font-family: Verdana, Geneva, Tahoma, sans-serif;
  font-size: larger;
+ 
+}
+
+.sideLink{
+  color: rgb(49, 99, 116);
+  font-weight: bold;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-size: larger;
+}
+
+.sideLink:hover{
+  background-color:blanchedalmond; 
 }
