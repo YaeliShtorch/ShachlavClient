@@ -38,7 +38,7 @@ export class DriverTaskComponent implements OnInit {
         suc=>{
           this.Vehicles=new Array<Vehicle>();
          for(var i = 0; i < (suc as Array<Vehicle>).length; i++){
-          this.Vehicles[i]=(suc as Array<Vehicle>)[i];
+          this.Vehicles[i]=(suc[i] as Vehicle);
           }
           alert("gotAll")}
         ,err=>{console.log("errGetAllVehicles")},);

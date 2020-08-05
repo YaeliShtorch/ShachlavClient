@@ -6,3 +6,6 @@ mat-card-title,
     display: flex;
     justify-content: center;
   }
+  .w-timepicker-selected-time{
+    direction: rtl important!;
+  }

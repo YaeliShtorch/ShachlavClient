@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {MatButtonModule,MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule} from '@angular/material';
+import {MatButtonModule,MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatDialogModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material';
@@ -8,9 +8,11 @@ import {MatCardModule} from '@angular/material';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
 import {MatSelectModule} from '@angular/material';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
     imports:[MatTableModule,
+        MatDialogModule,
         MatButtonModule,
         MatFormFieldModule,
         MatInputModule,
@@ -26,11 +28,14 @@ import {MatSelectModule} from '@angular/material';
         MatSelectModule,
         MatPaginatorModule,
         MatSortModule,
-        MatExpansionModule
+        MatExpansionModule,
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule
 
 ],
     exports:[MatTableModule,
         MatButtonModule,
+        MatDialogModule,
         MatFormFieldModule,
         MatInputModule,
         MatDatepickerModule,
@@ -45,7 +50,9 @@ import {MatSelectModule} from '@angular/material';
         MatSelectModule,
         MatPaginatorModule,
         MatSortModule, 
-        MatExpansionModule
+        MatExpansionModule,
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule
 ]
 
 })

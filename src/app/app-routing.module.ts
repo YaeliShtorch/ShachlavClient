@@ -16,33 +16,37 @@ import { ProviderComponent } from './Components/provider/provider.component';
 import { DriverComponent } from './Components/driver/driver.component';
 import {OrderAddComponent } from './Components/order-add/order-add.component';
 import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
+import { AddVeihcleComponent } from './Components/add-vehicle/add-vehicle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
   { path: 'home/order',component: OrderComponent},
   { path: 'home/subHome',component: SubHomeComponent},
-  { path: 'home/mangerRegister',component: ManagerRegisterComponent  },
-  { path: 'home/driverRegister',component: DriverRegisterComponent  },
-  { path: 'home/providerRegister',component: ProviderRegisterComponent  },
-  { path: 'home/customerRegister', component: CustomerRegisterComponent },
-
+  
+ 
   { path: 'home/login/:typeP', component: LogInComponent },
-
   { path: 'home/customer', component: CustomerComponent,
   children: [
     { path: 'order/getAllOrders', component:OrderComponent},
     { path: 'order/getOrderbyId', component:OrderComponent},
     { path: 'order', component:OrderComponent}
   ]  },
-
-
   { path: 'home/customerin', component: CustomerInComponent },
   { path: 'home/custdetails', component: CustDetailsComponent },
   { path: 'home/provider', component: ProviderComponent },
   { path: 'home/driver', component: DriverComponent },
   { path: 'home/driverTask', component: DriverTaskComponent },
   { path: 'home/newOrder', component: OrderAddComponent },
-  { path: 'home/manager', component: ManagerComponent }
+  { path: 'home/manager', component: ManagerComponent,
+  children: [
+    { path: 'mangerRegister',component: ManagerRegisterComponent  },
+    { path: 'driverRegister',component: DriverRegisterComponent  },
+    { path: 'providerRegister',component: ProviderRegisterComponent  },
+    { path: 'customerRegister', component: CustomerRegisterComponent },
+    { path: 'addVehicle', component:AddVeihcleComponent},
+  
+  ]  }
+ 
 
 ];
 

@@ -8,18 +8,20 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/Models/customer.models';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { DataSource } from '@angular/cdk/table';
+import{MatDialog}from '@angular/material/dialog';
+import{DialogBoxComponent}from 'src/app/Components/order/dialog-box'
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
-      state('expanded', style({ height: '*', visibility: 'visible' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-   ],
+  // animations: [
+  //   trigger('detailExpand', [
+  //     state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+  //     state('expanded', style({ height: '*', visibility: 'visible' })),
+  //     transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+  //   ]),
+  //  ],
 })
 export class OrderComponent implements OnInit {
 
@@ -30,20 +32,14 @@ export class OrderComponent implements OnInit {
   dataSource=new MatTableDataSource<Order>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  displayedColumns=['Id', 'OrderTime','SiteAdress','PumpNeeded','PumpType','StartTime','ConcreteCheck','Status'];
+  displayedColumns=['Id', 'OrderTime','SiteAdress','PumpNeeded','PumpType','StartTime','ConcreteCheck','Status','edit'];
   datepipe: any;
  
-  constructor(public customerService:CustomerService,public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService:UsersService) { 
-
-   
+  constructor(public customerService:CustomerService,public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService:UsersService,public dialog: MatDialog) { 
+ 
   }  
 
   getAllOrders(){
-
-    // this.customerService.GetCustomerIN("123").subscribe(suc=>{ this.customer=suc.toString();console.log(this.customer)},err=>{
-    //   alert("error")});
-    //קבלת הזמנות של לקוח שהID שלו 1
-  
     // this.show=true;
     this.orderService.getAllCustOrders(this.userService.CustomerL.Id).subscribe(suc=>{this.dataSource.data=[...suc];console.log(this.dataSource.data)},err=>{console.log("error")});
     console.log(this.dataSource.data);
@@ -53,22 +49,39 @@ export class OrderComponent implements OnInit {
   //לבדוק שמביא רק הזמנה של הלקוח הקיים
     // this.show=false;
   }
-  getOrderbyId2(){
-    // this.orderService.GetOrder(this.orderNum).subscribe(suc=>{this.dataSource.data=[];this.dataSource.data.push(suc);console.log(this.dataSource.data); this.show=true;}, err=>console.log("error"));
-  }
 
+  //filter
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
   
-  ngAfterViewInit(){
 
+  ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
   }
+  
+  //deleter order
+  // delete(element){
+  //   this.dataSource.data = this.dataSource.data.filter((value,key)=>{
+  //     return value.Id != element.Id;
+  //   });
+  //   console.log(this.dataSource.data);
+  //  this.orderService.DeleteOrder(element.Id).subscribe(suc=>{alert("ההזמנה נמחקה")},err=>{alert("ההזמנמה לא נמחקה")});
+  // } 
+
+  //edit order
+  openDialog(action,element) {
+    element.action = action;
+    const dialogRef = this.dialog.open(DialogBoxComponent, {
+      width: '250px',
+      data:element
+    });
+  }
+  
 
   ngOnInit() {
    
@@ -84,10 +97,7 @@ export class OrderComponent implements OnInit {
       if(this.orderFunc.match('getOrderbyId()'))
       this.getOrderbyId();
      
-    });
-
-   
-   
+    });  
    
   }
 
