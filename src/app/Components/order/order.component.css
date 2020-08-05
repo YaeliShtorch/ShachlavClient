@@ -1,18 +1,40 @@
 .mTable{
     width:100%;
+    padding: 10px;
     background-color:rgb(241, 232, 216);
     
 }
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
 
+th.mat-header-cell{
+  text-align: center;
+  size:25%;
+}
   mat-header-cell, mat-cell {
    
+    
      /* למרכז את התוכן באמצע התא
       text-align: center !important;  */
-    justify-content: center;
+    /* justify-content: center; */
+
 
   }
   
+  /* td.mat-cell,th.mat-header-cell{
+  
+    margin:auto 0;
+    padding:0;
+    text-align: right;
+    justify-content: center;
+  } */
+ 
 
   .mheader{
    background-color: coral;
+  }
+  mat-paginator {
+    background-color: whitesmoke;
   }

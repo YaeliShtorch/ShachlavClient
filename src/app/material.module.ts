@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {MatButtonModule,MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule, MatTableModule} from '@angular/material';
+import {MatButtonModule,MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule, MatTableModule, MatPaginatorModule, MatSortModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material';
@@ -23,7 +23,9 @@ import {MatSelectModule} from '@angular/material';
         MatCardModule,
         NgxMaterialTimepickerModule,
         MaterialTimePickerModule, 
-        MatSelectModule
+        MatSelectModule,
+        MatPaginatorModule,
+        MatSortModule
 
 ],
     exports:[MatTableModule,
@@ -39,8 +41,11 @@ import {MatSelectModule} from '@angular/material';
         MatCardModule,
         NgxMaterialTimepickerModule,
         MaterialTimePickerModule,
-        MatSelectModule
+        MatSelectModule,
+        MatPaginatorModule,
+        MatSortModule
 ]
+
 })
 export class MaterialModule{
 

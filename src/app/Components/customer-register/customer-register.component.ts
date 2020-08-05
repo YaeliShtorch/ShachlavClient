@@ -46,7 +46,7 @@ export class CustomerRegisterComponent implements OnInit {
     });
   }
   onSubmit(){
-    this.CustomerAdd=new Customer(this.customerRegisterForm.value.IdentityNumber,
+    this.CustomerAdd=new Customer(null,this.customerRegisterForm.value.IdentityNumber,
       this.customerRegisterForm.value.FirstName,
       this.customerRegisterForm.value.LastName,
       this.customerRegisterForm.value.CompanyName,

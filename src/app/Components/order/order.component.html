@@ -1,22 +1,30 @@
-<div>order componenet!!!!!
+<div>
 
-<button (click)="getAllOrders()">get</button>
+  
 
-<table mat-table [dataSource]="dataSource" class="mTable" *ngIf="show">
+  <div class="mat-elevation-z8">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="סינון הזמנה לפי מספר , תאריך או כתובת">
+      </mat-form-field>
+    </div>
+    <!-- *ngIf="show"  -->
+<table  mat-table [dataSource]="dataSource" class="mTable" matSort>
   <ng-container matColumnDef="Id">
-      <th mat-header-cell *matHeaderCellDef> מספר הזמנה </th> 
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> מספר הזמנה </th> 
       <td mat-cell *matCellDef="let element"> {{element.Id}}</td>
     </ng-container>
     <ng-container matColumnDef="OrderTime">
-      <th mat-header-cell *matHeaderCellDef>  תאריך הזמנה </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  תאריך הזמנה </th>
       <td mat-cell *matCellDef="let element"> {{element.OrderTime | date}}</td>
     </ng-container>
     <ng-container matColumnDef="SiteAdress">
-      <th mat-header-cell *matHeaderCellDef>  כתובת הזמנה </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  כתובת הזמנה </th>
       <td mat-cell *matCellDef="let element"> {{element.SiteAdress}}</td>
     </ng-container>
     <ng-container matColumnDef="PumpNeeded">
-      <th mat-header-cell *matHeaderCellDef>  כולל משאבה </th>
+      <th mat-header-cell 
+      *matHeaderCellDef>  כולל משאבה </th>
       <td mat-cell *matCellDef="let element">{{element.PumpNeeded}} </td>
     </ng-container>
     <ng-container matColumnDef="PumpType">
@@ -25,7 +33,7 @@
     </ng-container>
 
     <ng-container matColumnDef="StartTime">
-      <th mat-header-cell *matHeaderCellDef>שעות שימוש </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>שעות שימוש </th>
       <td mat-cell *matCellDef="let element">{{element.StartTime }} - {{element.EndTime }}</td>
     </ng-container>
 
@@ -35,21 +43,22 @@
     </ng-container>
 
     <ng-container matColumnDef="Status">
-      <th mat-header-cell *matHeaderCellDef> הזמנה מאושרת</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> הזמנה מאושרת</th>
       <td mat-cell *matCellDef="let element">{{element.Status}}</td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns" class="mheader"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
   </table> 
+  <mat-paginator [pageSizeOptions]="[5, 10, 20,100]" showFirstLastButtons></mat-paginator>
 </div>
 
-<div *ngIf="!show">
+<!-- <div *ngIf="!show">
   <mat-form-field>
     <input type="number" matInput placeholder="הכנס מספר הזמנה" [(ngModel)]="orderNum">
   </mat-form-field>
   <button (click)="getOrderbyId2()">חפש הזמנה</button>
 
-</div>
+</div> -->
 
  <!-- export class Order{
   constructor(public Id:number, public CustomerId:number,public OrderTime:Date,public Element:string, public SiteAdress:string, public ConcreteCheck:boolean,
