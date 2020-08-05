@@ -1,20 +1,46 @@
 
     <mat-card>
-    <mat-card-title>דווח עבודה</mat-card-title>
+    <mat-card-title>דיווח עבודה</mat-card-title>
     <mat-card-content>
        
      
     <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="driverTaskForm" (ngSubmit)="onSubmit()" autocomplete="off">
-        <mat-form-field appearance="fill">
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-              <mat-option >fff</mat-option>
-              <mat-option >gg</mat-option>
-              <mat-option >ee</mat-option>
-            </mat-select>
-          </mat-form-field>
-        <material-timepicker color="primary" label="שעת התחלה" appearance="standard" [userTime]="exportTime" (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>
-        <material-timepicker color="primary" label="שעת סיום" appearance="standard" [userTime]="exportTime" (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>
+       
+        <material-timepicker
+         color="primary"
+          label="שעת התחלה"
+           appearance="standard"
+            [userTime]="exportTime" 
+            (change)="onChangeHour($event)" 
+            revertLabel="Remove"
+             submitLabel="Ok">
+            
+             <input 
+             matInput
+             formControlName="StartTime"
+             name="startTime"
+             id="StartTime"
+            
+             >
+            </material-timepicker>
+        <material-timepicker 
+        color="primary" 
+        label="שעת סיום" 
+
+        appearance="standard" 
+        [userTime]="exportTime" 
+        (change)="onChangeHour($event)" 
+        revertLabel="Remove" 
+        submitLabel="Ok">
+        <input 
+        matInput
+        formControlName="EndTime"
+        name="endTime"
+        id="EndTime">
+       
+        >
+       
+      </material-timepicker>
      
         <mat-form-field >
             <input 
@@ -37,7 +63,24 @@
              name="amount" 
               formControlName="Amount">
         </mat-form-field>
+        <mat-form-field>
+          <input 
+          type="number"
+           matInput  
+           id="Order" 
+           placeholder="קוד הזמנה " 
+           name="order" 
+            formControlName="Order">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>כלי רכב</mat-label>
+        <mat-select
+        formControlName="Vehicle"
+        >
+          <mat-option *ngFor="let vehicle of Vehicles" >{{vehicle.Description}}</mat-option>
       
+        </mat-select>
+      </mat-form-field>
         
         <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
     </form>

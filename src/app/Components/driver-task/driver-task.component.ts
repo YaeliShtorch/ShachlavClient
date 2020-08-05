@@ -19,11 +19,17 @@ export class DriverTaskComponent implements OnInit {
   driverTaskForm:FormGroup;
   DriverWork:DriverWork;
   Vehicles:Array<Vehicle>
+ 
+
+
+ 
   ngOnInit(): void {
     this.driverTaskForm = this.fb.group({
       StartTime : ['', Validators.required],
       EndTime:['',Validators.required],
       WorkDate:['',[Validators.required,ValidationService.DisableDates]],
+      Vehicle:[''],
+      Order:[''],
       Amount :['',Validators.required],
     
     });
@@ -34,8 +40,8 @@ export class DriverTaskComponent implements OnInit {
          for(var i = 0; i < (suc as Array<Vehicle>).length; i++){
           this.Vehicles[i]=(suc as Array<Vehicle>)[i];
           }
-        alert("gotAll")}
-        ,err=>{alert("errGetAllManagers")},);
+          alert("gotAll")}
+        ,err=>{console.log("errGetAllVehicles")},);
     }
     
   
