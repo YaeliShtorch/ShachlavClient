@@ -8,6 +8,7 @@ import {MatCardModule} from '@angular/material';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
 import {MatSelectModule} from '@angular/material';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
     imports:[MatTableModule,
@@ -25,7 +26,9 @@ import {MatSelectModule} from '@angular/material';
         MaterialTimePickerModule, 
         MatSelectModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule,
 
 ],
     exports:[MatTableModule,
@@ -43,7 +46,9 @@ import {MatSelectModule} from '@angular/material';
         MaterialTimePickerModule,
         MatSelectModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule,
 ]
 
 })

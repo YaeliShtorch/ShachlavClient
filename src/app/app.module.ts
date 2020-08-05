@@ -27,6 +27,7 @@ import { ProviderRegisterComponent } from './Components/provider-register/provid
 import { SubHomeComponent } from './Components/sub-home/sub-home.component';
 import { OrderAddComponent } from './Components/order-add/order-add.component';
 import { FooterComponent } from './homeComponents/footer/footer.component';
+import { AddVeihcleComponent } from './Components/add-veihcle/add-veihcle.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { FooterComponent } from './homeComponents/footer/footer.component';
     SubHomeComponent,
     OrderAddComponent,
     FooterComponent,
+    AddVeihcleComponent,
   ],
   imports: [
     BrowserModule,

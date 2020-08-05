@@ -1,4 +1,7 @@
 <section id="CustomerRegidter">
+    <mat-card>
+        <mat-card-title >לקוח חדש</mat-card-title>
+    <mat-card-content>
     <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="customerRegisterForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <mat-form-field>
             <input
@@ -135,6 +138,8 @@
         </mat-form-field>
         <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
     </form>
+</mat-card-content>
+</mat-card>
 </section>
 
       
