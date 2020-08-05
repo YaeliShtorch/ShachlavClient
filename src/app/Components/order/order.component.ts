@@ -6,25 +6,32 @@ import{Router, ActivatedRoute}from '@angular/router'
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/Models/customer.models';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css']
+  styleUrls: ['./order.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+   ],
 })
 export class OrderComponent implements OnInit {
 
-  currentUser;
-  // userOrders=new Array<Order>();
   orderFunc="";
   orderNum:number;
-  // show:boolean=true;
   customer:string="p";
   OrderList=new Array<Order>();
   dataSource=new MatTableDataSource<Order>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   displayedColumns=['Id', 'OrderTime','SiteAdress','PumpNeeded','PumpType','StartTime','ConcreteCheck','Status'];
+  datepipe: any;
  
   constructor(public customerService:CustomerService,public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService:UsersService) { 
 
@@ -55,12 +62,16 @@ export class OrderComponent implements OnInit {
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+  
+  ngAfterViewInit(){
 
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+
+  }
 
   ngOnInit() {
    
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
 
  
   //this.activatedRoute.paramMap("")
