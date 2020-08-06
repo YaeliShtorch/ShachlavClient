@@ -30,9 +30,9 @@ export class OrderService {
   return this.Http.get(environment.baseUrl+this.thisController+"Delete?id="+id)
  }
 
- UpdateOrder(uo:Order)
+ UpdateOrder(o:Order)
  {
-  return this.Http.post(environment.baseUrl+this.thisController+"Update",uo);
+  return this.Http.post(environment.baseUrl+this.thisController+"Update",o);
  }
 
  getAllCustOrders(id:number):Observable<Order[]>{

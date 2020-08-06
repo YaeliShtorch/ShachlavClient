@@ -9,7 +9,7 @@
 <table  mat-table [dataSource]="dataSource" multiTemplateDataRows class="mTable" matSort>
   <ng-container matColumnDef="Id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> מספר הזמנה </th> 
-      <td mat-cell *matCellDef="let element"> {{element.Id}}</td>
+      <td mat-cell *matCellDef="let element" align="right"> {{element.Id}}</td>
     </ng-container>
     <ng-container matColumnDef="OrderTime">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  תאריך הזמנה </th>
@@ -17,31 +17,31 @@
     </ng-container>
     <ng-container matColumnDef="SiteAdress">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  כתובת הזמנה </th>
-      <td mat-cell *matCellDef="let element"> {{element.SiteAdress}}</td>
+      <td mat-cell *matCellDef="let element" align="right"> {{element.SiteAdress}}</td>
     </ng-container>
     <ng-container matColumnDef="PumpNeeded">
       <th mat-header-cell 
       *matHeaderCellDef>  כולל משאבה </th>
-      <td mat-cell *matCellDef="let element">{{element.PumpNeeded}} </td>
+      <td mat-cell *matCellDef="let element" align="right">{{element.PumpNeeded}} </td>
     </ng-container>
     <ng-container matColumnDef="PumpType">
       <th mat-header-cell *matHeaderCellDef>  סוג משאבה</th>
-      <td mat-cell *matCellDef="let element">{{element.PumpType}} </td>
+      <td mat-cell *matCellDef="let element" align="right">{{element.PumpType}} </td>
     </ng-container>
 
     <ng-container matColumnDef="StartTime">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>שעות שימוש </th>
-      <td mat-cell *matCellDef="let element">{{element.StartTime }} - {{element.EndTime }}</td>
+      <td mat-cell *matCellDef="let element" align="right">{{element.StartTime }} - {{element.EndTime }}</td>
     </ng-container>
 
     <ng-container matColumnDef="ConcreteCheck">
       <th mat-header-cell *matHeaderCellDef>  בדיקת בטון </th>
-      <td mat-cell *matCellDef="let element">{{element.ConcreteCheck}}</td>
+      <td mat-cell *matCellDef="let element" align="right">{{element.ConcreteCheck}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> הזמנה מאושרת</th>
-      <td mat-cell *matCellDef="let element">{{element.Status}}</td>
+      <td mat-cell *matCellDef="let element" align="right">{{element.Status}}</td>
     </ng-container>
 
       <!-- Edit Column -->

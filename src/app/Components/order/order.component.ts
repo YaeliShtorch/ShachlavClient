@@ -9,7 +9,7 @@ import { Customer } from 'src/app/Models/customer.models';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { DataSource } from '@angular/cdk/table';
 import{MatDialog}from '@angular/material/dialog';
-import{DialogBoxComponent}from 'src/app/Components/order/dialog-box'
+import{DialogBoxComponent}from 'src/app/Components/order/dialog-box';
 
 @Component({
   selector: 'app-order',
@@ -35,7 +35,8 @@ export class OrderComponent implements OnInit {
   displayedColumns=['Id', 'OrderTime','SiteAdress','PumpNeeded','PumpType','StartTime','ConcreteCheck','Status','edit'];
   datepipe: any;
  
-  constructor(public customerService:CustomerService,public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService:UsersService,public dialog: MatDialog) { 
+  constructor(public customerService:CustomerService,public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService:UsersService
+    ,public dialog: MatDialog) { 
  
   }  
 
@@ -63,29 +64,34 @@ export class OrderComponent implements OnInit {
     this.dataSource.sort = this.sort;
 
   }
-  
-  //deleter order
-  // delete(element){
-  //   this.dataSource.data = this.dataSource.data.filter((value,key)=>{
-  //     return value.Id != element.Id;
-  //   });
-  //   console.log(this.dataSource.data);
-  //  this.orderService.DeleteOrder(element.Id).subscribe(suc=>{alert("ההזמנה נמחקה")},err=>{alert("ההזמנמה לא נמחקה")});
-  // } 
 
-  //edit order
+  //edit or delete order
   openDialog(action,element) {
-    element.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       width: '250px',
-      data:element
+      data:{
+        passData:element,
+        passAction:action
+      }
     });
+
+    //what returns from dialog
+    dialogRef.afterClosed().subscribe(result=>{
+      if(action ==='edit'){
+    this.orderService.UpdateOrder(element).subscribe(suc=>{alert("העידכון נשמר")},err=>{alert("בעיית התחברות, נסה מאוחר יותר")});
+  } else{
+    if(result ==true){
+      this.orderService.DeleteOrder(element.Id).subscribe(suc=>{alert("ההזמנה נמחקה");  this.dataSource.data = this.dataSource.data.filter((value,key)=>{
+        return value.Id != element.Id;
+      });}, err=>{alert("ההזמנה לא נמחקה עדיין, נסה שוב")});
+          
+    }
   }
-  
+});
+
+}
 
   ngOnInit() {
-   
-
  
   //this.activatedRoute.paramMap("")
   // console.log(this.activatedRoute.snapshot.routeConfig.path.split('/')[1]);
