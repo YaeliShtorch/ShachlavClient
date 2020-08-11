@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {MatButtonModule,MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule,MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatDialogModule, MatCheckboxModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material';
@@ -30,7 +30,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
         MatSortModule,
         MatExpansionModule,
         OwlDateTimeModule,
-        OwlNativeDateTimeModule
+        OwlNativeDateTimeModule,
+        MatCheckboxModule
 
 ],
     exports:[MatTableModule,
@@ -52,7 +53,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
         MatSortModule, 
         MatExpansionModule,
         OwlDateTimeModule,
-        OwlNativeDateTimeModule
+        OwlNativeDateTimeModule,
+        MatCheckboxModule
 ]
 
 })

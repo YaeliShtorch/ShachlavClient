@@ -5,7 +5,7 @@ import { Order } from 'src/app/models/order.models';
 
 @Component({
     selector:'app-dialog-box',
-    template:`<div *ngIf="this.passObj.passAction==='edit'">
+    template:`<div *ngIf="this.passObj.passAction==='edit'" fxLayout="column" fxLayoutAlign="center" >
     <h1 mat-dialog-title> עריכת הזמנה</h1>
     <mat-form-field>
     <mat-label>תאריך הזמנה</mat-label>
@@ -15,10 +15,7 @@ import { Order } from 'src/app/models/order.models';
     <mat-label>כתובת הזמנה</mat-label>
     <input type="text" matInput placeholder="{{this.passObj.passData.SiteAdress}}" [(ngModel)]="this.passObj.passData.SiteAdress">
     </mat-form-field>
-    <mat-form-field>
-    <mat-label>כולל משאבה</mat-label>
-    <input type="text" matInput placeholder="{{this.passObj.passData.PumpNeeded}}" [(ngModel)]="this.passObj.passData.PumpNeeded">
-    </mat-form-field>
+    <mat-checkbox [(ngModel)]="this.passObj.passData.PumpNeeded" color="primary"><mat-label>כולל משאבה</mat-label></mat-checkbox>
     <mat-form-field>
     <mat-label>סוג משאבה</mat-label>
     <input type="text" matInput placeholder="{{this.passObj.passData.PumpType}}" [(ngModel)]="this.passObj.passData.PumpType">
@@ -31,10 +28,7 @@ import { Order } from 'src/app/models/order.models';
     <mat-label>שעת סיום שימוש</mat-label>
     <input type="text" matInput placeholder="{{this.passObj.passData.EndTime}}" [(ngModel)]="this.passObj.passData.EndTime">
     </mat-form-field>
-    <mat-form-field>
-    <mat-label>בדיקת בטון</mat-label>
-    <input type="text" matInput placeholder="{{this.passObj.passData.ConcreteCheck}}" [(ngModel)]="this.passObj.passData.ConcreteCheck">
-    </mat-form-field>
+    <mat-checkbox [(ngModel)]="this.passObj.passData.ConcreteCheck" color="primary"> <mat-label>בדיקת בטון</mat-label></mat-checkbox>
     <mat-dialog-actions>
     <button mat-button [mat-dialog-close]='this.passObj'> שמירה</button>
     </mat-dialog-actions>
