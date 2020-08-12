@@ -16,7 +16,7 @@
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-    <mat-sidenav-container fxFlexFill>
+    <mat-sidenav-container>
       <mat-sidenav #sidenav>
         <mat-nav-list>
           <a [routerLink]="['/home/login','Manager']" routerLinkActive="active" class="sideLink" mat-list-item>מנהל</a>
@@ -28,8 +28,9 @@
       </mat-sidenav>
       <mat-sidenav-content>
         <img src="assets/Images/SecNavBar.jpg" alt='שחל"ב' class="navImg">
+        <main>
 <router-outlet></router-outlet>
-
+</main>
 <main style="margin-top: 200px;">
 <app-footer></app-footer>
 </main>

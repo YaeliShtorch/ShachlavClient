@@ -16,8 +16,7 @@ import { ProviderComponent } from './Components/provider/provider.component';
 import { DriverComponent } from './Components/driver/driver.component';
 import {OrderAddComponent } from './Components/order-add/order-add.component';
 import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
-import { AddVeihcleComponent } from './Components/add-veihcle/add-veihcle.component';
-import { AddMaterialComponent } from './Components/add-material/add-material.component';
+import { AddVeihcleComponent } from './Components/add-vehicle/add-vehicle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
@@ -29,7 +28,6 @@ const routes: Routes = [
   { path: 'home/customer', component: CustomerComponent,
   children: [
     { path: 'order/getAllOrders', component:OrderComponent},
-    { path: 'order/addOrder', component:OrderAddComponent},
     { path: 'order/getOrderbyId', component:OrderComponent},
     { path: 'order', component:OrderComponent}
   ]  },
@@ -46,7 +44,6 @@ const routes: Routes = [
     { path: 'providerRegister',component: ProviderRegisterComponent  },
     { path: 'customerRegister', component: CustomerRegisterComponent },
     { path: 'addVehicle', component:AddVeihcleComponent},
-    { path: 'addMaterial',component: AddMaterialComponent  }
   
   ]  }
  

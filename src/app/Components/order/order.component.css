@@ -12,10 +12,11 @@
 th.mat-header-cell{
   text-align: center;
   size:25%;
+ 
 }
-  mat-header-cell, mat-cell {
-   
-    
+  .mat-header-cell, .mat-cell {
+  
+  
      /* למרכז את התוכן באמצע התא
       text-align: center !important;  */
     /* justify-content: center; */
@@ -34,7 +35,22 @@ th.mat-header-cell{
 
   .mheader{
    background-color: coral;
+
   }
   mat-paginator {
     background-color: whitesmoke;
   }
+  
+  .mat-header-cell,.ColumnHeader {
+    flex-direction: row;
+    justify-content: center;
+    flex-shrink: 1;
+  }
+  
+  .mat-cell {
+    text-align: center;
+    justify-content:center;
+    flex-shrink: 1;
+  }
+
+

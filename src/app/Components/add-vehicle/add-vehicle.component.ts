@@ -5,9 +5,9 @@ import {ValidationService} from 'src/app/Services/validation.service'
 import { DriverService } from 'src/app/services/driver.service';
 import { Vehicle } from 'src/app/Models/vehicle.models';
 @Component({
-  selector: 'app-add-veihcle',
-  templateUrl: './add-veihcle.component.html',
-  styleUrls: ['./add-veihcle.component.css']
+  selector: 'app-add-vehicle',
+  templateUrl: './add-vehicle.component.html',
+  styleUrls: ['./add-vehicle.component.css']
 })
 export class AddVeihcleComponent implements OnInit {
 

@@ -27,8 +27,8 @@ import { ProviderRegisterComponent } from './Components/provider-register/provid
 import { SubHomeComponent } from './Components/sub-home/sub-home.component';
 import { OrderAddComponent } from './Components/order-add/order-add.component';
 import { FooterComponent } from './homeComponents/footer/footer.component';
-import { AddVeihcleComponent } from './Components/add-veihcle/add-veihcle.component';
-import { AddMaterialComponent } from './Components/add-material/add-material.component';
+import { AddVeihcleComponent } from './Components/add-vehicle/add-vehicle.component';
+import { DialogBoxComponent } from './Components/order/dialog-box';
 
 
 @NgModule({
@@ -54,7 +54,7 @@ import { AddMaterialComponent } from './Components/add-material/add-material.com
     OrderAddComponent,
     FooterComponent,
     AddVeihcleComponent,
-    AddMaterialComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +68,7 @@ ReactiveFormsModule,
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[DialogBoxComponent]
 })
 export class AppModule { }
