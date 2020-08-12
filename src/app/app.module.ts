@@ -28,6 +28,7 @@ import { SubHomeComponent } from './Components/sub-home/sub-home.component';
 import { OrderAddComponent } from './Components/order-add/order-add.component';
 import { FooterComponent } from './homeComponents/footer/footer.component';
 import { AddVeihcleComponent } from './Components/add-veihcle/add-veihcle.component';
+import { AddMaterialComponent } from './Components/add-material/add-material.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { AddVeihcleComponent } from './Components/add-veihcle/add-veihcle.compon
     OrderAddComponent,
     FooterComponent,
     AddVeihcleComponent,
+    AddMaterialComponent,
   ],
   imports: [
     BrowserModule,

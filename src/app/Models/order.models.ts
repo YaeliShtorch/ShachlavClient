@@ -4,8 +4,7 @@ export class Order
 {
  constructor(
     public  Id:number,  
-    public  CustomerId:number, 
-    //public Customer Customer    
+    public  CustomerId:number,  
     public  OrderDate:Date,    
     public  OrderTime:Date,   
     public  Element:string, 
@@ -17,7 +16,8 @@ export class Order
     public  EndTime:Time,
     public  IsIssue:boolean, 
     public  Status:boolean, 
-    public  IsDone:boolean 
+    public  IsDone:boolean,
+    public  State:string 
  ){}
     
 }

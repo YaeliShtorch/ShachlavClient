@@ -15,7 +15,7 @@ export class AddVeihcleComponent implements OnInit {
 constructor(private fb:FormBuilder,public driverTaskService:DriverService ) { }
 addVehicleForm:FormGroup;
 VehiclesTypes:Array<String>;
-
+Vehicle:Vehicle;
 
 
 
@@ -34,5 +34,14 @@ ngOnInit(): void {
   });
 
 }
-onSubmit(){}
+onSubmit(){
+this.Vehicle=new Vehicle(this.addVehicleForm.value.Description,
+  this.addVehicleForm.value.PipesLengh,
+  this.addVehicleForm.value.LicenseNumber,
+  this.addVehicleForm.value.DriverId,
+  this.addVehicleForm.value.MixerNumber);
+  this.driverTaskService.AddVehicle(this.Vehicle).subscribe(
+    suc=>{console.log((suc as Vehicle).Description)},
+    error=>{console.log("errAddNewVehicle")})
+}
 }

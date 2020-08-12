@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Driver } from '../Models/driver.models';
 import { DriverTaskComponent } from '../Components/driver-task/driver-task.component';
 import { DriverWork } from '../Models/driverWork.models';
+import { Vehicle } from '../Models/vehicle.models';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,9 @@ export class DriverService {
   }
   GetAllVehicles(){
     return this.Http.get(environment.baseUrl+this.thisController+"GetAllVehicles"); 
+  }
+  AddVehicle(v:Vehicle){
+    return this.Http.post(environment.baseUrl+this.thisController+"AddVehicle",v);
   }
   //  IsExistUP(UserName:string,Password:string){
   //   return this.Http.post(environment.baseUrl+this.thisController+"Exist",{UserName,Password});
