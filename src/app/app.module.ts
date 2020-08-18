@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,8 +27,9 @@ import { ProviderRegisterComponent } from './Components/provider-register/provid
 import { SubHomeComponent } from './Components/sub-home/sub-home.component';
 import { OrderAddComponent } from './Components/order-add/order-add.component';
 import { FooterComponent } from './homeComponents/footer/footer.component';
-import { AddVeihcleComponent } from './Components/add-vehicle/add-vehicle.component';
+import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DialogBoxComponent } from './Components/order/dialog-box';
+import { AddVehicleTypeComponent } from './Components/add-vehicle/add-vehicleType.component';
 
 
 @NgModule({
@@ -53,8 +54,9 @@ import { DialogBoxComponent } from './Components/order/dialog-box';
     SubHomeComponent,
     OrderAddComponent,
     FooterComponent,
-    AddVeihcleComponent,
-    DialogBoxComponent
+    AddVehicleComponent,
+    DialogBoxComponent,
+    AddVehicleTypeComponent
   ],
   imports: [
     BrowserModule,
@@ -63,12 +65,12 @@ import { DialogBoxComponent } from './Components/order/dialog-box';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-       FormsModule,
-ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[DialogBoxComponent]
+  entryComponents:[DialogBoxComponent],
 })
 export class AppModule { }

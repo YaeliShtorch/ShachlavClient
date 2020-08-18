@@ -32,7 +32,7 @@ export class OrderComponent implements OnInit {
   dataSource=new MatTableDataSource<Order>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  displayedColumns=['Id', 'OrderTime','SiteAdress','PumpNeeded','PumpType','StartTime','ConcreteCheck','Status','edit'];
+  displayedColumns=['Id', 'OrderDate','SiteAdress','PumpNeeded','PumpType','StartTime','ConcreteCheck','Status','edit'];
   datepipe: any;
  
   constructor(public customerService:CustomerService,public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService:UsersService
@@ -68,7 +68,7 @@ export class OrderComponent implements OnInit {
   //edit or delete order
   openDialog(action,element) {
     const dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '250px',
+      width: '400px',
       data:{
         passData:element,
         passAction:action
@@ -78,7 +78,13 @@ export class OrderComponent implements OnInit {
     //what returns from dialog
     dialogRef.afterClosed().subscribe(result=>{
       if(action ==='edit'){
+        var tmp=element;
+        if(result!=false)
+        {
+          //check what if anything changed
+          
     this.orderService.UpdateOrder(element).subscribe(suc=>{alert("העידכון נשמר")},err=>{alert("בעיית התחברות, נסה מאוחר יותר")});
+  }
   } else{
     if(result ==true){
       this.orderService.DeleteOrder(element.Id).subscribe(suc=>{alert("ההזמנה נמחקה");  this.dataSource.data = this.dataSource.data.filter((value,key)=>{

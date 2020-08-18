@@ -11,9 +11,9 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> מספר הזמנה </th> 
       <td mat-cell *matCellDef="let element" align="right"> {{element.Id}}</td>
     </ng-container>
-    <ng-container matColumnDef="OrderTime">
+    <ng-container matColumnDef="OrderDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  תאריך הזמנה </th>
-      <td mat-cell *matCellDef="let element" align="right"> {{element.OrderTime | date:'MM-dd-yyyy'}}</td>
+      <td mat-cell *matCellDef="let element" align="right"> {{element.OrderDate | date:'MM-dd-yyyy'}}</td>
     </ng-container>
     <ng-container matColumnDef="SiteAdress">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  כתובת הזמנה </th>

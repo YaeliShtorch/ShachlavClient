@@ -5,8 +5,7 @@ export class Order
  constructor(
     public  Id:number,  
     public  CustomerId:number,  
-    public  OrderDate:Date,    
-    public  OrderTime:Date,   
+    public  OrderDate:Date,       
     public  Element:string, 
     public  SiteAdress:string, 
     public  ConcreteCheck:boolean, 
