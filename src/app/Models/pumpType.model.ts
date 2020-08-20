@@ -1,9 +1,9 @@
-export  class VehicleType
+export  class PumpType
     {    
         constructor(
            
             public Id:number,
-            public VType:string,
+            public PType:string,
 
         ){}  
     

@@ -17,7 +17,7 @@ import { DriverComponent } from './Components/driver/driver.component';
 import {OrderAddComponent } from './Components/order-add/order-add.component';
 import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
 import { AddVehicleComponent} from './Components/add-vehicle/add-vehicle.component';
-import { AddVehicleTypeComponent } from './Components/add-vehicle/add-vehicleType.component';
+import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PvehicleType.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },

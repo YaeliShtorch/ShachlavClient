@@ -10,7 +10,7 @@ export class Order
     public  SiteAdress:string, 
     public  ConcreteCheck:boolean, 
     public  PumpNeeded:boolean, 
-    public  PumpType:string, 
+    public  PumpId:number, 
     public  StartTime:Time,   
     public  EndTime:Time,
     public  IsIssue:boolean, 

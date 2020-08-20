@@ -29,7 +29,7 @@ import { OrderAddComponent } from './Components/order-add/order-add.component';
 import { FooterComponent } from './homeComponents/footer/footer.component';
 import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DialogBoxComponent } from './Components/order/dialog-box';
-import { AddVehicleTypeComponent } from './Components/add-vehicle/add-vehicleType.component';
+import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PvehicleType.component';
 
 
 @NgModule({

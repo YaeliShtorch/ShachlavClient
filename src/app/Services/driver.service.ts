@@ -5,7 +5,7 @@ import { Driver } from '../Models/driver.models';
 import { DriverTaskComponent } from '../Components/driver-task/driver-task.component';
 import { DriverWork } from '../Models/driverWork.models';
 import { Vehicle } from '../Models/vehicle.models';
-import{VehicleType}from '../Models/vehicleType.model'
+import{PumpType}from '../Models/pumpType.model'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -75,16 +75,16 @@ export class DriverService {
     return this.Http.post(environment.baseUrl+this.thisController+"AddVehicle",v);
   }
 
-  GetAllVehicleTypes():Observable<string[]>{
-    return this.Http.get<string[]>(environment.baseUrl+this.thisController+"getAllVehicleTypes");
+  GetAllPumpTypes():Observable<string[]>{
+    return this.Http.get<string[]>(environment.baseUrl+this.thisController+"getAllPumpTypes");
   }
 
-  AddVehicleType(vt:string){
-    return this.Http.post(environment.baseUrl+this.thisController+"AddVehicleType",vt);
+  AddPumpType(pT:PumpType){
+    return this.Http.post(environment.baseUrl+this.thisController+"AddPumpType",pT);
   }
 
-  DeleteVehicleType(vt:VehicleType){
-
+  DeletePumpType(id:number){
+  return this.Http.get(environment.baseUrl+this.thisController+"DeletePumpType?id="+id);
   }
   //  IsExistUP(UserName:string,Password:string){
   //   return this.Http.post(environment.baseUrl+this.thisController+"Exist",{UserName,Password});
