@@ -86,6 +86,10 @@ export class DriverService {
   DeletePumpType(id:number){
   return this.Http.get(environment.baseUrl+this.thisController+"DeletePumpType?id="+id);
   }
+
+  getPumpTypeName(id:number){
+    return this.Http.get(environment.baseUrl+this.thisController+"getPumpTypeName?id="+id)
+  }
   //  IsExistUP(UserName:string,Password:string){
   //   return this.Http.post(environment.baseUrl+this.thisController+"Exist",{UserName,Password});
   //  }

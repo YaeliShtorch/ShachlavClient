@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import {ValidationService} from 'src/app/Services/validation.service'
-import { DriverWork } from 'src/app/Models/driverWork.models';
-
+import { DriverWork } from 'src/app/Models/driverWork.models'
 import { Vehicle } from 'src/app/Models/vehicle.models';
 import { DriverService } from 'src/app/services/driver.service';
 import { OrderService } from 'src/app/services/order.service';
+
 @Component({
   selector: 'app-order-add',
   templateUrl: './order-add.component.html',
