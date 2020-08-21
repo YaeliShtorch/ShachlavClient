@@ -16,8 +16,8 @@ import { ProviderComponent } from './Components/provider/provider.component';
 import { DriverComponent } from './Components/driver/driver.component';
 import {OrderAddComponent } from './Components/order-add/order-add.component';
 import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
-import { AddVehicleComponent} from './Components/add-vehicle/add-vehicle.component';
-import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
+import { AddVeihcleComponent } from './Components/add-vehicle/add-vehicle.component';
+import { DriverWork } from './Models/driverWork.models';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'home/login/:typeP', component: LogInComponent },
   { path: 'home/customer', component: CustomerComponent,
   children: [
+    { path: 'addOrder',component: OrderAddComponent  },
     { path: 'order/getAllOrders', component:OrderComponent},
     { path: 'order/getOrderbyId', component:OrderComponent},
     { path: 'order', component:OrderComponent}
@@ -44,8 +45,8 @@ const routes: Routes = [
     { path: 'driverRegister',component: DriverRegisterComponent  },
     { path: 'providerRegister',component: ProviderRegisterComponent  },
     { path: 'customerRegister', component: CustomerRegisterComponent },
-    { path: 'addVehicle', component:AddVehicleComponent},
-    {path:'addVehicleType', component:AddVehicleTypeComponent}
+    { path: 'addVehicle', component:AddVeihcleComponent},
+    { path: 'addDriverWork', component: DriverTaskComponent }
   
   ]  }
  

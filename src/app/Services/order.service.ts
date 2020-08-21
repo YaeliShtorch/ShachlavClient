@@ -21,11 +21,13 @@ export class OrderService {
  AddOrder(o:Order){
    return this.Http.post(environment.baseUrl+this.thisController+"Add",o);
  }
- GetOrders()
+ GetAllOrders()
  {
   return this.Http.get(environment.baseUrl+this.thisController+"GetAll")
  }
- 
+ GetOrdersTwoMonthAgo(){
+  return this.Http.get(environment.baseUrl+this.thisController+"GetOrdersTwoMonthAgo")
+ }
  DeleteOrder(id:number)
  {
   return this.Http.get(environment.baseUrl+this.thisController+"Delete?id="+id)

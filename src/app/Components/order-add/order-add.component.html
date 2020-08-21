@@ -1,6 +1,6 @@
 
 
- <section id="NewOrder">
+<section id="NewOrder">
   <mat-card>
     <mat-card-title >הזמנה חדשה</mat-card-title>
 <mat-card-content>
@@ -16,8 +16,6 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker  #picker></mat-datepicker>
           </mat-form-field>
-        
-        <mat-form-field>
           <material-timepicker
           color="primary"
            label="שעת התחלה"
@@ -25,8 +23,7 @@
              [userTime]="exportTime" 
              (change)="onChangeHour($event)" 
              revertLabel="Remove"
-              submitLabel="Ok">
-             
+              submitLabel="Ok">            
               <input
               matInput 
                id="OrderTime" 
@@ -35,8 +32,8 @@
                 >
          <mat-hint ></mat-hint>
              </material-timepicker>
-         
-        </mat-form-field>
+
+
          <mat-form-field>
             <input
               matInput 
@@ -68,7 +65,7 @@
      <mat-hint ></mat-hint>
  </mat-form-field>
 
-
+ 
 
 
  <mat-form-field>
@@ -96,14 +93,9 @@
     <mat-option *ngFor="let vehicle of VehiclesTypes" >{{vehicle}}</mat-option>
 
   </mat-select>
-</mat-form-field>
-
-
-
-       
+</mat-form-field>  
         <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
     </form>
   </mat-card-content>
 </mat-card>
 </section>
-

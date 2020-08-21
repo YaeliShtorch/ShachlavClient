@@ -169,8 +169,18 @@ static DisableDates():ValidationErrors {
   if((c.value as Date)<tomorrowDate)
   return {DisableDates:true};
   else
-  return {DisableDates:true};
+  return {DisableDates:false};
   
   }
   }
-}
+  static OneOfTworequired(One:string):ValidationErrors{
+  return (c:AbstractControl):{[key:string]:boolean}|null=>{ 
+    if(c.value!=undefined||One!=undefined)
+      return {OneOfTworequired:true};
+      else
+      return {OneOfTworequired:false};
+    }
+  }
+  }
+
+

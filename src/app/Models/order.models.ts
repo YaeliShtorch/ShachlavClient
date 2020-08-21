@@ -4,13 +4,15 @@ export class Order
 {
  constructor(
     public  Id:number,  
-    public  CustomerId:number,  
-    public  OrderDate:Date,       
+    public  CustomerId:number,
+    public  OrderDueDate:Date,  
+    public  OrderDate:Date,    
+    public  OrderTime:Date,   
     public  Element:string, 
     public  SiteAdress:string, 
     public  ConcreteCheck:boolean, 
     public  PumpNeeded:boolean, 
-    public  PumpId:number, 
+    public  PumpType:string, 
     public  StartTime:Time,   
     public  EndTime:Time,
     public  IsIssue:boolean, 
