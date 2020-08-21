@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
-
 import {ValidationService} from 'src/app/Services/validation.service'
 import { DriverService } from 'src/app/services/driver.service';
 import { Vehicle } from 'src/app/Models/vehicle.models';
@@ -9,7 +8,7 @@ import { Vehicle } from 'src/app/Models/vehicle.models';
   templateUrl: './add-vehicle.component.html',
   styleUrls: ['./add-vehicle.component.css']
 })
-export class AddVeihcleComponent implements OnInit {
+export class AddVehicleComponent implements OnInit {
 
 
 constructor(private fb:FormBuilder,public driverTaskService:DriverService ) { }
@@ -25,6 +24,7 @@ ngOnInit(): void {
   this.VehiclesTypes=["משאבה 62 מטר","משאבה 56 מטר","משאבה 52 מטר","משאבה 42 מטר","משאבה 36 מטר","משאבה 32 מטר","משאבה 28 מטר","משאבה 24 מטר","משאבת מייקו עם זרוע","משאבת מייקו"];
   this.addVehicleForm = this.fb.group({
     Description : [''],
+    VType:[''],
     PipesLengh:[''],
     LicenseNumber:[''],
     DriverId:[''],
@@ -36,6 +36,7 @@ ngOnInit(): void {
 }
 onSubmit(){
 this.Vehicle=new Vehicle(this.addVehicleForm.value.Description,
+  this.addVehicleForm.value.VType,
   this.addVehicleForm.value.PipesLengh,
   this.addVehicleForm.value.LicenseNumber,
   this.addVehicleForm.value.DriverId,
