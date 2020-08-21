@@ -12,7 +12,7 @@ export class CustDetailsComponent implements OnInit {
   constructor(public UserService:UsersService) { }
 CurentCustomer;
   ngOnInit(): void {
-  this.CurentCustomer=this.UserService.getCurrentUser();
+  // this.CurentCustomer=this.UserService.getCurrentUser();
   }
 
 }

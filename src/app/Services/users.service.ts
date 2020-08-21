@@ -47,7 +47,7 @@ setCurrentUser(username:string, password:string,type:string):Observable<any>{
 }
 }
 
-getCurrentUser(s:any,type:string){
+getCurrentUser(s:object,type:string){
 
  switch(type){
    case "Manager":{

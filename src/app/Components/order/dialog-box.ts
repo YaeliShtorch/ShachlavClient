@@ -7,10 +7,10 @@ import { DriverService } from 'src/app/services/driver.service';
 
 @Component({
     selector:'app-dialog-box',
-    template:`<div *ngIf="this.passObj.passAction==='edit'" fxLayout="column" fxLayoutAlign="center" style="margin:40px; width:300px">
+    template:`<div *ngIf="this.passObj.passAction==='edit'" fxLayout="column" fxLayoutAlign="center center" style="margin:10%; margin-left:10% important!; width:300px" fxFlex.sm="margin-left:40px">
     <h1 mat-dialog-title> עריכת הזמנה</h1>
     <br>
-    <mat-form-field>
+    <mat-form-field style="width:30%">
     <mat-label>(כתובת הזמנה (עיר, רחוב ומיקוד</mat-label>
     <input type="text" matInput placeholder="{{this.passObj.passData.SiteAdress}}" [(ngModel)]="this.passObj.passData.SiteAdress" required>
     </mat-form-field>
