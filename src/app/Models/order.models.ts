@@ -4,7 +4,8 @@ export class Order
 {
  constructor(
     public  Id:number,  
-    public  CustomerId:number,  
+    public  CustomerId:number,
+    public  OrderDueDate:Date,  
     public  OrderDate:Date,    
     public  OrderTime:Date,   
     public  Element:string, 
