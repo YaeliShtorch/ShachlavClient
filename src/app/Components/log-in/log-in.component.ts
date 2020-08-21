@@ -15,10 +15,18 @@ sub :Subscription;
   constructor(private fb:FormBuilder,private route: ActivatedRoute,public userService:UsersService, public router:Router) { }
   form: FormGroup 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      username: new FormControl(localStorage.getItem('name'),Validators.required),
-      password: new FormControl(localStorage.getItem('password'),Validators.required),
-    });
+  let username ="";
+  let password="";
+
+if(localStorage.getItem('username')!==""&&localStorage.getItem('password')!=="" ){
+  username=localStorage.getItem('username');
+  password=localStorage.getItem('password');
+  }
+
+  this.form = this.fb.group({
+    username: new FormControl(username,Validators.required),
+    password: new FormControl(password,Validators.required),
+  });
     this.route.paramMap.subscribe(params => {
       this.type = params.get('typeP');
       this.form.reset();
@@ -28,24 +36,20 @@ sub :Subscription;
  
   }
 onSubmit(){
-if(this.userService.setCurrentUser(this.form.value.username,this.form.value.password,this.type)){
-this.got=false;
-this.type.toLowerCase();
-console.log(this.type);
-this.router.navigate([`home/${this.type.toLowerCase()}`]);
-console.log("found");
+  this.userService.setCurrentUser(this.form.value.username,this.form.value.password,this.type).subscribe(suc=>{
+    if(suc!==null){
+  this.userService.getCurrentUser(suc, this.type);
+  this.got=false;
+  this.type.toLowerCase();
+    localStorage.setItem('name',this.form.value.username);
+    localStorage.setItem('password',this.form.value.password);
+    localStorage.setItem('type',this.type);
+  this.router.navigate([`home/${this.type.toLowerCase()}`]);
+}
+},err=>{alert("לא רשום במערכת"),  this.form.reset()})
 
 }
-else{
-  this.form.reset();
-  console.log("didnt find");
-  // this.router.navigate([`/home/login/${this.type}`]);
-  // this.form.value.username="";
-  // this.form.value.password="";
- 
-}
 
-}
 }
  
 

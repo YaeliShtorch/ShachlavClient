@@ -26,7 +26,7 @@
     </ng-container>
     <ng-container matColumnDef="PumpType">
       <th mat-header-cell *matHeaderCellDef>  סוג משאבה</th>
-      <td mat-cell *matCellDef="let element" align="right">{{element.PumpType}} </td>
+      <td mat-cell *matCellDef="let element" align="right">{{ getPumpTypeName(element.PumpId)}} </td>
     </ng-container>
 
     <ng-container matColumnDef="StartTime">

@@ -20,7 +20,7 @@ constructor(public Http:HttpClient) { }
     return this.Http.get(environment.baseUrl+this.thisController+"GetId?id="+id)
   }
   GetCustomerUP(UserName:string, Password:string){
-    return this.Http.get(environment.baseUrl+this.thisController+"GetUP?UserName="+UserName+"&Password="+Password);
+    return this.Http.get<Customer>(environment.baseUrl+this.thisController+"GetUP?UserName="+UserName+"&Password="+Password);
   }
   GetCustomerUN(UserName:string){
     return this.Http.get(environment.baseUrl+this.thisController+"GetUN?UserName="+UserName);
