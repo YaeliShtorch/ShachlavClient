@@ -9,7 +9,7 @@ import { Customer } from 'src/app/Models/customer.models';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { DataSource } from '@angular/cdk/table';
 import{MatDialog}from '@angular/material/dialog';
-import{DialogBoxComponent}from 'src/app/Components/order/dialog-box';
+import{DialogBoxComponent}from'src/app/Components/order/dialog-box';
 import { DriverService } from 'src/app/services/driver.service';
 import { PumpType } from 'src/app/Models/pumpType.model';
 

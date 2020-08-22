@@ -36,6 +36,7 @@ if(localStorage.getItem('username')!==""&&localStorage.getItem('password')!=="" 
  
   }
 onSubmit(){
+  console.log("im in");
   this.userService.setCurrentUser(this.form.value.username,this.form.value.password,this.type).subscribe(suc=>{
     let obj=suc;
     this.userService.getCurrentUser(obj, this.type);
