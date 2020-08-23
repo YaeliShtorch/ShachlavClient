@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +30,8 @@ import { FooterComponent } from './homeComponents/footer/footer.component';
 import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DialogBoxComponent } from './Components/order/dialog-box';
 import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
+import { ShowMangerComponent } from './Components/show-manger/show-manger.component';
+import { ShowDriverComponent } from './Components/show-driver/show-driver.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVe
     FooterComponent,
     AddVehicleComponent,
     DialogBoxComponent,
-    AddVehicleTypeComponent
+    AddVehicleTypeComponent,
+    ShowMangerComponent,
+    ShowDriverComponent
   ],
   imports: [
     BrowserModule,

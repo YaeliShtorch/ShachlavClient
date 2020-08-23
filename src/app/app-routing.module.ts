@@ -19,6 +19,7 @@ import { DriverTaskComponent } from './Components/driver-task/driver-task.compon
 import {  AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DriverWork } from './Models/driverWork.models';
 import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
+import { ShowMangerComponent } from './Components/show-manger/show-manger.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
@@ -48,7 +49,8 @@ const routes: Routes = [
     { path: 'customerRegister', component: CustomerRegisterComponent },
     { path: 'addVehicle', component:AddVehicleComponent},
     { path: 'addPumpType', component:AddVehicleTypeComponent},
-    { path: 'addDriverWork', component: DriverTaskComponent }
+    { path: 'addDriverWork', component: DriverTaskComponent },
+    { path: 'showManager', component: ShowMangerComponent }
   
   ]  }
  

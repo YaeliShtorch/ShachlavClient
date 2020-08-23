@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Manager } from '../Models/manager.models';
 //import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -26,8 +27,8 @@ constructor(public Http:HttpClient) { }
     return this.Http.get(environment.baseUrl+this.thisController+"GetUN?UserName="+UserName);
   }
   
-  GetAllManagers(){
-    return this.Http.get(environment.baseUrl+this.thisController+"GetAll"); 
+  GetAllManagers():Observable<Manager[]>{
+    return this.Http.get<Manager[]>(environment.baseUrl+this.thisController+"GetAll"); 
   }
   GetManagerIN(identityNumber:string){
     return this.Http.get(environment.baseUrl+this.thisController+"GetIN?identityNumber="+identityNumber); 
