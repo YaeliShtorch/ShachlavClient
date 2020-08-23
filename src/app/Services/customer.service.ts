@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Customer } from '../Models/customer.models';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,8 @@ constructor(public Http:HttpClient) { }
     return this.Http.get(environment.baseUrl+this.thisController+"GetUN?UserName="+UserName);
   }
   
-  GetAllCustomers(){
-    return this.Http.get(environment.baseUrl+this.thisController+"GetAll"); 
+  GetAllCustomers():Observable<Customer[]>{
+    return this.Http.get<Customer[]>(environment.baseUrl+this.thisController+"GetAll"); 
   }
   GetCustomerIN(identityNumber:string){
     return this.Http.get(environment.baseUrl+this.thisController+"GetIN?identityNumber="+identityNumber); 
