@@ -29,8 +29,8 @@ export class DriverService {
       return this.Http.get(environment.baseUrl+this.thisController+"GetUN?UserName="+UserName);
     }
     
-    GetAllDrivers(){
-      return this.Http.get(environment.baseUrl+this.thisController+"GetAll"); 
+    GetAllDrivers():Observable<Driver[]>{
+      return this.Http.get<Driver[]>(environment.baseUrl+this.thisController+"GetAll"); 
     }
     GetDriverIN(identityNumber:string){
       return this.Http.get(environment.baseUrl+this.thisController+"GetIN?identityNumber="+identityNumber); 

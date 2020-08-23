@@ -10,23 +10,35 @@
        <mat-list-item class="sidelink">
                <a matLine [routerLink]="['mangerRegister']" routerLinkActive="active">הוספת מנהל</a>
             </mat-list-item>
-            <mat-list-item class="sidelink" fxLayoutAlign="start">
-              <a matLine [routerLink]="['showManager']" routerLinkActive="active">צפיה במנהל</a>
+            <mat-list-item class="sidelink">
+              <a matLine [routerLink]="['showManager']" routerLinkActive="active">צפיה במנהלים</a>
            </mat-list-item>
             <mat-list-item class="sidelink">
               <a matLine [routerLink]="['driverRegister']" routerLinkActive="active">הוספת נהג</a>
            </mat-list-item>
            <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['showDriver']" routerLinkActive="active">צפיה בנהגים</a>
+         </mat-list-item>
+           <mat-list-item class="sidelink">
             <a matLine [routerLink]="['providerRegister']">הוספת ספק</a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['showProvider']">צפיה בספקים</a>
           </mat-list-item>
           <mat-list-item class="sidelink">
             <a matLine [routerLink]="['customerRegister']"> הוספת לקוח </a>
           </mat-list-item>
           <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['showCustomer']"> צפיה בלקוחות </a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
             <a matLine [routerLink]="['addVehicle']" > הוספת כלי רכב</a>
           </mat-list-item>
           <mat-list-item class="sidelink">
-            <a matLine [routerLink]="['addPumpType']" >הוספת סוג רכב</a>
+            <a matLine [routerLink]="['showVehicle']" > צפיה בכלי רכב</a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['addPumpType']" >הוספה/הסרה סוג רכב</a>
           </mat-list-item>
           <mat-list-item class="sidelink">
             <a matLine [routerLink]="['addMaterial']" >הוספת חומר</a>
@@ -49,22 +61,34 @@
             <a matLine [routerLink]="['mangerRegister']" routerLinkActive="active">הוספת מנהל</a>
          </mat-list-item>
          <mat-list-item class="sidelink" fxLayoutAlign="start">
-          <a matLine [routerLink]="['showManager']" routerLinkActive="active">צפיה במנהל</a>
+          <a matLine [routerLink]="['showManager']" routerLinkActive="active">צפיה במנהלים</a>
        </mat-list-item>
          <mat-list-item class="sidelink" fxLayoutAlign="start">
            <a matLine [routerLink]="['driverRegister']" routerLinkActive="active">הוספת נהג</a>
         </mat-list-item>
         <mat-list-item class="sidelink" fxLayoutAlign="start">
+          <a matLine [routerLink]="['showDriver']" routerLinkActive="active">צפיה בנהגים</a>
+       </mat-list-item>
+        <mat-list-item class="sidelink" fxLayoutAlign="start">
          <a matLine [routerLink]="['providerRegister']">הוספת ספק</a>
        </mat-list-item>
+       <mat-list-item class="sidelink" fxLayoutAlign="start">
+        <a matLine [routerLink]="['showProvider']">צפיה בספקים</a>
+      </mat-list-item>
        <mat-list-item class="sidelink" fxLayoutAlign="start">
          <a matLine [routerLink]="['customerRegister']"> הוספת לקוח </a>
        </mat-list-item>
        <mat-list-item class="sidelink" fxLayoutAlign="start">
+        <a matLine [routerLink]="['showCustomer']"> צפיה בלקוחות </a>
+      </mat-list-item>
+       <mat-list-item class="sidelink" fxLayoutAlign="start">
          <a matLine [routerLink]="['addVehicle']" >הוספת כלי רכב</a>
        </mat-list-item>
        <mat-list-item class="sidelink">
-        <a matLine [routerLink]="['addPumpType']" >הוספת סוג רכב</a>
+        <a matLine [routerLink]="['showVehicle']" fxLayoutAlign="start"> צפיה בכלי רכב</a>
+      </mat-list-item>
+       <mat-list-item class="sidelink">
+        <a matLine [routerLink]="['addPumpType']" fxLayoutAlign="start">הוספה/הסרה סוג רכב</a>
       </mat-list-item>
        <mat-list-item class="sidelink" fxLayoutAlign="start">
         <a matLine [routerLink]="['addMaterial']" >הוספת חומר</a>

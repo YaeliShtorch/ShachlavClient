@@ -13,14 +13,14 @@ export class ProviderRegisterComponent implements OnInit {
 
   constructor(private fb:FormBuilder,public providerService:ProviderService) { }
   providerRegisterForm:FormGroup;
-    CompanyName:string; 
-    CompanyCode:string; 
-    Address:string; 
-    PhoneNumber:string; 
-    CellNumber:string;  
-    Email:string;  
-    UserName:string; 
-    Password:string;
+    // CompanyName:string; 
+    // CompanyCode:string; 
+    // Address:string; 
+    // PhoneNumber:string; 
+    // CellNumber:string;  
+    // Email:string;  
+    // UserName:string; 
+    // Password:string;
     
     CheckPassword:string; 
   ngOnInit(): void {
@@ -33,6 +33,7 @@ export class ProviderRegisterComponent implements OnInit {
       Address:['',Validators.required],
       UserName:['',[Validators.required,ValidationService.NewProvider(this.providerService)]],
       Password:['',Validators.required],
+      Comments:[''],
       CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
     });
   }

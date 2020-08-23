@@ -2,31 +2,37 @@
     <div class="example-header">
       <mat-form-field>
         <!-- (change)="addEvent($event.target.value)" -->
+        <!-- // public  Id:number, 
+  // public  CompanyName:string, 
+  // public  CompanyCode:string,  
+  // public  Address:string, 
+  // public  PhoneNumber:string, 
+  // public  CellNumber:string,  
+  // public  Email:string,  
+  // public  UserName:string, 
+  // public  Password:string,
+  // public  Comments:string  -->
         <input matInput (keyup)="applyFilter($event.target.value)"  placeholder="סינון הזמנה לפי מספר , תאריך או כתובת">
       </mat-form-field>
     </div>
 <table  mat-table [dataSource]="dataSource" multiTemplateDataRows class="mTable" matSort aria-label="Elements">
   <ng-container matColumnDef="Id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>קוד נהג</th> 
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> קוד ספק</th> 
       <td mat-cell *matCellDef="let element"> {{element.Id}}</td>
     </ng-container>
-    <ng-container matColumnDef="IdentityNumber">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>  מספר ת.ז. </th>
-      <td mat-cell *matCellDef="let element"> {{element.IdentityNumber}}</td>
+    <ng-container matColumnDef="CompanyName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  שם חברה </th>
+      <td mat-cell *matCellDef="let element"> {{element.CompanyName}}</td>
     </ng-container>
-    <ng-container matColumnDef="FirstName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> שם פרטי</th>
-      <td mat-cell *matCellDef="let element"> {{element.FirstName}}</td>
+    <ng-container matColumnDef="CompanyCode">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> קוד חברה</th>
+      <td mat-cell *matCellDef="let element"> {{element.CompanyCode}}</td>
     </ng-container>
-    <ng-container matColumnDef="LastName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>  שם משפחה </th>
-      <td mat-cell *matCellDef="let element"> {{element.LastName}}</td>
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  כתובת </th>
+      <td mat-cell *matCellDef="let element"> {{element.Address}}</td>
     </ng-container>
-    <ng-container matColumnDef="Email">
-      <th mat-header-cell 
-      *matHeaderCellDef mat-sort-header>  אימייל </th>
-      <td mat-cell *matCellDef="let element">{{element.Email}} </td>
-    </ng-container>
+
     <ng-container matColumnDef="PhoneNumber">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  מס' טלפון</th>
       <td mat-cell *matCellDef="let element">{{element.PhoneNumber}} </td>
@@ -37,19 +43,10 @@
       <td mat-cell *matCellDef="let element" >{{element.CellNumber }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Address">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>  כתובת </th>
-      <td mat-cell *matCellDef="let element" >{{element.Address}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="BirthDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> תאריך יום הולדת</th>
-      <td mat-cell *matCellDef="let element" >{{element.BirthDate| date:'MM-dd-yyyy'}}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="EntryToWorkDate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> תחילת עבודה</th>
-        <td mat-cell *matCellDef="let element" >{{element.EntryToWorkDate| date:'MM-dd-yyyy'}}</td>
+    <ng-container matColumnDef="Email">
+        <th mat-header-cell 
+        *matHeaderCellDef mat-sort-header>  אימייל </th>
+        <td mat-cell *matCellDef="let element">{{element.Email}} </td>
       </ng-container>
 
     <ng-container matColumnDef="UserName">
@@ -62,10 +59,11 @@
         <td mat-cell *matCellDef="let element" >{{element.Password}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="IsActive">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> עובד פעיל</th>
-        <td mat-cell *matCellDef="let element" >{{element.IsActive}}</td>
+      <ng-container matColumnDef="Comments">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> הערות</th>
+        <td mat-cell *matCellDef="let element" >{{element.Comments}}</td>
       </ng-container>
+  
 
       <!-- Edit Column -->
       <!-- <ng-container matColumnDef="EditDelete">

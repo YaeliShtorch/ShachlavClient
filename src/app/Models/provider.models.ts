@@ -9,7 +9,8 @@ constructor(
     public  CellNumber:string,  
     public  Email:string,  
     public  UserName:string, 
-    public  Password:string, 
+    public  Password:string,
+    public  Comments:string 
 ){}
   
 }
