@@ -1,1 +1,52 @@
-<p>order-details works!</p>
+
+
+
+
+     <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="newOrderForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <label id="example-radio-group-label">בחר מה רצונך להזמין</label>
+          <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          id="OrderType" 
+          name="OrderType"  
+          formControlName="OrderType"
+ >
+  <mat-radio-button class="example-radio-button">
+    ב-30 ללא פוליה שקיעה 5
+  </mat-radio-button>
+  <mat-radio-button class="example-radio-button">
+    ב-30 מייקו שקיעה 6
+  </mat-radio-button>
+  <mat-radio-button class="example-radio-button">
+  בטון
+  </mat-radio-button>
+  <mat-radio-button class="example-radio-button">
+   טיט
+  </mat-radio-button>
+</mat-radio-group>
+       
+       
+  
+           <mat-form-field>
+              <input
+                matInput 
+                 id="Element" 
+                 placeholder="אלמנט"
+                  name="Element"  
+                  formControlName="Element"
+                  >
+           <mat-hint ></mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput 
+              type="number"
+               id="Amount" 
+        placeholder="כמות"
+                name="amount"  
+                formControlName="Amount"
+                >
+         <mat-hint ></mat-hint>
+        </mat-form-field>
+</form>
+ 
