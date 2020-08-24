@@ -1,5 +1,5 @@
 import{Component}from '@angular/core'
-import { DriverService } from 'src/app/services/driver.service';
+import { VehicleService } from 'src/app/services/vehicle.service';
 import {  PumpType } from 'src/app/Models/pumpType.model';
 import { TemplateRef, ViewChild } from '@angular/core';
 import{MatDialog}from'@angular/material'
@@ -44,7 +44,7 @@ export class AddVehicleTypeComponent{
 
     @ViewChild('deleteVT') deleteVT: TemplateRef<any>;
 
-    constructor(public driverService:DriverService, public dialog:MatDialog){
+    constructor(public vehicleService:VehicleService, public dialog:MatDialog){
     }
 
 //add pumpVehicle type
@@ -52,7 +52,7 @@ export class AddVehicleTypeComponent{
         console.log(this.pT);
         if(this.pT.PType!=""){
             console.log(this.pT);
-         this.driverService.AddPumpType(this.pT).subscribe(suc=>{alert("עודכן בהצלחה");this.driverService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;}); pTypeField.value="";},err=>{alert("בעיית התחברות")});
+         this.vehicleService.AddPumpType(this.pT).subscribe(suc=>{alert("עודכן בהצלחה");this.vehicleService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;}); pTypeField.value="";},err=>{alert("בעיית התחברות")});
         }
     }
 
@@ -66,7 +66,7 @@ export class AddVehicleTypeComponent{
          if (result !== undefined) {
              if (result === true) {
                  console.log(this.pTypes[vTSelected]);
-            this.driverService.DeletePumpType(vTSelected).subscribe(suc=>{console.log("done"); this.pTypes = this.pTypes.filter(function(el) { return el.Id != vTSelected; }); },err=>console.log("failed"));
+            this.vehicleService.DeletePumpType(vTSelected).subscribe(suc=>{console.log("done"); this.pTypes = this.pTypes.filter(function(el) { return el.Id != vTSelected; }); },err=>console.log("failed"));
              } 
          }
     })
@@ -74,7 +74,7 @@ export class AddVehicleTypeComponent{
 }
 
     ngOnInit(){
-      this.driverService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;});
+      this.vehicleService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;});
     }
 
 }

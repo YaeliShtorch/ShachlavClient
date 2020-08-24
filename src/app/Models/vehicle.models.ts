@@ -2,13 +2,14 @@ export  class Vehicle
     {    
         constructor(
            
+            public Id:number,
             public Description:string, 
-            public VType:string,
             public  PipesLength:number,  
             public  LicenseNumber:number,    
             public  DriverId:number,      
           //  public Driver Driver
-            public  MixerNumber:number
+            public  MixerNumber:number,
+            public PumpTypeId:number,
         ){}  
     
     }

@@ -10,7 +10,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import { DataSource } from '@angular/cdk/table';
 import{MatDialog}from '@angular/material/dialog';
 import{DialogBoxComponent}from'src/app/Components/order/dialog-box';
-import { DriverService } from 'src/app/services/driver.service';
+import { VehicleService } from 'src/app/services/vehicle.service';
 import { PumpType } from 'src/app/Models/pumpType.model';
 
 @Component({
@@ -43,7 +43,7 @@ export class OrderComponent implements OnInit {
  
  
   constructor(public customerService:CustomerService,public orderService:OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService:UsersService
-    ,public dialog: MatDialog, public driverService:DriverService) { 
+    ,public dialog: MatDialog, public vehicleService:VehicleService) { 
  
   }  
   
@@ -122,7 +122,7 @@ if(pumpId!=0){
   // console.log(this.activatedRoute.snapshot.routeConfig.path.split('/')[1]);
 
   //saving all pumpnames in an array
-  this.driverService.GetAllPumpTypes().subscribe(suc=>{this.PumpTypeArr=suc});
+  this.vehicleService.GetAllPumpTypes().subscribe(suc=>{this.PumpTypeArr=suc});
     this.activatedRoute.params.subscribe(params=>
       {this.orderFunc=this.activatedRoute.snapshot.routeConfig.path.split('/')[1];
       if(this.orderFunc.match('getAllOrders()'))

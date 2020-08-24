@@ -42,7 +42,7 @@ export class ShowProviderComponent implements OnInit {
 
   ngOnInit(){
     this.show=false;
-  this. getAllProviders();
+  this.getAllProviders();
 
   }
 }

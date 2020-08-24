@@ -2,7 +2,7 @@ import { Component,Inject } from '@angular/core';
 import{MAT_DIALOG_DATA}from '@angular/material'
 import { Order } from 'src/app/models/order.models';
 import * as moment from 'moment';
-import { DriverService } from 'src/app/services/driver.service';
+import { VehicleService } from 'src/app/services/vehicle.service';
 
 
 @Component({
@@ -69,7 +69,7 @@ import { DriverService } from 'src/app/services/driver.service';
 })
 export class DialogBoxComponent{
   pTypes=[];
-    constructor( @Inject(MAT_DIALOG_DATA) public passObj:any,public driverService:DriverService){
+    constructor( @Inject(MAT_DIALOG_DATA) public passObj:any,public vehicleService:VehicleService){
            passObj.passData.OrderDate = moment(passObj.passData.OrderDate).format('MM/DD/YYYY');
     }
 
@@ -79,7 +79,7 @@ export class DialogBoxComponent{
     }
     ngOnInit(){
   if(this.passObj.passAction==='edit'){
-  this.driverService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;});
+  this.vehicleService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;});
 }
 
     }
