@@ -7,6 +7,7 @@ import {ManagerServiceMService} from './manager-service-m.service';
 import { CustomerService } from './customer.service';
 import { ProviderService } from './provider.service';
 import { DriverService } from './driver.service';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,124 +25,59 @@ ManagerL:Manager;
 CustomerL:Customer;
 ProviderL:Provider;
 DriverL:Driver;
-setCurrentUser(username:string, password:string,type:string){
+
+
+
+setCurrentUser(username:string, password:string,type:string):Observable<any>{
   this.Logout();
   switch(type){
     case 'Manager':{
-       this.managerService.GetManagerUP(username,password).subscribe(
-       suc=>{
-      
-    if(suc==null)
-          {
-            this.found=false
-       }
-        else{
-           this.ManagerL=suc as Manager;
-         this.found=true;
-    }
-     },
-      err=>{
- alert("Server error")
-        }
-      )
-     break;
+      return this.managerService.GetManagerUP(username,password);
   }
     case 'Customer':{
-      this.customerService.GetCustomerUP(username,password).subscribe(
-        suc=>{
-      
-         if(suc==null)
-         {
-           this.found=false
-         }
-         else{
-          this.CustomerL=suc as Customer;
-          this.found=true;
-         }
-        },
-        err=>{
-alert("Server error")
-        }
-      )
-      break;
+      return this.customerService.GetCustomerUP(username,password);
     }
     case 'Provider':{
-      this.providerService.GetProviderUP(username,password).subscribe(
-        suc=>{
-      
-         if(suc==null)
-         {
-           this.found=false
-         }
-         else{
-          this.ProviderL=suc as Provider;
-          this.found=true;
-         }
-        },
-        err=>{
-alert("Server error")
-        }
-      )
-      break;
+      return this.providerService.GetProviderUP(username,password)
     }
     case 'Driver':{
-      this.driverService.GetDriverUP(username,password).subscribe(
-        suc=>{
-      
-         if(suc==null)
-         {
-           this.found=false
-         }
-         else{
-          this.DriverL=suc as Driver;
-          this.found=true;
-         }
-        },
-        err=>{
-alert("Server error")
-        }
-      )
-      break;
-    }
+      return this.driverService.GetDriverUP(username,password)
   }
-  if(this.found){
-  localStorage.setItem('name',username);
-  localStorage.setItem('password',password);
-  localStorage.setItem('type',type);
 
 }
-return this.found;
 }
 
-getCurrentUser(){
-if(this.found==true){
- switch( localStorage.getItem('type')){
+getCurrentUser(s:object,type:string){
+
+ switch(type){
    case "Manager":{
+    this.ManagerL=s as Manager;
      return this.ManagerL;
 break;
    }
  
  case "Customer":{
+  this.CustomerL=s as Customer;
   return this.CustomerL;
 break;
 }
 case "Driver":{
+  this.DriverL=s as Driver;
   return this.DriverL;
 break;
 }
 case "Provider":{
+  this.ProviderL=s as Provider;
   return this.ProviderL;
 break;
 }
  }
-}
-else
-return null;
+
 }
 Logout(){
  
-  if(localStorage.getItem('userName')!=null&& localStorage.getItem('password')!=null){
-    localStorage.removeItem('userName');
+  if(localStorage.getItem('name')!=null&& localStorage.getItem('password')!=null){
+    localStorage.removeItem('name');
    
     localStorage.removeItem('password');  
     this.found=false;

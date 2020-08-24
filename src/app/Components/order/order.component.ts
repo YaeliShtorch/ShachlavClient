@@ -9,7 +9,7 @@ import { Customer } from 'src/app/Models/customer.models';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { DataSource } from '@angular/cdk/table';
 import{MatDialog}from '@angular/material/dialog';
-import{DialogBoxComponent}from 'src/app/Components/order/dialog-box';
+import{DialogBoxComponent}from'src/app/Components/order/dialog-box';
 import { DriverService } from 'src/app/services/driver.service';
 import { PumpType } from 'src/app/Models/pumpType.model';
 
@@ -19,12 +19,12 @@ import { PumpType } from 'src/app/Models/pumpType.model';
   styleUrls: ['./order.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed, void', style({ height: '0px', minHeight: '0', display: 'none' })),
-      state('expanded', style({ height: '*' })),
+      state('collapsed', style({height: '0px', minHeight: '0', visibility: 'hidden'})),
+      state('expanded', style({height: '*', visibility: 'visible'})),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-      transition('expanded <=> void', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
     ]),
-]})
+  ],
+})
 
 
 export class OrderComponent implements OnInit {
@@ -46,6 +46,7 @@ export class OrderComponent implements OnInit {
     ,public dialog: MatDialog, public driverService:DriverService) { 
  
   }  
+  
 
   getAllOrders(){
     // this.show=true;

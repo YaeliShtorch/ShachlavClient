@@ -7,8 +7,23 @@ import { DriverService } from 'src/app/services/driver.service';
 
 @Component({
     selector:'app-dialog-box',
-    template:`<div *ngIf="this.passObj.passAction==='edit'" fxLayout="column" fxLayoutAlign="center" style="margin:40px; width:300px">
+    template:`<style>
+    @media (min-width:1025px){
+      input{
+          display:inline-block;
+        
+      }
+  }
+  @media (max-width:1024px){
+      input{
+          display:block;
+      }
+      mat-dialog-content{
+        margin-top:10%;
+      }
+  }</style>
     <h1 mat-dialog-title> עריכת הזמנה</h1>
+    <mat-dialog-content *ngIf="this.passObj.passAction==='edit'" fxLayout="column" fxLayoutAlign="center">
     <br>
     <mat-form-field>
     <mat-label>(כתובת הזמנה (עיר, רחוב ומיקוד</mat-label>
@@ -35,18 +50,20 @@ import { DriverService } from 'src/app/services/driver.service';
     <input type="text" matInput placeholder="{{this.passObj.passData.EndTime}}" [(ngModel)]="this.passObj.passData.EndTime" required>
     </mat-form-field>
     <mat-checkbox [(ngModel)]="this.passObj.passData.ConcreteCheck" color="primary"> <mat-label>בדיקת בטון</mat-label></mat-checkbox>
+   
     <mat-dialog-actions>
     <mat-label style="color:red">שים לב בעת שמירה תאריך ההזמנה ישתנה לתאריך של היום  וכן אנו צריכים לאשר את ההזמנה מחדש*.  </mat-label>
     <button mat-button [mat-dialog-close]='this.passObj' color="primary"> שמירה</button>
     <button mat-button [mat-dialog-close]='false' color="primary"> ביטול</button>
     </mat-dialog-actions>
-    </div>
+ </mat-dialog-content>
     <div *ngIf="this.passObj.passAction==='delete'">
     <mat-dialog-content> <p>האם למחוק הזמנה?</p></mat-dialog-content>
     <mat-dialog-actions>
     <button mat-button [mat-dialog-close]='true' color="primary"> כן</button>
     <button mat-button [mat-dialog-close]='false' color="primary"> לא</button>
     </mat-dialog-actions>
+   
     </div>
     `
 })
@@ -61,9 +78,9 @@ export class DialogBoxComponent{
      var dateFormat=moment.locales();
     }
     ngOnInit(){
-  console.log(this.passObj);
+  if(this.passObj.passAction==='edit'){
   this.driverService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;});
-
+}
 
     }
 

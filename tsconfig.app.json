@@ -10,7 +10,7 @@
   ],
   "include": [
     "src/**/*.d.ts",
-   
+    "polyfills.ts",
     "../node_modules/sce-plugins/**/*.ts"
 
   ]
