@@ -1,1 +1,58 @@
 <p>provider works!</p>
+<div style="background-color:	#F5F5F5;" > 
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon class="icon">navigate_next</mat-icon>
+      <span class="icon"> לפעולות</span>
+    </button>
+    <span class="menu-spacer"></span>
+    <div fxShow="true" fxHide.lt-md class="sidenav">
+      <mat-nav-list  fxLayout="column">
+        <!-- fxFlex.sm="35"  fxFlex.md="30" fxFlex.xs="50"  fxFlex.lt-lg="50" -->
+       <mat-list-item class="sidelink">
+               <a matLine [routerLink]="['']" routerLinkActive="active">הזמנות הממתינות לאישור</a>
+            </mat-list-item>
+            <mat-list-item class="sidelink">
+              <a matLine [routerLink]="['']" routerLinkActive="active">כל ההזמנות</a>
+           </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['']">אישור הזמנה </a>
+          </mat-list-item>
+          </mat-nav-list> 
+    </div>
+
+  <mat-sidenav-container>
+    <mat-sidenav-content class="content">
+      <p class="text-orange display-4">
+        שלום ספק 
+      <br/>
+      </p>
+      <mat-sidenav #sidenav>
+        <mat-nav-list>
+          <mat-list-item class="sidelink" fxLayoutAlign="start">
+            <a matLine [routerLink]="['']" routerLinkActive="active">הזמנות ממתינות לאישור</a>
+         </mat-list-item>
+         <mat-list-item class="sidelink" fxLayoutAlign="start">
+           <a matLine [routerLink]="['']" routerLinkActive="active">כל ההזמנות</a>
+        </mat-list-item>
+        <mat-list-item class="sidelink" fxLayoutAlign="start">
+         <a matLine [routerLink]="['']">אישור הזמנה</a>
+       </mat-list-item>
+       <mat-list-item class="sidelink" fxLayoutAlign="start">
+         <a matLine [routerLink]="['']"> מציאת הזמנה לפי מספר הזמנה </a>
+       </mat-list-item>
+       <mat-list-item class="sidelink" fxLayoutAlign="start">
+         <a matLine [routerLink]="['']" >עריכת הזמנה</a>
+       </mat-list-item>
+       <mat-list-item class="sidelink" fxLayoutAlign="start">
+        <a matLine [routerLink]="['']" >הוספת הזמנה </a>
+      </mat-list-item>
+          <a (click)="sidenav.toggle()" mat-list-item class="link" class="sidelink" fxLayoutAlign="start">סגור</a>
+        </mat-nav-list>    
+      </mat-sidenav>
+    <router-outlet></router-outlet>
+ 
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>
