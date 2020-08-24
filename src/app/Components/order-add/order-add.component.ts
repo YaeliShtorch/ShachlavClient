@@ -22,26 +22,20 @@ export class OrderAddComponent implements OnInit {
     this.newOrderForm = this.fb.group({
       OrderDate: [''],
       OrderTime:[''],
-    
-    
+      Element:[''],
       SiteAdress:[''],
       ConcreteCheck:[''],
-    
-    
-      Comment:['']
+      PumpNeeded:[''],
+      PumpType:['']
     
     });
   
   }
-onSubmit()
-{
-  
-}
+onSubmit(forn:FormGroup){}
 title = 'demo';
 exportTime = {  minute: 15,hour: 7, meriden: 'PM', format: 24 };
 
 onChangeHour(event) {
  console.log('event', event);
 }
-
 }

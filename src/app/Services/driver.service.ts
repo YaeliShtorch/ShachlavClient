@@ -68,28 +68,28 @@ export class DriverService {
    AddDriverTask(am:DriverWork){
     return this.Http.post(environment.baseUrl+this.thisController+"AddDriverWork",am);
   }
-  // GetAllVehicles():Observable<Vehicle[]>{
-  //   return this.Http.get<Vehicle[]>(environment.baseUrl+this.thisController+"GetAllVehicles"); 
-  // }
-  // AddVehicle(v:Vehicle){
-  //   return this.Http.post(environment.baseUrl+this.thisController+"AddVehicle",v);
-  // }
+  GetAllVehicles(){
+    return this.Http.get(environment.baseUrl+this.thisController+"GetAllVehicles"); 
+  }
+  AddVehicle(v:Vehicle){
+    return this.Http.post(environment.baseUrl+this.thisController+"AddVehicle",v);
+  }
 
-  // GetAllPumpTypes():Observable<string[]>{
-  //   return this.Http.get<string[]>(environment.baseUrl+this.thisController+"getAllPumpTypes");
-  // }
+  GetAllPumpTypes():Observable<string[]>{
+    return this.Http.get<string[]>(environment.baseUrl+this.thisController+"getAllPumpTypes");
+  }
 
-  // AddPumpType(pT:PumpType){
-  //   return this.Http.post(environment.baseUrl+this.thisController+"AddPumpType",pT);
-  // }
+  AddPumpType(pT:PumpType){
+    return this.Http.post(environment.baseUrl+this.thisController+"AddPumpType",pT);
+  }
 
-  // DeletePumpType(id:number){
-  // return this.Http.get(environment.baseUrl+this.thisController+"DeletePumpType?id="+id);
-  // }
+  DeletePumpType(id:number){
+  return this.Http.get(environment.baseUrl+this.thisController+"DeletePumpType?id="+id);
+  }
 
-  // getPumpTypeName(id:number){
-  //   return this.Http.get(environment.baseUrl+this.thisController+"getPumpTypeName?id="+id)
-  // }
+  getPumpTypeName(id:number){
+    return this.Http.get(environment.baseUrl+this.thisController+"getPumpTypeName?id="+id)
+  }
   //  IsExistUP(UserName:string,Password:string){
   //   return this.Http.post(environment.baseUrl+this.thisController+"Exist",{UserName,Password});
   //  }

@@ -39,7 +39,7 @@ export class ShowDriverComponent implements OnInit {
 
   ngOnInit() {
     this.show=false;
-    this.getAllDrivers();
+    this. getAllDrivers();
   }
 
 }

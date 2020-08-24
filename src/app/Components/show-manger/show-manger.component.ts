@@ -39,7 +39,7 @@ show:boolean=false;
 
   ngOnInit(){
     this.show=false;
-  this.getAllManagers();
+  this. getAllManagers();
 
   }
 

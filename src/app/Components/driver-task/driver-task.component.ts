@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
 
 import {ValidationService} from 'src/app/Services/validation.service'
-import { VehicleService } from 'src/app/services/vehicle.service';
 import { DriverService } from 'src/app/services/driver.service';
 import { DriverWork } from 'src/app/Models/driverWork.models';
 import { UsersService } from 'src/app/services/users.service';
@@ -22,7 +21,7 @@ import { element } from 'protractor';
 export class DriverTaskComponent implements OnInit {
 
 
-  constructor(private fb:FormBuilder,public vehicleService:VehicleService,public driverTaskService:DriverService,public userServise:UsersService,public customerService:CustomerService,public orderService:OrderService ) { }
+  constructor(private fb:FormBuilder,public driverTaskService:DriverService,public userServise:UsersService,public customerService:CustomerService,public orderService:OrderService ) { }
   driverTaskForm:FormGroup;
   DriverWork:DriverWork;
   Vehicles:Array<Vehicle>;
@@ -48,7 +47,7 @@ export class DriverTaskComponent implements OnInit {
     
     });
     
-    this.vehicleService.GetAllVehicles().subscribe(
+    this.driverTaskService.GetAllVehicles().subscribe(
         suc=>{
           this.Vehicles=new Array<Vehicle>();
          for(var i = 0; i < (suc as Array<Vehicle>).length; i++){

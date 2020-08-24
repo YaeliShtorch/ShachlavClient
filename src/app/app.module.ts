@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,10 +30,11 @@ import { FooterComponent } from './homeComponents/footer/footer.component';
 import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DialogBoxComponent } from './Components/order/dialog-box';
 import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
-import { MaterialTypeOrderComponent } from './Components/material-type-order/material-type-order.component';
-import { OrderConcreteComponent } from './Components/order-concrete/order-concrete.component';
-import { OrderClayComponent } from './Components/order-clay/order-clay.component';
-import { OrderPumpComponent } from './Components/order-pump/order-pump.component';
+import { ShowMangerComponent } from './Components/show-manger/show-manger.component';
+import { ShowDriverComponent } from './Components/show-driver/show-driver.component';
+import { ShowCustomerComponent } from './Components/show-customer/show-customer.component';
+import { ShowProviderComponent } from './Components/show-provider/show-provider.component';
+import { ShowVehicleComponent } from './Components/show-vehicle/show-vehicle.component';
 
 
 @NgModule({
@@ -61,10 +62,11 @@ import { OrderPumpComponent } from './Components/order-pump/order-pump.component
     AddVehicleComponent,
     DialogBoxComponent,
     AddVehicleTypeComponent,
-    MaterialTypeOrderComponent,
-    OrderConcreteComponent,
-    OrderClayComponent,
-    OrderPumpComponent
+    ShowMangerComponent,
+    ShowDriverComponent,
+    ShowCustomerComponent,
+    ShowProviderComponent,
+    ShowVehicleComponent
   ],
   imports: [
     BrowserModule,
