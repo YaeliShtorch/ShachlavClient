@@ -27,7 +27,7 @@
     <ng-container matColumnDef="DriverId">
       <th mat-header-cell 
       *matHeaderCellDef mat-sort-header>  שם נהג </th>
-      <td mat-cell *matCellDef="let element">{{getDriverName(element.DriverId)}} </td>
+      <td mat-cell *matCellDef="let element">{{element.DriverId}} </td>
     </ng-container>
     <ng-container matColumnDef="MixerNumber">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  מספר מערבל</th>
