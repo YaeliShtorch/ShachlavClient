@@ -16,7 +16,7 @@ import { ProviderComponent } from './Components/provider/provider.component';
 import { DriverComponent } from './Components/driver/driver.component';
 import {OrderAddComponent } from './Components/order-add/order-add.component';
 import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
-import { AddVeihcleComponent } from './Components/add-vehicle/add-vehicle.component';
+import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DriverWork } from './Models/driverWork.models';
 
 const routes: Routes = [
@@ -45,7 +45,7 @@ const routes: Routes = [
     { path: 'driverRegister',component: DriverRegisterComponent  },
     { path: 'providerRegister',component: ProviderRegisterComponent  },
     { path: 'customerRegister', component: CustomerRegisterComponent },
-    { path: 'addVehicle', component:AddVeihcleComponent},
+    { path: 'addVehicle', component:AddVehicleComponent},
     { path: 'addDriverWork', component: DriverTaskComponent }
   
   ]  }

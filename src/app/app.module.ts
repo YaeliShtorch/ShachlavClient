@@ -30,6 +30,10 @@ import { FooterComponent } from './homeComponents/footer/footer.component';
 import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DialogBoxComponent } from './Components/order/dialog-box';
 import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
+import { MaterialTypeOrderComponent } from './Components/material-type-order/material-type-order.component';
+import { OrderConcreteComponent } from './Components/order-concrete/order-concrete.component';
+import { OrderClayComponent } from './Components/order-clay/order-clay.component';
+import { OrderPumpComponent } from './Components/order-pump/order-pump.component';
 
 
 @NgModule({
@@ -56,7 +60,11 @@ import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVe
     FooterComponent,
     AddVehicleComponent,
     DialogBoxComponent,
-    AddVehicleTypeComponent
+    AddVehicleTypeComponent,
+    MaterialTypeOrderComponent,
+    OrderConcreteComponent,
+    OrderClayComponent,
+    OrderPumpComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@
   <mat-card>
     <mat-card-title >הזמנה חדשה</mat-card-title>
 <mat-card-content>
-    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="newOrderForm" (ngSubmit)="onSubmit(newOrderForm)" autocomplete="off">
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="newOrderForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <mat-form-field >
             <input 
             matInput
@@ -34,7 +34,7 @@
              </material-timepicker>
 
 
-         <mat-form-field>
+         <!-- <mat-form-field>
             <input
               matInput 
                id="Element" 
@@ -44,6 +44,17 @@
                 >
          <mat-hint ></mat-hint>
         </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput 
+            type="number"
+             id="Amount" 
+      placeholder="כמות"
+              name="amount"  
+              formControlName="Amount"
+              >
+       <mat-hint ></mat-hint>
+      </mat-form-field> -->
          <mat-form-field>
             <input
               matInput 
@@ -54,48 +65,33 @@
                 >
          <mat-hint ></mat-hint>
      </mat-form-field>
-     <mat-form-field>
-        <input
-          matInput 
+
+        <mat-checkbox
+         
            id="ConcreteCheck" 
-           placeholder="האם נדרשת בדיקת בטון"
             name="ConcreteCheck"  
             formControlName="ConcreteCheck"
-            >
-     <mat-hint ></mat-hint>
- </mat-form-field>
-
- 
-
-
- <mat-form-field>
-    <input
-      matInput 
-       id="PumpNeeded" 
-       placeholder="האם נדרשת משאבה"
-        name="PumpNeeded"  
-        formControlName="PumpNeeded"
-        >
- <mat-hint ></mat-hint>
+            >האם נדרשת בדיקת בטון
+          </mat-checkbox>
+      
+      <br>
+    
+<app-order-details></app-order-details> 
+<app-order-pump></app-order-pump>
+<mat-form-field>
+  <input
+    matInput 
+     id="Comment" 
+     placeholder="הערות "
+      name="comment"  
+      formControlName="Comment"
+      >
+<mat-hint ></mat-hint>
 </mat-form-field>
-
-
-<mat-form-field appearance="fill">
-  <mat-label>כלי רכב</mat-label>
-  <mat-select
-
-       id="PumpType" 
-       placeholder="סוג משאבה"
-        name="PumpType"  
-        formControlName="PumpType"
-       
-  >
-    <mat-option *ngFor="let vehicle of VehiclesTypes" >{{vehicle}}</mat-option>
-
-  </mat-select>
-</mat-form-field>  
         <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
-    </form>
+   
+  
+</form>
   </mat-card-content>
 </mat-card>
 </section>

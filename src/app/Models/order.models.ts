@@ -9,6 +9,7 @@ export class Order
     public  OrderDate:Date,    
     public  OrderTime:Date,   
     public  Element:string, 
+    public  Amount:number,
     public  SiteAdress:string, 
     public  ConcreteCheck:boolean, 
     public  PumpNeeded:boolean, 
