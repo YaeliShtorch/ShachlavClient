@@ -34,6 +34,7 @@ import { MaterialTypeOrderComponent } from './Components/material-type-order/mat
 import { OrderConcreteComponent } from './Components/order-concrete/order-concrete.component';
 import { OrderClayComponent } from './Components/order-clay/order-clay.component';
 import { OrderPumpComponent } from './Components/order-pump/order-pump.component';
+import { AddMaterialsComponent } from './Components/add-materials/add-materials.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { OrderPumpComponent } from './Components/order-pump/order-pump.component
     MaterialTypeOrderComponent,
     OrderConcreteComponent,
     OrderClayComponent,
-    OrderPumpComponent
+    OrderPumpComponent,
+    AddMaterialsComponent
   ],
   imports: [
     BrowserModule,

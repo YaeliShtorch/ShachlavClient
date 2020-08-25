@@ -18,6 +18,7 @@ import {OrderAddComponent } from './Components/order-add/order-add.component';
 import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
 import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DriverWork } from './Models/driverWork.models';
+import { AddMaterialsComponent } from './Components/add-materials/add-materials.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
@@ -46,6 +47,7 @@ const routes: Routes = [
     { path: 'providerRegister',component: ProviderRegisterComponent  },
     { path: 'customerRegister', component: CustomerRegisterComponent },
     { path: 'addVehicle', component:AddVehicleComponent},
+    { path: 'addMaterial', component:AddMaterialsComponent},
     { path: 'addDriverWork', component: DriverTaskComponent }
   
   ]  }

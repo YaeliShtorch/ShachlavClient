@@ -76,7 +76,16 @@
       
       <br>
     
-<app-order-details></app-order-details> 
+<app-order-details *ngFor="let i of OrderDetail"></app-order-details> 
+<div class="example-button-container">
+  <button mat-mini-fab color="primary" aria-label="Example icon button with an add icon" (click)="AddMaterial()">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+
+  <button mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemoveMaterial()">
+    <mat-icon>remove_circle</mat-icon>
+  </button>
+</div>
 <app-order-pump></app-order-pump>
 <mat-form-field>
   <input

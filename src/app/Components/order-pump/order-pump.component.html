@@ -11,7 +11,10 @@
  >האם נדרשת משאבה
 
 </mat-checkbox>
-<mat-form-field appearance="fill" *ngIf="newOrderForm.get('PumpNeeded').value">
+<br>
+<div *ngIf="newOrderForm.get('PumpNeeded').value">
+<div  *ngFor="let i of MorePumps">
+<mat-form-field appearance="fill" >
 <mat-label>כלי רכב</mat-label>
 <mat-select
 
@@ -24,4 +27,16 @@ formControlName="PumpType"
 
 </mat-select>
 </mat-form-field>  
+</div>
+<div class="example-button-container" >
+    <button mat-mini-fab color="primary" aria-label="Example icon button with a add icon" (click)="AddPump()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+ 
+    <button mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemovePump()">
+      <mat-icon>remove_circle
+      </mat-icon>
+    </button>
+  </div>
+</div>
 </form>
