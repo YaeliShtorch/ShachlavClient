@@ -16,38 +16,26 @@ export class OrderAddComponent implements OnInit {
   constructor(private fb:FormBuilder,orderService:OrderService ) { }
   newOrderForm:FormGroup;
   VehiclesTypes:Array<String>;
- OrderDetail:Array<boolean>=[true];
+ 
   ngOnInit(): void {
     this.VehiclesTypes=["משאבה 62 מטר","משאבה 56 מטר","משאבה 52 מטר","משאבה 42 מטר","משאבה 36 מטר","משאבה 32 מטר","משאבה 28 מטר","משאבה 24 מטר","משאבת מייקו עם זרוע","משאבת מייקו"];
     this.newOrderForm = this.fb.group({
       OrderDate: [''],
       OrderTime:[''],
-    
-    
+      Element:[''],
       SiteAdress:[''],
       ConcreteCheck:[''],
-    
-    
-      Comment:['']
+      PumpNeeded:[''],
+      PumpType:['']
     
     });
   
   }
-onSubmit()
-{
-  
-}
-AddMaterial(){
-  this.OrderDetail.push(true);
-}
-RemoveMaterial(){
-  this.OrderDetail.pop();
-}
+onSubmit(forn:FormGroup){}
 title = 'demo';
 exportTime = {  minute: 15,hour: 7, meriden: 'PM', format: 24 };
 
 onChangeHour(event) {
  console.log('event', event);
 }
-
 }

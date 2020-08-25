@@ -1,7 +1,7 @@
 import { Component,Inject } from '@angular/core';
 import{MAT_DIALOG_DATA}from '@angular/material'
 import { Order } from 'src/app/models/order.models';
- import * as moment from 'moment';
+import * as moment from 'moment';
 import { DriverService } from 'src/app/services/driver.service';
 
 
