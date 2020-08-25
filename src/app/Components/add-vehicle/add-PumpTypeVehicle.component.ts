@@ -52,7 +52,8 @@ export class AddVehicleTypeComponent{
         console.log(this.pT);
         if(this.pT.PType!=""){
             console.log(this.pT);
-         this.driverService.AddPumpType(this.pT).subscribe(suc=>{alert("עודכן בהצלחה");this.driverService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;}); pTypeField.value="";},err=>{alert("בעיית התחברות")});
+         this.driverService.AddPumpType(this.pT).subscribe(suc=>{alert("עודכן בהצלחה"); pTypeField.value="";},err=>{alert("בעיית התחברות")});
+         this.driverService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;});
         }
     }
 

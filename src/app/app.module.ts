@@ -35,6 +35,7 @@ import { ShowDriverComponent } from './Components/show-driver/show-driver.compon
 import { ShowCustomerComponent } from './Components/show-customer/show-customer.component';
 import { ShowProviderComponent } from './Components/show-provider/show-provider.component';
 import { ShowVehicleComponent } from './Components/show-vehicle/show-vehicle.component';
+import { ManagerUpdateComponent } from './Components/manager-update/manager-update.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { ShowVehicleComponent } from './Components/show-vehicle/show-vehicle.com
     ShowDriverComponent,
     ShowCustomerComponent,
     ShowProviderComponent,
-    ShowVehicleComponent
+    ShowVehicleComponent,
+    ManagerUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -54,6 +54,8 @@ ManagerAdd:Manager;
   // ManagerAdd:Manager;
   // ToADD:boolean=true;
 
+
+
   onSubmit(){
   this.ManagerAdd=new Manager(this.registerForm.value.Id,this.registerForm.value.IdentityNumber,
     this.registerForm.value.FirstName,
