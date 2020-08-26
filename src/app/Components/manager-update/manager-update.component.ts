@@ -11,13 +11,21 @@ import{MAT_DIALOG_DATA} from '@angular/material'
   styleUrls: ['./manager-update.component.css']
 })
 export class ManagerUpdateComponent implements OnInit {
+<<<<<<< HEAD
   registerForm:FormGroup;
+=======
+  updateForm:FormGroup;
+>>>>>>> 85012b8928edb4d3d5d2db381771f18f62f449a7
   ManagerUpdate:Manager;
   constructor(public managerService:ManagerService,private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public passObj:any) { }
 
   ngOnInit(): void {
     
+<<<<<<< HEAD
     this.registerForm = this.fb.group({
+=======
+    this.updateForm = this.fb.group({
+>>>>>>> 85012b8928edb4d3d5d2db381771f18f62f449a7
       IdentityNumber: [this.passObj.passData.IdentityNumber, [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
       FirstName:[this.passObj.passData.FirstName,Validators.required],
       LastName:[this.passObj.passData.LastName,Validators.required],
@@ -35,7 +43,11 @@ export class ManagerUpdateComponent implements OnInit {
 //check which controls are invalid
 findInvalidControls() {
   // const invalid = [];
+<<<<<<< HEAD
   const controls = this.registerForm.controls;
+=======
+  const controls = this.updateForm.controls;
+>>>>>>> 85012b8928edb4d3d5d2db381771f18f62f449a7
   for (const name in controls) {
       if (controls[name].invalid) {
           // invalid.push(name);
@@ -45,6 +57,7 @@ findInvalidControls() {
   // return invalid;
 }
 
+<<<<<<< HEAD
 onSubmit(){
 
  
@@ -63,4 +76,7 @@ onSubmit(){
   //   err=>{console.log("didnt reach")}
   // )
 }
+=======
+
+>>>>>>> 85012b8928edb4d3d5d2db381771f18f62f449a7
 }

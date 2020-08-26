@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import {MatButtonModule,MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatDialogModule} from '@angular/material';
-import {MatFormFieldModule,MatRadioModule} from '@angular/material';
+import {MatButtonModule,MatToolbarModule,MatSidenavModule,MatListModule,MatIconModule, MatTableModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatDialogModule, MatCheckboxModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
-import {MatCheckboxModule} from '@angular/material/checkbox'
+
 import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
 import {MatSelectModule} from '@angular/material';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -31,8 +31,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
         MatExpansionModule,
         OwlDateTimeModule,
         OwlNativeDateTimeModule,
-        MatCheckboxModule,
-        MatRadioModule
+        MatCheckboxModule
 
 ],
     exports:[MatTableModule,
@@ -55,8 +54,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
         MatExpansionModule,
         OwlDateTimeModule,
         OwlNativeDateTimeModule,
-        MatCheckboxModule,
-        MatRadioModule
+        MatCheckboxModule
 ]
 
 })

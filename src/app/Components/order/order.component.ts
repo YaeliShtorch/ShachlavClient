@@ -28,7 +28,7 @@ import { PumpType } from 'src/app/Models/pumpType.model';
 
 
 export class OrderComponent implements OnInit {
-
+ x:number;
   orderFunc="";
   orderNum:number;
   customer:string="p";
