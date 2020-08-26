@@ -1,0 +1,81 @@
+<div  fxFlex *ngIf="show!==false">
+    <div class="example-header">
+      <mat-form-field>
+        <!-- (change)="addEvent($event.target.value)" -->
+        <input matInput (keyup)="applyFilter($event.target.value)"  placeholder="סינון הזמנה לפי מספר , תאריך או כתובת">
+      </mat-form-field>
+    </div>
+<table  mat-table [dataSource]="dataSource" multiTemplateDataRows class="mTable" matSort aria-label="Elements">
+  <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> קוד מנהל</th> 
+      <td mat-cell *matCellDef="let element"> {{element.Id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="IdentityNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  מספר ת.ז. </th>
+      <td mat-cell *matCellDef="let element"> {{element.IdentityNumber}}</td>
+    </ng-container>
+    <ng-container matColumnDef="FirstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> שם פרטי</th>
+      <td mat-cell *matCellDef="let element"> {{element.FirstName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="LastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  שם משפחה </th>
+      <td mat-cell *matCellDef="let element"> {{element.LastName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell 
+      *matHeaderCellDef mat-sort-header>  אימייל </th>
+      <td mat-cell *matCellDef="let element">{{element.Email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="PhoneNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  מס' טלפון</th>
+      <td mat-cell *matCellDef="let element">{{element.PhoneNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="CellNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>מס' פלאפון</th>
+      <td mat-cell *matCellDef="let element" >{{element.CellNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  כתובת </th>
+      <td mat-cell *matCellDef="let element" >{{element.Address}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="BirthDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> תאריך יום הולדת</th>
+      <td mat-cell *matCellDef="let element" >{{element.BirthDate| date:'MM-dd-yyyy'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UserName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> שם משתמש</th>
+        <td mat-cell *matCellDef="let element" >{{element.UserName}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="Password">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> סיסמא</th>
+        <td mat-cell *matCellDef="let element" >{{element.Password}}</td>
+      </ng-container>
+
+      <!-- Edit Column -->
+      <ng-container matColumnDef="EditDelete">
+        <th mat-header-cell *matHeaderCellDef > עריכה/מחיקה</th>
+        <td mat-cell *matCellDef="let row">
+           <a mat-button matTooltip="Edit" (click)="openDialog('edit',row)" align="right"><mat-icon>create</mat-icon></a>
+            <a mat-button matTooltip="Delete" (click)="openDialog('delete',row)" align="right"><mat-icon>delete</mat-icon></a>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="mheader"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="ColumnHeader"></tr>
+  </table> 
+  <mat-paginator [pageSizeOptions]="[5, 10, 20,100]" showFirstLastButtons></mat-paginator>
+</div>
+
+<ng-template #deleteVT>
+  <mat-dialog-content> <p>האם למחוק מנהל?</p></mat-dialog-content>
+  <mat-dialog-actions>
+  <button mat-button [mat-dialog-close]='true' color="primary"> כן</button>
+  <button mat-button [mat-dialog-close]='false' color="primary"> לא</button>
+  </mat-dialog-actions>
+  </ng-template>`

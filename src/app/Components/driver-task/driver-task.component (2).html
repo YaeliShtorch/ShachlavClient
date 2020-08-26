@@ -1,0 +1,115 @@
+
+    <mat-card>
+    <mat-card-title>דיווח עבודה</mat-card-title>
+    <mat-card-content>
+       
+     
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="driverTaskForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <mat-form-field appearance="fill">
+        <mat-label>נהג</mat-label>
+        <mat-select
+        formControlName="Driver"
+        >
+          <mat-option *ngFor="let driver of Drivers" value={{driver.Id}}>{{driver.FirstName}} {{driver.LastName}}</mat-option>
+      
+        </mat-select>
+      </mat-form-field>
+        <material-timepicker
+         color="primary"
+          label="שעת התחלה"
+           appearance="standard"
+            [userTime]="exportTime" 
+            (change)="onChangeHour($event)" 
+            revertLabel="Remove"
+             submitLabel="Ok">
+            
+             <input 
+             matInput
+             formControlName="StartTime"
+             name="startTime"
+             id="StartTime"
+          
+             >
+            </material-timepicker>
+        <material-timepicker 
+        color="primary" 
+        label="שעת סיום" 
+
+        appearance="standard" 
+        [userTime]="exportTime" 
+        (change)="onChangeHour($event)" 
+        revertLabel="Remove" 
+        submitLabel="Ok">
+        <input 
+        matInput
+        formControlName="EndTime"
+        name="endTime"
+        id="EndTime">
+
+        >
+       
+      </material-timepicker> 
+    
+        <mat-form-field >
+            <input 
+            matInput
+             [matDatepicker]="picker" 
+           
+             id="WorkDate"
+              placeholder="תאריך עבודה"
+               name="workDate"
+               formControlName="WorkDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker  #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <input 
+            type="number"
+             matInput  
+             id="Amount" 
+             placeholder="כמות " 
+             name="amount" 
+              formControlName="Amount">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>לקוח</mat-label>
+          <mat-select
+          formControlName="Customer"
+          >
+            <mat-option *ngFor="let customer of Customers" value={{customer.Id}}>{{customer.FirstName}} {{customer.LastName}}</mat-option>
+        
+          </mat-select>
+          <mat-error *ngIf="driverTaskForm.get('Customer').hasError('OneOfTworequired')">בחר לקוח או כתובת אתר בניה</mat-error>  
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>כתובת</mat-label>
+          <mat-select
+          formControlName="OrderAddress"
+          >
+            <mat-option *ngFor="let order of Orders" value={{order.Id}}>{{order.SiteAddress}}</mat-option>
+        
+          </mat-select>
+          <mat-error *ngIf="driverTaskForm.get('OrderAddress').hasError('OneOfTworequired')">בחר לקוח או כתובת אתר בניה</mat-error>  
+        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>כלי רכב</mat-label>
+        <mat-select
+        formControlName="Vehicle"
+        >
+          <mat-option *ngFor="let vehicle of Vehicles" value={{vehicle.Id}}>{{vehicle.Description}}</mat-option>
+      
+        </mat-select>
+      </mat-form-field>
+        
+        <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
+    </form>
+</mat-card-content>
+</mat-card>
+
+      
+       
+            
+               
+        
+                 
+               
