@@ -11,13 +11,13 @@ import{MAT_DIALOG_DATA} from '@angular/material'
   styleUrls: ['./manager-update.component.css']
 })
 export class ManagerUpdateComponent implements OnInit {
-  registerForm:FormGroup;
+  updateForm:FormGroup;
   ManagerUpdate:Manager;
   constructor(public managerService:ManagerService,private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public passObj:any) { }
 
   ngOnInit(): void {
     
-    this.registerForm = this.fb.group({
+    this.updateForm = this.fb.group({
       IdentityNumber: [this.passObj.passData.IdentityNumber, [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
       FirstName:[this.passObj.passData.FirstName,Validators.required],
       LastName:[this.passObj.passData.LastName,Validators.required],
@@ -35,7 +35,7 @@ export class ManagerUpdateComponent implements OnInit {
 //check which controls are invalid
 findInvalidControls() {
   // const invalid = [];
-  const controls = this.registerForm.controls;
+  const controls = this.updateForm.controls;
   for (const name in controls) {
       if (controls[name].invalid) {
           // invalid.push(name);
@@ -45,22 +45,5 @@ findInvalidControls() {
   // return invalid;
 }
 
-onSubmit(){
 
- 
-  // this.ManagerUpdate=new Manager(this.registerForm.value.Id,this.registerForm.value.IdentityNumber,
-  //   this.registerForm.value.FirstName,
-  //   this.registerForm.value.LastName,
-  //   this.registerForm.value.Email,
-  //   this.registerForm.value.PhoneNumber,
-  //   this.registerForm.value.CellNumber,
-  //   this.registerForm.value.Address,
-  //   this.registerForm.value.BirthDate,
-  //   this.registerForm.value.UserName,
-  //   this.registerForm.value.Password)
-  // this.managerService.UpdateManager(this.ManagerUpdate).subscribe(
-  //   suc=>{console.log(this.ManagerUpdate.FirstName)},
-  //   err=>{console.log("didnt reach")}
-  // )
-}
 }

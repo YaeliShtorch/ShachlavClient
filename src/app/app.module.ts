@@ -30,7 +30,7 @@ import { FooterComponent } from './homeComponents/footer/footer.component';
 import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DialogBoxComponent } from './Components/order/dialog-box';
 import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
-import { ShowMangerComponent } from './Components/show-manger/show-manger.component';
+import{MangerShowComponent} from './Components/manager-show/manager-show.component';
 import { ShowDriverComponent } from './Components/show-driver/show-driver.component';
 import { ShowCustomerComponent } from './Components/show-customer/show-customer.component';
 import { ShowProviderComponent } from './Components/show-provider/show-provider.component';
@@ -63,7 +63,7 @@ import { ManagerUpdateComponent } from './Components/manager-update/manager-upda
     AddVehicleComponent,
     DialogBoxComponent,
     AddVehicleTypeComponent,
-    ShowMangerComponent,
+    MangerShowComponent,
     ShowDriverComponent,
     ShowCustomerComponent,
     ShowProviderComponent,

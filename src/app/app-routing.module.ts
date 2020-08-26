@@ -18,7 +18,7 @@ import {OrderAddComponent } from './Components/order-add/order-add.component';
 import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
 import {  AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
-import { ShowMangerComponent } from './Components/show-manger/show-manger.component';
+import{MangerShowComponent} from './Components/manager-show/manager-show.component'
 import { ShowDriverComponent } from './Components/show-driver/show-driver.component';
 import { ShowProviderComponent } from './Components/show-provider/show-provider.component';
 import { ShowVehicleComponent } from './Components/show-vehicle/show-vehicle.component';
@@ -53,7 +53,7 @@ const routes: Routes = [
     { path: 'addVehicle', component:AddVehicleComponent},
     { path: 'addPumpType', component:AddVehicleTypeComponent},
     { path: 'addDriverWork', component: DriverTaskComponent },
-    { path: 'showManager', component: ShowMangerComponent },
+    { path: 'showManager', component: MangerShowComponent },
     {path:'showDriver', component:ShowDriverComponent},
     {path:'showProvider', component:ShowProviderComponent},
     {path:'showCustomer',component:ShowCustomerComponent},

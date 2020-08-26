@@ -1,8 +1,8 @@
-<section id="ManagerRegidter">
+<section id="ManagerUpdate">
     <mat-card>
       <mat-card-title >מנהל חדש</mat-card-title>
   <mat-card-content>
-      <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="registerForm"  autocomplete="off">
+      <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="updateForm"  autocomplete="off">
           <mat-form-field>
               <input
                type="text"
@@ -14,9 +14,9 @@
   
                 >
            <mat-hint >הקש תעודת זהות כולל ספרת ביקןרת</mat-hint>
-        <mat-hint  align="end" >{{registerForm.get('IdentityNumber').value?.length}}/9</mat-hint>
-        <mat-error *ngIf="registerForm.get('IdentityNumber').hasError('required')" >נא הכנס ת"ז</mat-error> 
-        <mat-error *ngIf="!registerForm.get('IdentityNumber').hasError('required')||registerForm.get('IdentityNumber').hasError('minlength')||registerForm.get('IdentityNumber').hasError('maxlength')||registerForm.get('IdentityNumber').hasError('israeliIdOk')">תעודת זהות לא תקינה</mat-error>  
+        <mat-hint  align="end" >{{updateForm.get('IdentityNumber').value?.length}}/9</mat-hint>
+        <mat-error *ngIf="updateForm.get('IdentityNumber').hasError('required')" >נא הכנס ת"ז</mat-error> 
+        <mat-error *ngIf="!updateForm.get('IdentityNumber').hasError('required')||updateForm.get('IdentityNumber').hasError('minlength')||updateForm.get('IdentityNumber').hasError('maxlength')||updateForm.get('IdentityNumber').hasError('israeliIdOk')">תעודת זהות לא תקינה</mat-error>  
    
           </mat-form-field>
           <mat-form-field>
@@ -96,7 +96,7 @@
                 placeholder="שם משתמש" 
                 name="username"
                   formControlName="UserName">
-                  <mat-error *ngIf="!registerForm.get('UserName').hasError('required')||registerForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
+                  <mat-error *ngIf="!updateForm.get('UserName').hasError('required')||updateForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
    
           </mat-form-field> 
            <mat-form-field>
@@ -108,7 +108,7 @@
                name="password"  
                formControlName="Password">
           </mat-form-field> 
-          <button mat-raised-button type="submit" [disabled]='registerForm.invalid'  [mat-dialog-close]='registerForm' id="Ok" value="אישור">אישור</button>
+          <button mat-raised-button type="submit" [disabled]='updateForm.invalid'  [mat-dialog-close]='updateForm' id="Ok" value="אישור">אישור</button>
       </form>
     </mat-card-content>
   </mat-card>

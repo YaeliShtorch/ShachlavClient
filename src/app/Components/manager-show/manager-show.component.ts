@@ -8,11 +8,11 @@ import { ManagerUpdateComponent } from '../manager-update/manager-update.compone
 
 
 @Component({
-  selector: 'app-show-manger',
-  templateUrl: './show-manger.component.html',
-  styleUrls: ['./show-manger.component.css']
+  selector: 'app-manger-show',
+  templateUrl: './manger-show.component.html',
+  styleUrls: ['./manger-show.component.css']
 })
-export class ShowMangerComponent implements OnInit {
+export class MangerShowComponent implements OnInit {
   dataSource=new MatTableDataSource<Manager>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -63,7 +63,7 @@ ManagerUpdate:Manager;
     console.log(result);
       //Note: If the user clicks outside the dialog or presses the escape key, there'll be no result
       if (result !== undefined) {
-         this.ManagerUpdate=new Manager(row.Id,result.value.IdentityNumber,
+    this.ManagerUpdate=new Manager(row.Id,result.value.IdentityNumber,
     result.value.FirstName,
     result.value.LastName,
     result.value.Email,
@@ -77,10 +77,6 @@ ManagerUpdate:Manager;
         // console.log(this.ManagerUpdate);
         this.ManagerService.UpdateManager(this.ManagerUpdate).subscribe(suc=> this.getAllManagers());
       
-                //   if (result === true) {
-        //       console.log(row.Id);
-        //  this.ManagerService.DeleteManager(row.Id).subscribe(suc=>{console.log("done"); this.dataSource.data = this.dataSource.data.filter(function(el) { return el.Id != row.Id; }); },err=>console.log("failed"));
-        //   } 
           
       }
  })

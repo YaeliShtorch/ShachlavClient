@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowMangerComponent } from './show-manger.component';
+import { MangerShowComponent} from './manager-show.component';
 
 describe('ShowMangerComponent', () => {
-  let component: ShowMangerComponent;
-  let fixture: ComponentFixture<ShowMangerComponent>;
+  let component: MangerShowComponent;
+  let fixture: ComponentFixture<MangerShowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowMangerComponent ]
+      declarations: [ MangerShowComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShowMangerComponent);
+    fixture = TestBed.createComponent(MangerShowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
