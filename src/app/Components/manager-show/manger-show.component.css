@@ -17,8 +17,15 @@ td.mat-cell{
 }
 
 @media (max-width:1024px){
-  td.mat-cell{
-    background-color: rgb(245, 222, 182);
-    padding:3px;
-  }
+
+  input{
+    display:block;
+}
 } 
+
+@media (min-width:1025px){
+  input{
+      display:inline-block;
+    
+  }
+}

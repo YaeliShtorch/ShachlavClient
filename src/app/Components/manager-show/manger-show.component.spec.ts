@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowDriverComponent } from './show-driver.component';
+import { ManagerShowComponent} from './manager-show.component';
 
-describe('ShowDriverComponent', () => {
-  let component: ShowDriverComponent;
-  let fixture: ComponentFixture<ShowDriverComponent>;
+describe('ShowMangerComponent', () => {
+  let component: ManagerShowComponent;
+  let fixture: ComponentFixture<ManagerShowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowDriverComponent ]
+      declarations: [ ManagerShowComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShowDriverComponent);
+    fixture = TestBed.createComponent(ManagerShowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,11 +7,11 @@ import { ProviderComponent } from '../provider/provider.component';
 import { ProviderService } from 'src/app/services/provider.service';
 
 @Component({
-  selector: 'app-show-provider',
-  templateUrl: './show-provider.component.html',
-  styleUrls: ['./show-provider.component.css']
+  selector: 'app-provider-show',
+  templateUrl: './provider-show.component.html',
+  styleUrls: ['./provider-show.component.css']
 })
-export class ShowProviderComponent implements OnInit {
+export class ProviderShowComponent implements OnInit {
   dataSource=new MatTableDataSource<Provider>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

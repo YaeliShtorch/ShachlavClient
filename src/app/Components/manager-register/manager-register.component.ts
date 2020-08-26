@@ -18,6 +18,7 @@ registerForm:FormGroup;
   ngOnInit(): void {
     
     this.registerForm = this.fb.group({
+      Id:[''],
       IdentityNumber: ['', [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
       FirstName:['',Validators.required],
       LastName:['',Validators.required],
@@ -55,7 +56,7 @@ ManagerAdd:Manager;
   // ToADD:boolean=true;
 
   onSubmit(){
-  this.ManagerAdd=new Manager(this.registerForm.value.IdentityNumber,
+  this.ManagerAdd=new Manager(this.registerForm.value.Id,this.registerForm.value.IdentityNumber,
     this.registerForm.value.FirstName,
     this.registerForm.value.LastName,
     this.registerForm.value.Email,

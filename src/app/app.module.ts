@@ -26,7 +26,7 @@ import { ProviderOrderComponent } from './Components/provider-order/provider-ord
 import { ProviderRegisterComponent } from './Components/provider-register/provider-register.component';
 import { SubHomeComponent } from './Components/sub-home/sub-home.component';
 import { OrderAddComponent } from './Components/order-add/order-add.component';
-import { FooterComponent } from './homeComponents/footer/footer.component';
+import { FooterComponent } from './Components/footer/footer.component';
 import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
 import { DialogBoxComponent } from './Components/order/dialog-box';
 import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
@@ -35,6 +35,12 @@ import { OrderConcreteComponent } from './Components/order-concrete/order-concre
 import { OrderClayComponent } from './Components/order-clay/order-clay.component';
 import { OrderPumpComponent } from './Components/order-pump/order-pump.component';
 import { AddMaterialsComponent } from './Components/add-materials/add-materials.component';
+import { ManagerUpdateComponent } from './Components/manager-update/manager-update.component';
+import{ManagerShowComponent} from './Components/manager-show/manager-show.component'
+import { ProviderShowComponent } from './Components/provider-show/provider-show.component';
+import { CustomerShowComponent } from './Components/customer-show/customer-show.component';
+import { VehicleShowComponent } from './Components/vehicle-show/vehicle-show.component';
+import { DriverShowComponent } from './Components/driver-show/driver-show.component';
 
 
 @NgModule({
@@ -66,8 +72,15 @@ import { AddMaterialsComponent } from './Components/add-materials/add-materials.
     OrderConcreteComponent,
     OrderClayComponent,
     OrderPumpComponent,
-    AddMaterialsComponent
+    AddMaterialsComponent,
+    ManagerUpdateComponent,
+    ManagerShowComponent,
+    ProviderShowComponent,
+    CustomerShowComponent,
+    DriverShowComponent,
+    VehicleShowComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     AppRoutingModule,

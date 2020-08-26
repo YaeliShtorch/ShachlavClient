@@ -16,9 +16,13 @@ import { ProviderComponent } from './Components/provider/provider.component';
 import { DriverComponent } from './Components/driver/driver.component';
 import {OrderAddComponent } from './Components/order-add/order-add.component';
 import { DriverTaskComponent } from './Components/driver-task/driver-task.component';
-import { AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
-import { DriverWork } from './Models/driverWork.models';
-import { AddMaterialsComponent } from './Components/add-materials/add-materials.component';
+import {  AddVehicleComponent } from './Components/add-vehicle/add-vehicle.component';
+import { AddVehicleTypeComponent } from './Components/add-vehicle/add-PumpTypeVehicle.component';
+import{ManagerShowComponent} from './Components/manager-show/manager-show.component'
+import { DriverShowComponent } from './Components/driver-show/driver-show.component';
+import { ProviderShowComponent } from './Components/provider-show/provider-show.component';
+import { VehicleShowComponent } from './Components/vehicle-show/vehicle-show.component';
+import { CustomerShowComponent } from './Components/customer-show/customer-show.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
@@ -47,8 +51,13 @@ const routes: Routes = [
     { path: 'providerRegister',component: ProviderRegisterComponent  },
     { path: 'customerRegister', component: CustomerRegisterComponent },
     { path: 'addVehicle', component:AddVehicleComponent},
-    { path: 'addMaterial', component:AddMaterialsComponent},
-    { path: 'addDriverWork', component: DriverTaskComponent }
+    { path: 'addPumpType', component:AddVehicleTypeComponent},
+    { path: 'addDriverWork', component: DriverTaskComponent },
+    { path: 'showManager', component: ManagerShowComponent },
+    {path:'showDriver', component:DriverShowComponent},
+    {path:'showProvider', component:ProviderShowComponent},
+    {path:'showCustomer',component:CustomerShowComponent},
+    {path:'showVehicle', component:VehicleShowComponent}
   
   ]  }
  

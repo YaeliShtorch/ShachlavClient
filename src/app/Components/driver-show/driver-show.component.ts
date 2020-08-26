@@ -5,11 +5,11 @@ import{Driver}from 'src/app/Models/driver.models'
 import { DriverService } from 'src/app/services/driver.service';
 
 @Component({
-  selector: 'app-show-driver',
-  templateUrl: './show-driver.component.html',
-  styleUrls: ['./show-driver.component.css']
+  selector: 'app-driver-show',
+  templateUrl: './driver-show.component.html',
+  styleUrls: ['./driver-show.component.css']
 })
-export class ShowDriverComponent implements OnInit {
+export class DriverShowComponent implements OnInit {
   dataSource=new MatTableDataSource<Driver>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

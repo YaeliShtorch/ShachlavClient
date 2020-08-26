@@ -1,8 +1,14 @@
 import { Optional } from '@angular/core';
 
 export class Customer{
+    public get Id(): number {
+        return this._Id;
+    }
+    public set Id(value: number) {
+        this._Id = value;
+    }
     constructor(
-        @Optional() public Id:number,
+     private _Id:number,
      public IdentityNumber:string,
      public FirstName:string,
      public LastName:string,

@@ -4,11 +4,11 @@ import{Customer}from 'src/app/Models/customer.models'
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
-  selector: 'app-show-customer',
-  templateUrl: './show-customer.component.html',
-  styleUrls: ['./show-customer.component.css']
+  selector: 'app-customer-show',
+  templateUrl: './customer-show.component.html',
+  styleUrls: ['./customer-show.component.css']
 })
-export class ShowCustomerComponent implements OnInit {
+export class CustomerShowComponent implements OnInit {
   dataSource=new MatTableDataSource<Customer>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
