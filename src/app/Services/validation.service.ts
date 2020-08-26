@@ -60,9 +60,9 @@ export class ValidationService {
         let BirthDate=new Date(Date.parse(c.value));
    
     
-      if(BirthDate.getDay()<=31&&BirthDate.getDay()>=1&&BirthDate.getMonth()<=12)
+      if(BirthDate.getDay()<=31&&BirthDate.getDay()>=1&&BirthDate.getMonth()<=12&&BirthDate.getDay()>=1)
       {
-       if(BirthDate.getFullYear()>=new Date().getFullYear()-18){
+       if(BirthDate.getFullYear()<=new Date().getFullYear()-18){
     
       return {userOldEnough:false};
     }

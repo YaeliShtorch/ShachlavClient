@@ -1,5 +1,5 @@
 import{Component}from '@angular/core'
-import { VehicleService } from 'src/app/services/vehicle.service';
+import { DriverService } from 'src/app/services/driver.service';
 import {  PumpType } from 'src/app/Models/pumpType.model';
 import { TemplateRef, ViewChild } from '@angular/core';
 import{MatDialog}from'@angular/material'
@@ -15,15 +15,15 @@ import{MatDialog}from'@angular/material'
   
    <mat-form-field>
    <mat-select #vTSelected>
-   <mat-option *ngFor="let pVehicle of pTypes" [value]="pVehicle">{{pVehicle.PType}}</mat-option>
+   <mat-option *ngFor="let pVehicle of pTypes" [value]="pVehicle.Id" >{{pVehicle.PType}}</mat-option>
    </mat-select>
    </mat-form-field>
    
     <mat-form-field>
     <mat-label>הכנס סוג כלי רכב או אורך צינור</mat-label>
-    <input type="text" matInput [(ngModel)]="this.pT.PType" required #newType>
+    <input type="text" matInput [(ngModel)]="this.pT.PType" required #pTypeField>
     </mat-form-field>
-    <button mat-raised-button  color="primary" (click)="addPumpType(newType.value)">  הוספת סוג כלי רכב</button> <br>
+    <button mat-raised-button  color="primary" (click)="addPumpType(pTypeField)">  הוספת סוג כלי רכב</button> <br>
     <button mat-raised-button  color="primary" (click)="deletePumpType(vTSelected.value)" style="float:left">  הסרת סוג כלי רכב</button>
     </div>
     </mat-card-content>
@@ -39,31 +39,34 @@ import{MatDialog}from'@angular/material'
 
     })
 export class AddVehicleTypeComponent{
-    pT:PumpType= new PumpType(-1,"");
+    pT:PumpType= new PumpType(1,"");
     pTypes=[];
 
     @ViewChild('deleteVT') deleteVT: TemplateRef<any>;
 
-    constructor(public vehicleService:VehicleService, public dialog:MatDialog){
+    constructor(public driverService:DriverService, public dialog:MatDialog){
     }
 
 //add pumpVehicle type
-    addPumpType(pNew){
-        if(pNew!=undefined){
-            this.pT.PType=pNew;
-         this.vehicleService.AddPumpType(this.pT).subscribe(suc=>{alert("עודכן בהצלחה"); },err=>{alert("בעיית התחברות")});
+    addPumpType(pTypeField){
+        console.log(this.pT);
+        if(this.pT.PType!=""){
+            console.log(this.pT);
+         this.driverService.AddPumpType(this.pT).subscribe(suc=>{alert("עודכן בהצלחה");this.driverService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;}); pTypeField.value="";},err=>{alert("בעיית התחברות")});
         }
     }
 
-    deletePumpType(selected){
+    deletePumpType(vTSelected){
         //check if to open dialog
-        if(selected!==undefined){
+        if(vTSelected!==undefined){
+     console.log(vTSelected);
      let dialogRef = this.dialog.open(this.deleteVT);
      dialogRef.afterClosed().subscribe(result => {
          // Note: If the user clicks outside the dialog or presses the escape key, there'll be no result
          if (result !== undefined) {
              if (result === true) {
-            this.vehicleService.DeletePumpType(selected.Id).subscribe(suc=>{console.log("done");this.pTypes.filter(function(){el=> el != selected});},err=>console.log("failed"));
+                 console.log(this.pTypes[vTSelected]);
+            this.driverService.DeletePumpType(vTSelected).subscribe(suc=>{console.log("done"); this.pTypes = this.pTypes.filter(function(el) { return el.Id != vTSelected; }); },err=>console.log("failed"));
              } 
          }
     })
@@ -71,7 +74,7 @@ export class AddVehicleTypeComponent{
 }
 
     ngOnInit(){
-      this.vehicleService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;});
+      this.driverService.GetAllPumpTypes().subscribe(suc=>{this.pTypes=suc;});
     }
 
 }
