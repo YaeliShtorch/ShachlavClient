@@ -1,6 +1,6 @@
-<section id="ManagerUpdate">
+<section id="CustomerUpdate">
     <mat-card>
-      <mat-card-title >עריכת מנהל</mat-card-title>
+      <mat-card-title >עריכת לקוח</mat-card-title>
   <mat-card-content>
       <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="updateForm"  autocomplete="off">
           <mat-form-field>
@@ -36,6 +36,24 @@
               name="lname"
                 formControlName="LastName">
           </mat-form-field>
+          <mat-form-field>
+            <input 
+            type="text"
+             matInput  
+             id="CompanyName" 
+             placeholder="חברה" 
+             name="companyName" 
+              formControlName="CompanyName">
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+            type="text" 
+            matInput 
+            id="BusinessCode" 
+            placeholder="קוד חברה" 
+            name="businessCode"
+              formControlName="BusinessCode">
+        </mat-form-field>
           <mat-form-field>
               <input
                type="email" 
@@ -113,10 +131,3 @@
     </mat-card-content>
   </mat-card>
   </section>
-        
-         
-              
-                 
-          
-                   
-                 

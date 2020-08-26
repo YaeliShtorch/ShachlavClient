@@ -136,7 +136,7 @@
               formControlName="CheckPassword">
               <mat-error *ngIf="!customerRegisterForm.get('CheckPassword').hasError('isMatching')" >סיסמאות אינן תואמות</mat-error>
         </mat-form-field>
-        <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
+        <button mat-raised-button type="submit" [disabled]="customerRegisterForm.invalid" id="Ok" value="אישור">אישור</button>
     </form>
 </mat-card-content>
 </mat-card>

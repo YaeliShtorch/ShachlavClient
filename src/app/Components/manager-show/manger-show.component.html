@@ -1,8 +1,9 @@
-<div  fxFlex *ngIf="show!==false">
+<!-- *ngIf="show!==false" -->
+<div  fxFlex>
     <div class="example-header">
       <mat-form-field>
         <!-- (change)="addEvent($event.target.value)" -->
-        <input matInput (keyup)="applyFilter($event.target.value)"  placeholder="סינון הזמנה לפי מספר , תאריך או כתובת">
+        <input matInput (keyup)="applyFilter($event.target.value)"  placeholder="סינון לפי קוד מנהל , תאריך או כתובת">
       </mat-form-field>
     </div>
 <table  mat-table [dataSource]="dataSource" multiTemplateDataRows class="mTable" matSort aria-label="Elements">

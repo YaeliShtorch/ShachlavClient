@@ -25,7 +25,7 @@ ngOnInit(): void {
   this.addVehicleForm = this.fb.group({
     Description : [''],
     VType:[''],
-    PipesLengh:[''],
+    PipesLength:[''],
     LicenseNumber:[''],
     DriverId:[''],
     MixerNumber:[''],
