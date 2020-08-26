@@ -17,6 +17,7 @@ export class AddMaterialsComponent implements OnInit {
 addMaterialForm:FormGroup;
 Types:Array<String>;
 Material:Material;
+add:number;
 
 
 
