@@ -41,7 +41,26 @@ export class OrderService {
  getAllCustOrders(id:number):Observable<Order[]>{
    return this.Http.get<Order[]>(environment.baseUrl+this.thisController+"GetAllCO?id="+id);
  }
- AddMaterial(m:Material){
-  return this.Http.post(environment.baseUrl+this.thisController+"AddMaterial",m);
+ AddClay(m:Material){
+  return this.Http.post(environment.baseUrl+this.thisController+"AddClay",m);
  }
+ AddVehicleType(m:Material){
+  return this.Http.post(environment.baseUrl+this.thisController+"AddVehicleType",m);
+ }
+ AddExposue(m:Material){
+  return this.Http.post(environment.baseUrl+this.thisController+"AddExposue",m);
+ }
+ AddDeep(m:Material){
+  return this.Http.post(environment.baseUrl+this.thisController+"AddDeep",m);
+ }
+ AddExtension(m:Material){
+  return this.Http.post(environment.baseUrl+this.thisController+"AddExtension",m);
+ }
+ AddConcDesc(m:Material){
+  return this.Http.post(environment.baseUrl+this.thisController+"AddConcDesc",m);
+ }
+ AddConcrete(m:Material){
+  return this.Http.post(environment.baseUrl+this.thisController+"AddConcrete",m);
+ }
+
 }
