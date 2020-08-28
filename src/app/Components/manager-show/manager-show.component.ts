@@ -66,10 +66,10 @@ ManagerUpdate:Manager;
     this.ManagerUpdate=new Manager(row.Id,result.value.IdentityNumber,
     result.value.FirstName,
     result.value.LastName,
+    result.value.Address,
     result.value.Email,
     result.value.PhoneNumber,
     result.value.CellNumber,
-    result.value.Address,
     result.value.BirthDate,
     result.value.UserName,
     result.value.Password);

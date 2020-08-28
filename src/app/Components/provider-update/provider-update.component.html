@@ -1,8 +1,18 @@
- <section id="ProviderRegidter">
+<section id="ProviderUpdate">
     <mat-card>
-        <mat-card-title >הוספת ספק</mat-card-title>
+        <mat-card-title >עריכת ספק</mat-card-title>
     <mat-card-content>
-    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="providerRegisterForm" (ngSubmit)="OnSubmit()" autocomplete="off">
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="updateForm" autocomplete="off">
+        <mat-form-field>
+            <input
+             type="text"
+              matInput 
+               id="CompanyCode" 
+               placeholder="תעודת זהות"
+                name="companyCode"  
+                formControlName="CompanyCode"
+              >
+        </mat-form-field>
         <mat-form-field>
             <input 
             type="text"
@@ -13,23 +23,15 @@
               formControlName="CompanyName">
         </mat-form-field>
         <mat-form-field>
-            <input
-             type="text"
-              matInput 
-               id="CompanyCode" 
-               placeholder="קוד חברה"
-                name="companyCode"  
-                formControlName="CompanyCode"
-              >
+            <input 
+            type="text"
+             matInput 
+              id="Adress"
+               placeholder="כתובת"
+                name="adress" 
+                 formControlName="Address">
         </mat-form-field>
-        <mat-form-field>
-            <input
-             type="email" 
-             matInput id="Email"
-              placeholder="מייל" 
-              name="email" 
-              formControlName="Email">
-        </mat-form-field>
+        
         <mat-form-field>
             <input 
             type="text" 
@@ -50,14 +52,14 @@
               >
         </mat-form-field>
         <mat-form-field>
-            <input 
-            type="text"
-             matInput 
-              id="Adress"
-               placeholder="כתובת"
-                name="adress" 
-                 formControlName="Address">
+            <input
+             type="email" 
+             matInput id="Email"
+              placeholder="מייל" 
+              name="email" 
+              formControlName="Email">
         </mat-form-field>
+     
         <mat-form-field>
             <input
              type="text" 
@@ -66,7 +68,7 @@
               placeholder="שם משתמש" 
               name="username"
                 formControlName="UserName">
-                 <mat-error *ngIf="!providerRegisterForm.get('UserName').hasError('required')||providerRegisterForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
+                 <mat-error *ngIf="!updateForm.get('UserName').hasError('required')||updateForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
         </mat-form-field> 
          <mat-form-field>
             <input
@@ -77,16 +79,6 @@
              name="password"  
              formControlName="Password">
         </mat-form-field> 
-         <mat-form-field>
-            <input
-             type="password" 
-             matInput
-              id="TPassword" 
-             placeholder="הקש סיסמא פעם נוספת"
-              name="tpassword"  
-              formControlName="CheckPassword">
-              <mat-error *ngIf="!providerRegisterForm.get('CheckPassword').hasError('isMatching')" >סיסמאות אינן תואמות</mat-error>
-        </mat-form-field>
         <!-- <mat-form-field>
             <input
              type="text" 
@@ -96,7 +88,8 @@
              name="comments"  
              formControlName="Comments">
         </mat-form-field>  -->
-        <button mat-raised-button type="submit" [disabled]='providerRegisterForm.invalid' id="Ok" value="אישור">אישור</button>
+
+        <button mat-raised-button type="submit" [mat-dialog-close]="updateForm"id="Ok" value="אישור">אישור</button>
     </form>
 </mat-card-content>
 </mat-card>

@@ -42,6 +42,8 @@ import { CustomerShowComponent } from './Components/customer-show/customer-show.
 import { VehicleShowComponent } from './Components/vehicle-show/vehicle-show.component';
 import { DriverShowComponent } from './Components/driver-show/driver-show.component';
 import { CustomerUpdateComponent } from './Components/customer-update/customer-update.component';
+import { DriverUpdateComponent } from './Components/driver-update/driver-update.component';
+import { ProviderUpdateComponent } from './Components/provider-update/provider-update.component';
 
 
 @NgModule({
@@ -80,7 +82,9 @@ import { CustomerUpdateComponent } from './Components/customer-update/customer-u
     CustomerShowComponent,
     DriverShowComponent,
     VehicleShowComponent,
-    CustomerUpdateComponent
+    CustomerUpdateComponent,
+    DriverUpdateComponent,
+    ProviderUpdateComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

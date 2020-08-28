@@ -54,13 +54,14 @@ export class CustomerShowComponent implements OnInit {
 })
 } else if(action ==='edit'){
   let dialogRef = this.dialog.open(CustomerUpdateComponent,{
-    height: '450px',
+    height: '700px',
     width:'400px',
       data:{
         passData:row
       }
   });
   dialogRef.afterClosed().subscribe(result => {
+    console.log(result)
       //Note: If the user clicks outside the dialog or presses the escape key, there'll be no result
       if (result !== undefined) {
     this.CustomerUpdate=new Customer(row.Id,result.value.IdentityNumber,
@@ -72,9 +73,9 @@ export class CustomerShowComponent implements OnInit {
       result.value.PhoneNumber,
       result.value.CellNumber,
       result.value.Address,
-      result.value.BirthDate,
       result.value.UserName,
-      result.value.Password)
+      result.value.Password, 
+      result.value.BirthDate)
 
         // console.log(this.ManagerUpdate);
         this.customerService.UpdateCustomer(this.CustomerUpdate).subscribe(suc=> this.getAllCustomers());

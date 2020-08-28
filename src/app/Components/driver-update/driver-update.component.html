@@ -1,8 +1,8 @@
-<section id="CustomerUpdate">
+<section id="ManagerUpdate">
     <mat-card>
-      <mat-card-title >עריכת לקוח</mat-card-title>
+      <mat-card-title >נהג חדש</mat-card-title>
   <mat-card-content>
-      <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="updateForm"  autocomplete="off">
+      <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="updateForm" autocomplete="off">
           <mat-form-field>
               <input
                type="text"
@@ -11,9 +11,10 @@
                  placeholder="תעודת זהות"
                   name="tz"  
                   formControlName="IdentityNumber"
+              
   
                 >
-           <mat-hint>הקש תעודת זהות כולל ספרת ביקןרת</mat-hint>
+           <mat-hint >הקש תעודת זהות כולל ספרת ביקןרת</mat-hint>
         <mat-hint  align="end" >{{updateForm.get('IdentityNumber').value?.length}}/9</mat-hint>
         <mat-error *ngIf="updateForm.get('IdentityNumber').hasError('required')" >נא הכנס ת"ז</mat-error> 
         <mat-error *ngIf="!updateForm.get('IdentityNumber').hasError('required')||updateForm.get('IdentityNumber').hasError('minlength')||updateForm.get('IdentityNumber').hasError('maxlength')||updateForm.get('IdentityNumber').hasError('israeliIdOk')">תעודת זהות לא תקינה</mat-error>  
@@ -36,24 +37,6 @@
               name="lname"
                 formControlName="LastName">
           </mat-form-field>
-          <mat-form-field>
-            <input 
-            type="text"
-             matInput  
-             id="CompanyName" 
-             placeholder="חברה" 
-             name="companyName" 
-              formControlName="CompanyName">
-        </mat-form-field>
-        <mat-form-field>
-            <input 
-            type="text" 
-            matInput 
-            id="BusinessCode" 
-            placeholder="קוד חברה" 
-            name="businessCode"
-              formControlName="BusinessCode">
-        </mat-form-field>
           <mat-form-field>
               <input
                type="email" 
@@ -114,8 +97,7 @@
                 placeholder="שם משתמש" 
                 name="username"
                   formControlName="UserName">
-                  <mat-error *ngIf="!updateForm.get('UserName').hasError('required')||updateForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
-   
+                  <mat-error *ngIf="!updateForm.get('UserName').hasError('required')||updateForm.get('UserName').hasError('UserNameDValid')">שם משתמש כבר קיים במערכת</mat-error>
           </mat-form-field> 
            <mat-form-field>
               <input
@@ -126,8 +108,8 @@
                name="password"  
                formControlName="Password">
           </mat-form-field> 
-          <button mat-raised-button type="submit" [disabled]='updateForm.invalid'  [mat-dialog-close]='updateForm' id="Ok" value="אישור">אישור</button>
+          <button mat-raised-button type="submit" [disabled]="updateForm.invalid" [mat-dialog-close]="updateForm" id="Ok" value="אישור">אישור</button>
       </form>
     </mat-card-content>
   </mat-card>
-  </section>
+  </section>  

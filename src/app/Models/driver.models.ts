@@ -1,12 +1,12 @@
 export class Driver{
-    public get Id(): number {
-        return this._Id;
-    }
-    public set Id(value: number) {
-        this._Id = value;
-    }
+    // public get Id(): number {
+    //     return this._Id;
+    // }
+    // public set Id(value: number) {
+    //     this._Id = value;
+    // }
     constructor(
-        private _Id: number,
+        public Id: number,
         public IdentityNumber:string,
         public FirstName:string,
         public LastName:string,
