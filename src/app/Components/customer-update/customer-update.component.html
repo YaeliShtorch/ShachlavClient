@@ -126,6 +126,16 @@
                name="password"  
                formControlName="Password">
           </mat-form-field> 
+
+          <mat-form-field>
+            <input
+             type="text" 
+             matInput
+              id="IsActive" 
+             placeholder="פעיל" 
+             name="isActive"  
+             formControlName="IsActive">
+        </mat-form-field> 
           <button mat-raised-button type="submit" [disabled]='updateForm.invalid'  [mat-dialog-close]='updateForm' id="Ok" value="אישור">אישור</button>
       </form>
     </mat-card-content>

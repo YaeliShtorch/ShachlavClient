@@ -60,6 +60,11 @@
         <td mat-cell *matCellDef="let element" >{{element.Password}}</td>
       </ng-container>
 
+      <ng-container matColumnDef="IsActive">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> לקוח פעיל</th>
+        <td mat-cell *matCellDef="let element" >{{element.IsActive}}</td>
+      </ng-container>
+
       <!-- Edit Column -->
       <ng-container matColumnDef="EditDelete">
         <th mat-header-cell *matHeaderCellDef > עריכה/מחיקה</th>

@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { Vehicle } from 'src/app/Models/vehicle.models';
+import{VehicleRequest} from 'src/app/Models/vehicleRequest.models'
 import {VehicleService } from 'src/app/services/vehicle.service';
 import { DriverService } from 'src/app/services/driver.service';
 import { Driver } from 'src/app/Models/driver.models';
@@ -11,10 +12,10 @@ import { Driver } from 'src/app/Models/driver.models';
   styleUrls: ['./vehicle-show.component.css']
 })
 export class VehicleShowComponent implements OnInit {
-  dataSource=new MatTableDataSource<Vehicle>();
+  dataSource=new MatTableDataSource<VehicleRequest>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns=['Id','Description','PumpTypeId','PipesLength','DriverId','MixerNumber'];
+  displayedColumns=['Id','Description','PumpType','PipesLength','Driver','MixerNumber'];
   show:boolean=false;
   PumpTypeArr=[];
   driver;
@@ -33,21 +34,21 @@ export class VehicleShowComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  getPumpTypeName(pumpId){
-    if(pumpId!=0){
-     return this.PumpTypeArr.find(x=>x.Id==pumpId).PType;
-    }else{
-      return "no Pump";
-    }
-      }
+  // getPumpTypeName(pumpId){
+  //   if(pumpId!=0){
+  //    return this.PumpTypeArr.find(x=>x.Id==pumpId).PType;
+  //   }else{
+  //     return "no Pump";
+  //   }
+  //     }
 
-  getDriverName(driverId)
-  {
-  if(driverId!=0){
-    this.driverService.GetDriverId(driverId).subscribe(suc=>{this.driver=suc});
-    return this.driver.FirstName + " "+this.driver.LastName;
-  }
-  }
+  // getDriverName(driverId)
+  // {
+  // if(driverId!=0){
+  //   this.driverService.GetDriverId(driverId).subscribe(suc=>{this.driver=suc});
+  //   return this.driver.FirstName + " "+this.driver.LastName;
+  // }
+  // }
 
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
@@ -57,7 +58,7 @@ export class VehicleShowComponent implements OnInit {
 
   ngOnInit(){
     this.show=false;
-    this.vehicleService.GetAllPumpTypes().subscribe(suc=>{this.PumpTypeArr=suc}, err=>console.log("err"));
+    // this.vehicleService.GetAllPumpTypes().subscribe(suc=>{this.PumpTypeArr=suc}, err=>console.log("err"));
   this.getAllVehicles();
 
   }

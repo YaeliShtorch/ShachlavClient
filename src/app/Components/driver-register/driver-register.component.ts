@@ -50,7 +50,7 @@ onSubmit(){
     this.driverRegisterForm.value.EntryToWorkDate,
     this.driverRegisterForm.value.UserName,
     this.driverRegisterForm.value.Password,
-    this.driverRegisterForm.value.IsActive);
+    true);
   this.driverService.AddDriver(this.DriverAdd).subscribe(
     suc=>{console.log(this.DriverAdd.FirstName)},
     err=>{console.log("didnt reach")}

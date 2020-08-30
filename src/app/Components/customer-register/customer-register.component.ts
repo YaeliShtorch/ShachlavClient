@@ -56,7 +56,8 @@ export class CustomerRegisterComponent implements OnInit {
       this.customerRegisterForm.value.Address,
       this.customerRegisterForm.value.UserName,
       this.customerRegisterForm.value.Password,
-      this.customerRegisterForm.value.BirthDate)
+      this.customerRegisterForm.value.BirthDate,
+      true)
     this.customerService.AddCustomer(this.CustomerAdd).subscribe(
       suc=>{console.log(this.CustomerAdd.FirstName)},
       err=>{console.log("didnt reach")}

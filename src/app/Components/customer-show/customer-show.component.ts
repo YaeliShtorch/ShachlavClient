@@ -13,7 +13,7 @@ export class CustomerShowComponent implements OnInit {
   dataSource=new MatTableDataSource<Customer>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns=['Id','IdentityNumber','FirstName','LastName','BusinessCode','CompanyName','Email','PhoneNumber','CellNumber','Address','BirthDate','UserName','Password', 'EditDelete'];
+  displayedColumns=['Id','IdentityNumber','FirstName','LastName','BusinessCode','CompanyName','Email','PhoneNumber','CellNumber','Address','BirthDate','UserName','Password','IsActive', 'EditDelete'];
   show:boolean=false;
   CustomerUpdate:Customer;
 
@@ -75,7 +75,8 @@ export class CustomerShowComponent implements OnInit {
       result.value.Address,
       result.value.UserName,
       result.value.Password, 
-      result.value.BirthDate)
+      result.value.BirthDate,
+      result.value.IsActive)
 
         // console.log(this.ManagerUpdate);
         this.customerService.UpdateCustomer(this.CustomerUpdate).subscribe(suc=> this.getAllCustomers());

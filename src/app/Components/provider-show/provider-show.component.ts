@@ -72,7 +72,9 @@ export class ProviderShowComponent implements OnInit {
     result.value.CellNumber,
     result.value.Email,
     result.value.UserName,
-    result.value.Password
+    result.value.Password,
+    result.velue.Comments,
+    result.value.IsActive
 
 
     // result.value.Comments);

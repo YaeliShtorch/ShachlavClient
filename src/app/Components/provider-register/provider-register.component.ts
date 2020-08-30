@@ -40,7 +40,8 @@ export class ProviderRegisterComponent implements OnInit {
     this.providerRegisterForm.value.Address,
     this.providerRegisterForm.value.UserName,
     this.providerRegisterForm.value.Password,
-    // this.providerRegisterForm.value.Comments,
+   this.providerRegisterForm.value.Comments,
+   true
     );
     this.providerService.AddProvider(this.AddProvider).subscribe(suc=>{console.log(this.AddProvider.CompanyName)},err=>{console.log('failed')});
 

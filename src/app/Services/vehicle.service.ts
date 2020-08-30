@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Vehicle } from '../Models/vehicle.models';
 import{PumpType} from '../Models/pumpType.model'
 import { Observable } from 'rxjs';
+import { VehicleRequest } from '../Models/vehicleRequest.models';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class VehicleService {
 
    }
 
-  GetAllVehicles():Observable<Vehicle[]>{
-    return this.Http.get<Vehicle[]>(environment.baseUrl+this.thisController+"GetAll");
+  GetAllVehicles():Observable<VehicleRequest[]>{
+    return this.Http.get<VehicleRequest[]>(environment.baseUrl+this.thisController+"GetAll");
   }
 
   AddVehicle(v:Vehicle){

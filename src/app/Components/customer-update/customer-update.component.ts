@@ -29,6 +29,7 @@ updateForm:FormGroup;
       BirthDate:[this.passObj.passData.BirthDate,[Validators.required,ValidationService.BirthDate()]],
       UserName:[this.passObj.passData.UserName,[Validators.required,ValidationService.NewCustomer(this.customerService)]],
       Password:[this.passObj.passData.Password,Validators.required],
+      IsActive:[this.passObj.passData.Password,Validators.required],
     });
   }
 

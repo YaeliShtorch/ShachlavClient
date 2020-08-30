@@ -87,7 +87,7 @@
               formControlName="CheckPassword">
               <mat-error *ngIf="!providerRegisterForm.get('CheckPassword').hasError('isMatching')" >סיסמאות אינן תואמות</mat-error>
         </mat-form-field>
-        <!-- <mat-form-field>
+        <mat-form-field>
             <input
              type="text" 
              matInput
@@ -95,7 +95,7 @@
              placeholder="הערות" 
              name="comments"  
              formControlName="Comments">
-        </mat-form-field>  -->
+        </mat-form-field> 
         <button mat-raised-button type="submit" [disabled]='providerRegisterForm.invalid' id="Ok" value="אישור">אישור</button>
     </form>
 </mat-card-content>

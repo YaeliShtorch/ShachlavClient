@@ -20,7 +20,9 @@ export class Customer{
      public Address:string,
      public UserName:string,
      public Password:string,
-     public BirthDate:Date
+     public BirthDate:Date,
+     public IsActive:boolean,
+
 
      ){}
 }

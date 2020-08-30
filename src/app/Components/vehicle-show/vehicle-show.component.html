@@ -15,18 +15,18 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  תאור כלי רכב </th>
       <td mat-cell *matCellDef="let element"> {{element.Description}}</td>
     </ng-container>
-    <ng-container matColumnDef="PumpTypeId">
+    <ng-container matColumnDef="PumpType">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> סוג כלי רכב</th>
-      <td mat-cell *matCellDef="let element"> {{getPumpTypeName(element.PumpTypeId)}}</td>
+      <td mat-cell *matCellDef="let element"> {{element.PumpType.PType}}</td>
     </ng-container>
     <ng-container matColumnDef="PipesLength">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  אורך צינור </th>
       <td mat-cell *matCellDef="let element"> {{element.PipesLength}}</td>
     </ng-container>
-    <ng-container matColumnDef="DriverId">
+    <ng-container matColumnDef="Driver">
       <th mat-header-cell 
       *matHeaderCellDef mat-sort-header>  שם נהג </th>
-      <td mat-cell *matCellDef="let element">{{element.DriverId}} </td>
+      <td mat-cell *matCellDef="let element">{{element.Driver.FirstName}} {{element.Driver.LastName}}  </td>
     </ng-container>
     <ng-container matColumnDef="MixerNumber">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  מספר מערבל</th>

@@ -28,7 +28,8 @@ export class ProviderUpdateComponent implements OnInit {
       Address:[this.passObj.passData.Address,Validators.required],
       UserName:[this.passObj.passData.UserName,[Validators.required,ValidationService.NewProvider(this.providerService)]],
       Password:[this.passObj.passData.Password,Validators.required],
-      // Comments:[this.passObj.PassData.Comments],
+      Comments:[''],
+      IsActive:[this.passObj.pssData.IsActive,Validators.required]
     });
   }
 
