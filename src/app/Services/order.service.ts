@@ -4,6 +4,7 @@ import {environment } from 'src/environments/environment';
 import {Order} from '../Models/order.models';
 import { Observable } from 'rxjs';
 import { Material } from '../Models/material.models';
+import { MaterialTypeOrder } from '../Models/materialTypeOrder.models';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class OrderService {
  GetOrder(id:number):Observable<Order>{
     return this.Http.get<Order>(environment.baseUrl+this.thisController+"GetId?id="+id)
 }
- AddOrder(o:Order){
-   return this.Http.post(environment.baseUrl+this.thisController+"Add",o);
+ AddOrder(o:Order,Mt:Array<MaterialTypeOrder>){
+   return this.Http.post(environment.baseUrl+this.thisController+"AddOrder",[o,Mt]);
  }
  GetAllOrders()
  {
@@ -41,6 +42,7 @@ export class OrderService {
  getAllCustOrders(id:number):Observable<Order[]>{
    return this.Http.get<Order[]>(environment.baseUrl+this.thisController+"GetAllCO?id="+id);
  }
+ 
  AddClay(m:Material){
   return this.Http.post(environment.baseUrl+this.thisController+"AddClay",m);
  }
@@ -62,5 +64,25 @@ export class OrderService {
  AddConcrete(m:Material){
   return this.Http.post(environment.baseUrl+this.thisController+"AddConcrete",m);
  }
-
+ GetClay(){
+  return this.Http.get(environment.baseUrl+this.thisController+"GetClay");
+ }
+ GetVehicleType(){
+  return this.Http.get(environment.baseUrl+this.thisController+"GetVehicleType");
+ }
+ GetExposue(){
+  return this.Http.get(environment.baseUrl+this.thisController+"GetExposue");
+ }
+ GetDeep(){
+  return this.Http.get(environment.baseUrl+this.thisController+"GetDeep");
+ }
+ GetExtension(){
+  return this.Http.get(environment.baseUrl+this.thisController+"GetExtension");
+ }
+ GetConcDesc(){
+  return this.Http.get(environment.baseUrl+this.thisController+"GetConcDesc");
+ }
+ GetConcrete(){
+  return this.Http.get(environment.baseUrl+this.thisController+"GetConcrete");
+ }
 }

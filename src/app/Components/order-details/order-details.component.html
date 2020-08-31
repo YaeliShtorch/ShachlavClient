@@ -2,29 +2,31 @@
 
 
 
-     <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="newOrderForm" (ngSubmit)="onSubmit()" autocomplete="off">
+     <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="newOrderDetailsForm" (ngChange)="change()" autocomplete="off">
       <label id="example-radio-group-label">בחר מה רצונך להזמין</label>
           <mat-radio-group
+          (change)="Chosen()"
           aria-labelledby="example-radio-group-label"
           class="example-radio-group"
           id="OrderType" 
           name="OrderType"  
           formControlName="OrderType"
  >
-  <mat-radio-button class="example-radio-button">
+  <!-- <mat-radio-button class="example-radio-button" value="Concrete1">
     ב-30 ללא פוליה שקיעה 5
   </mat-radio-button>
-  <mat-radio-button class="example-radio-button">
+  <mat-radio-button class="example-radio-button" value="Concrete2">
     ב-30 מייקו שקיעה 6
-  </mat-radio-button>
-  <mat-radio-button class="example-radio-button">
+  </mat-radio-button> -->
+  <mat-radio-button class="example-radio-button" value="Concrete">
   בטון
   </mat-radio-button>
-  <mat-radio-button class="example-radio-button">
+  <mat-radio-button class="example-radio-button" value="Clay">
    טיט
   </mat-radio-button>
 </mat-radio-group>
-<app-order-clay></app-order-clay>
+<app-order-concrete *ngIf="Concrete"  (addOrderDetails)="onOrderSubmitted($event)"></app-order-concrete>
+<app-order-clay *ngIf="Clay" (addOrderDetails)="onOrderSubmitted($event)"></app-order-clay>
        
        
   
@@ -51,4 +53,3 @@
         </mat-form-field>
    
 </form>
- 

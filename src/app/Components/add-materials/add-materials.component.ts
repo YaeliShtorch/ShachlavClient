@@ -34,7 +34,7 @@ ngOnInit(): void {
 
 }
 onSubmit(){
-  this.Material=new Material(this.addMaterialForm.value.Name);
+  this.Material=new Material(null,this.addMaterialForm.value.Name);
 switch(this.addMaterialForm.value.Type){
   case 0:{this.orderService.AddVehicleType(this.Material).subscribe(
     suc=>{console.log((suc as Material).Name)},

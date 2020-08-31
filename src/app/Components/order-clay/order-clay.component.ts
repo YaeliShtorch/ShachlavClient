@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Material } from 'src/app/Models/material.models';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-order-clay',
@@ -8,15 +10,27 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class OrderClayComponent implements OnInit {
   newClayForm:FormGroup;
-  ClayTypes:Array<string>;
-  constructor(public fb:FormBuilder) { }
-
+  ClayTypes:Array<Material>;
+ ClayChosen:Array<Material>;
+  constructor(private fb:FormBuilder,private orderService:OrderService ) { }
   ngOnInit(): void {
-    this.ClayTypes=["משאבה 62 מטר","משאבה 56 מטר","משאבה 52 מטר","משאבה 42 מטר","משאבה 36 מטר","משאבה 32 מטר","משאבה 28 מטר","משאבה 24 מטר","משאבת מייקו עם זרוע","משאבת מייקו"];
+    this.ClayTypes=new Array<Material>();
+    this.orderService.GetClay().subscribe(
+      suc=>{
+        this.ClayTypes=(suc as Array<Material>);  
+      },
+      err=>{console.log("errGetClayTypes")})
+    ;
+ 
     this.newClayForm = this.fb.group({
       ClayType: ['']
     });
   }
-  onSubmit(){}
+  @Output() addOrderDetails = new EventEmitter<{data:Array<Material>,Type:string}>();
+change(){
+
+  this.ClayChosen[0]=this.ClayTypes[this.newClayForm.value.ClayType];
+  this.addOrderDetails.emit({data:this.ClayChosen,Type:"Clay"});
+}
 
 }

@@ -76,7 +76,7 @@
       
       <br>
     
-<app-order-details *ngFor="let i of OrderDetail"></app-order-details> 
+<app-order-details *ngFor="let OrderDetails of OrderDetail,let i"  (newItemEvent)="addItem($event,i)"></app-order-details> 
 <div class="example-button-container">
   <button mat-mini-fab color="primary" aria-label="Example icon button with an add icon" (click)="AddMaterial()">
     <mat-icon>add_circle</mat-icon>
@@ -86,7 +86,28 @@
     <mat-icon>remove_circle</mat-icon>
   </button>
 </div>
-<app-order-pump></app-order-pump>
+<mat-checkbox
+
+ id="PumpNeeded"  
+ name="ConcreteCheck"  
+ formControlName="PumpNeeded"
+ >האם נדרשת משאבה
+
+</mat-checkbox>
+<div *ngIf="newOrderForm.get('PumpNeeded').value">
+<app-order-pump *ngFor="let PumpType of PumpDetail,let i"  (newItemEvent)="addPump($event,i)" ></app-order-pump>
+
+<div class="example-button-container" >
+  <button mat-mini-fab color="primary" aria-label="Example icon button with a add icon" (click)="AddPump()">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+
+  <button mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemovePump()">
+    <mat-icon>remove_circle
+    </mat-icon>
+  </button>
+</div>
+</div>
 <mat-form-field>
   <input
     matInput 

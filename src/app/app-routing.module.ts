@@ -28,8 +28,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/home/subHome',  pathMatch: 'full' },
   { path: 'home/order',component: OrderComponent},
   { path: 'home/subHome',component: SubHomeComponent},
-  
- 
   { path: 'home/login/:typeP', component: LogInComponent },
   { path: 'home/customer', component: CustomerComponent,
   children: [
@@ -54,10 +52,10 @@ const routes: Routes = [
     { path: 'addPumpType', component:AddVehicleTypeComponent},
     { path: 'addDriverWork', component: DriverTaskComponent },
     { path: 'showManager', component: ManagerShowComponent },
-    {path:'showDriver', component:DriverShowComponent},
-    {path:'showProvider', component:ProviderShowComponent},
-    {path:'showCustomer',component:CustomerShowComponent},
-    {path:'showVehicle', component:VehicleShowComponent}
+    { path:'showDriver', component:DriverShowComponent},
+    { path:'showProvider', component:ProviderShowComponent},
+    { path:'showCustomer',component:CustomerShowComponent},
+    { path:'showVehicle', component:VehicleShowComponent}
   
   ]  }
  
