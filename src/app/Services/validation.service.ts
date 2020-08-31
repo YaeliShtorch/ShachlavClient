@@ -62,7 +62,7 @@ export class ValidationService {
     
       if(BirthDate.getDay()<=31&&BirthDate.getDay()>=1&&BirthDate.getMonth()<=12&&BirthDate.getDay()>=1)
       {
-       if(BirthDate.getFullYear()<=new Date().getFullYear()-18){
+       if(BirthDate.getFullYear()>=new Date().getFullYear()-18){
     
       return {userOldEnough:false};
     }

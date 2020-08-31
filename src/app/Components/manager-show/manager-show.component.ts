@@ -5,22 +5,32 @@ import{Manager}from 'src/app/Models/manager.models'
 import { ManagerService } from 'src/app/Services/manager.service';
 import { ManagerComponent } from '../manager/manager.component';
 import { ManagerUpdateComponent } from '../manager-update/manager-update.component';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
   selector: 'app-manger-show',
   templateUrl: './manger-show.component.html',
-  styleUrls: ['./manger-show.component.css']
+  styleUrls: ['./manger-show.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('*', style({ height: '*', visibility: 'visible' })),
+      transition('void <=> *', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class ManagerShowComponent implements OnInit {
   dataSource=new MatTableDataSource<Manager>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns=['Id','IdentityNumber','FirstName','LastName','Email','PhoneNumber','CellNumber','Address','BirthDate','UserName','Password','EditDelete'];
+  displayedColumns=['Id','IdentityNumber','FirstName','LastName','Email','PhoneNumber','CellNumber','Address','BirthDate','UserName','Password', 'EditDelete'];
   constructor(public ManagerService:ManagerService, private dialog: MatDialog) { }
 show:boolean=false;
 ManagerUpdate:Manager;
 @ViewChild('deleteVT') deleteVT: TemplateRef<any>;
+
+isExpansionDetailRow = (i: number, row: any) => row.hasOwnProperty('detailRow');
 
   getAllManagers(){
     // this.show=true;
@@ -66,10 +76,10 @@ ManagerUpdate:Manager;
     this.ManagerUpdate=new Manager(row.Id,result.value.IdentityNumber,
     result.value.FirstName,
     result.value.LastName,
+    result.value.Address,
     result.value.Email,
     result.value.PhoneNumber,
     result.value.CellNumber,
-    result.value.Address,
     result.value.BirthDate,
     result.value.UserName,
     result.value.Password);
@@ -85,6 +95,7 @@ ManagerUpdate:Manager;
 }
 
 }
+
 
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;

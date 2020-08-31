@@ -35,28 +35,11 @@ registerForm:FormGroup;
    
   }
 ManagerAdd:Manager;
-   
-
-
   
-  // Id:number; 
-  // IdentityNumber:string;
-  // FirstName:string;    
-  // LastName:string; 
-  // Email:string;
-  // PhoneNumber:string;
-  // CellNumber:string;
-  // Address:string; 
-  // BirthDate:Date=new Date();
-  // BirthDateAngular:string;
-  // UserName:string;
-  // Password:string;
-  // CheckPassword:string;
-  // ManagerAdd:Manager;
-  // ToADD:boolean=true;
 
   onSubmit(){
-  this.ManagerAdd=new Manager(this.registerForm.value.Id,this.registerForm.value.IdentityNumber,
+  this.ManagerAdd=new Manager(this.registerForm.value.Id,
+    this.registerForm.value.IdentityNumber,
     this.registerForm.value.FirstName,
     this.registerForm.value.LastName,
     this.registerForm.value.Email,

@@ -1,14 +1,14 @@
 import { Optional } from '@angular/core';
 
 export class Customer{
-    public get Id(): number {
-        return this._Id;
-    }
-    public set Id(value: number) {
-        this._Id = value;
-    }
+    // public get Id(): number {
+    //     return this._Id;
+    // }
+    // public set Id(value: number) {
+    //     this._Id = value;
+    // }
     constructor(
-     private _Id:number,
+     public Id:number,
      public IdentityNumber:string,
      public FirstName:string,
      public LastName:string,
@@ -20,7 +20,9 @@ export class Customer{
      public Address:string,
      public UserName:string,
      public Password:string,
-     public BirthDate:Date
+     public BirthDate:Date,
+     public IsActive:boolean,
+
 
      ){}
 }

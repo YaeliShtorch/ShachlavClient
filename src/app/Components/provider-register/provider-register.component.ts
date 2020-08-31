@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
-
-import {ValidationService} from 'src/app/Services/validation.service'
+import{Provider} from 'src/app/Models/provider.models';
+import {ValidationService} from 'src/app/Services/validation.service';
 import { ProviderService } from 'src/app/services/provider.service';
 
 @Component({
@@ -13,16 +13,9 @@ export class ProviderRegisterComponent implements OnInit {
 
   constructor(private fb:FormBuilder,public providerService:ProviderService) { }
   providerRegisterForm:FormGroup;
-    // CompanyName:string; 
-    // CompanyCode:string; 
-    // Address:string; 
-    // PhoneNumber:string; 
-    // CellNumber:string;  
-    // Email:string;  
-    // UserName:string; 
-    // Password:string;
-    
-    CheckPassword:string; 
+  AddProvider:Provider;
+  CheckPassword:string; 
+
   ngOnInit(): void {
     this.providerRegisterForm = this.fb.group({
       CompanyCode: ['', [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
@@ -37,7 +30,20 @@ export class ProviderRegisterComponent implements OnInit {
       CheckPassword:['',[Validators.required,ValidationService.matchValues('Password'),]],
     });
   }
- OnSubmit(form:FormGroup){
+ OnSubmit(){
+    this.AddProvider=new Provider(this.providerRegisterForm.value.Id,
+    this.providerRegisterForm.value.CompanyCode,
+    this.providerRegisterForm.value.CompanyName,
+    this.providerRegisterForm.value.Email,
+    this.providerRegisterForm.value.PhoneNumber,
+    this.providerRegisterForm.value.CellNumber,
+    this.providerRegisterForm.value.Address,
+    this.providerRegisterForm.value.UserName,
+    this.providerRegisterForm.value.Password,
+   this.providerRegisterForm.value.Comments,
+   true
+    );
+    this.providerService.AddProvider(this.AddProvider).subscribe(suc=>{console.log(this.AddProvider.CompanyName)},err=>{console.log('failed')});
 
  }
 }

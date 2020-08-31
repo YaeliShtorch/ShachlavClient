@@ -41,6 +41,10 @@ import { ProviderShowComponent } from './Components/provider-show/provider-show.
 import { CustomerShowComponent } from './Components/customer-show/customer-show.component';
 import { VehicleShowComponent } from './Components/vehicle-show/vehicle-show.component';
 import { DriverShowComponent } from './Components/driver-show/driver-show.component';
+import { CustomerUpdateComponent } from './Components/customer-update/customer-update.component';
+import { DriverUpdateComponent } from './Components/driver-update/driver-update.component';
+import { ProviderUpdateComponent } from './Components/provider-update/provider-update.component';
+import { CdkDetailRowDirective } from './Directives/cdk-detail-row.directive';
 
 
 @NgModule({
@@ -78,7 +82,11 @@ import { DriverShowComponent } from './Components/driver-show/driver-show.compon
     ProviderShowComponent,
     CustomerShowComponent,
     DriverShowComponent,
-    VehicleShowComponent
+    VehicleShowComponent,
+    CustomerUpdateComponent,
+    DriverUpdateComponent,
+    ProviderUpdateComponent,
+    CdkDetailRowDirective
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

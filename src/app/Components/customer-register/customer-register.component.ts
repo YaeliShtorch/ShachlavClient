@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
-
 import {ValidationService} from 'src/app/Services/validation.service'
 import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/Models/customer.models';
+
 @Component({
   selector: 'app-customer-register',
   templateUrl: './customer-register.component.html',
@@ -55,9 +54,10 @@ export class CustomerRegisterComponent implements OnInit {
       this.customerRegisterForm.value.PhoneNumber,
       this.customerRegisterForm.value.CellNumber,
       this.customerRegisterForm.value.Address,
-      this.customerRegisterForm.value.BirthDate,
       this.customerRegisterForm.value.UserName,
-      this.customerRegisterForm.value.Password)
+      this.customerRegisterForm.value.Password,
+      this.customerRegisterForm.value.BirthDate,
+      true)
     this.customerService.AddCustomer(this.CustomerAdd).subscribe(
       suc=>{console.log(this.CustomerAdd.FirstName)},
       err=>{console.log("didnt reach")}
