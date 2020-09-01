@@ -1,0 +1,11 @@
+material-timepicker{
+    direction: rtl;
+}
+mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+  .w-timepicker-selected-time{
+    direction: rtl important!;
+  }

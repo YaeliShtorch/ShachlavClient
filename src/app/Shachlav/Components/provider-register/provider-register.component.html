@@ -1,0 +1,110 @@
+ <section id="ProviderRegidter">
+    <mat-card>
+        <mat-card-title >הוספת ספק</mat-card-title>
+    <mat-card-content>
+    <form  [formGroup]="providerRegisterForm" (ngSubmit)="OnSubmit()" autocomplete="off">
+        <mat-form-field>
+            <input
+            type="text"
+             matInput
+             id="CompanyName"
+             placeholder="שם חברה"
+             name="companyName"
+              formControlName="CompanyName">
+        </mat-form-field>
+        <mat-form-field>
+            <input
+             type="text"
+              matInput
+               id="CompanyCode"
+               placeholder="קוד חברה"
+                name="companyCode"
+                formControlName="CompanyCode"
+              >
+        </mat-form-field>
+        <mat-form-field>
+            <input
+             type="email"
+             matInput id="Email"
+              placeholder="מייל"
+              name="email"
+              formControlName="Email">
+        </mat-form-field>
+        <mat-form-field>
+            <input
+            type="text"
+            matInput
+            id="Phone"
+             placeholder="טלפון"
+             name="phone"
+              formControlName="PhoneNumber"
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <input
+            type="text"
+             matInput id="CellPhone"
+             placeholder="פלאפון"
+              name="cellphone"
+               formControlName="CellNumber"
+              >
+        </mat-form-field>
+        <mat-form-field>
+            <input
+            type="text"
+             matInput
+              id="Adress"
+               placeholder="כתובת"
+                name="adress"
+                 formControlName="Address">
+        </mat-form-field>
+        <mat-form-field>
+            <input
+             type="text"
+             matInput
+              id="UserName"
+              placeholder="שם משתמש"
+              name="username"
+                formControlName="UserName">
+                 <mat-error *ngIf="!providerRegisterForm.get('UserName').hasError('required')||providerRegisterForm.get('UserName').hasError('UserNameMValid')">שם משתמש כבר קיים במערכת</mat-error>
+        </mat-form-field>
+         <mat-form-field>
+            <input
+             type="password"
+             matInput
+              id="Password"
+             placeholder="סיסמא"
+             name="password"
+             formControlName="Password">
+        </mat-form-field>
+         <mat-form-field>
+            <input
+             type="password"
+             matInput
+              id="TPassword"
+             placeholder="הקש סיסמא פעם נוספת"
+              name="tpassword"
+              formControlName="CheckPassword">
+              <mat-error *ngIf="!providerRegisterForm.get('CheckPassword').hasError('isMatching')" >סיסמאות אינן תואמות</mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <input
+             type="text"
+             matInput
+              id="Comments"
+             placeholder="הערות"
+             name="comments"
+             formControlName="Comments">
+        </mat-form-field>  -->
+        <button mat-raised-button type="submit" [disabled]='providerRegisterForm.invalid' id="Ok" value="אישור">אישור</button>
+    </form>
+</mat-card-content>
+</mat-card>
+</section>
+
+
+
+
+
+
+

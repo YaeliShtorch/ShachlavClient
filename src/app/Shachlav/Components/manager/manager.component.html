@@ -1,0 +1,50 @@
+<div fxFlex="auto">
+    <div class="sidenav">
+      <mat-nav-list>
+        <!-- fxFlex.sm="35"  fxFlex.md="30" fxFlex.xs="50"  fxFlex.lt-lg="50" -->
+       <mat-list-item class="sidelink">
+               <a matLine [routerLink]="['mangerRegister']" routerLinkActive="active">הוספת מנהל</a>
+            </mat-list-item>
+            <mat-list-item class="sidelink">
+              <a matLine [routerLink]="['showManager']" routerLinkActive="active">צפיה במנהלים</a>
+           </mat-list-item>
+            <mat-list-item class="sidelink">
+              <a matLine [routerLink]="['driverRegister']" routerLinkActive="active">הוספת נהג</a>
+           </mat-list-item>
+           <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['showDriver']" routerLinkActive="active">צפיה בנהגים</a>
+         </mat-list-item>
+           <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['providerRegister']">הוספת ספק</a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['showProvider']">צפיה בספקים</a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['customerRegister']"> הוספת לקוח </a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['showCustomer']"> צפיה בלקוחות </a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['addVehicle']" > הוספת כלי רכב</a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['showVehicle']" > צפיה בכלי רכב</a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['addPumpType']" >הוספה/הסרה סוג רכב</a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['addMaterial']" >הוספת חומר</a>
+          </mat-list-item>
+          <mat-list-item class="sidelink">
+            <a matLine [routerLink]="['addDriverWork']" >דיווח על עבודת נהג</a>
+          </mat-list-item>
+          </mat-nav-list>
+    </div>
+
+  <div class="content" fxLayout="column">
+      <router-outlet></router-outlet>
+  </div>
+</div>

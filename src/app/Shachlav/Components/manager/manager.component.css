@@ -1,0 +1,61 @@
+
+.text-orange{
+    color: orangered;
+}
+
+.mat-toolbar{
+    background-color:linen;
+}
+
+.sidenav{ 
+
+    float:right;
+    /*height: 600px;*/
+    /*background-color:	#E8E8E8;*/
+    /*margin-top: 20px;*/
+    width: 200px;
+      
+}
+.sidelink{
+   
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+   color:coral;
+   font-size: 15px;
+  font-weight: normal;
+
+
+  /* margin: 3%; */
+    /* size:45%; */
+  
+    
+}
+.sidelink:hover{
+    color: orangered;
+}
+
+  .content{
+      float: left;
+    background-color: white;
+     text-align: center;
+     width: calc(100% - 200px);
+  }
+  /* @media screen and (max-width:400px){
+    .sidenav{
+        width:20%;
+        
+       
+    }
+    .mat-list-item .mat-nav-list {
+        font-size: 7px;
+        height: 10px; /* default is 72px */
+        /* padding: 0!important; */
+/*        
+    }
+  }  */ 
+
+  .icon{
+      color: orangered;
+      font-weight: bold;
+      size: 30px;
+      
+  }

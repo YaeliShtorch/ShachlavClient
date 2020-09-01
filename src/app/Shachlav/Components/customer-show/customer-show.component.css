@@ -1,0 +1,31 @@
+.mTable{
+  width:100%;
+  padding: 10px;
+  background-color:rgb(241, 232, 216);
+
+}
+
+th.mat-header-cell {
+  text-align: center;
+  margin:10px;
+  max-width: 300px;
+}
+td.mat-cell{
+background-color: rgb(245, 222, 182);
+margin:10px;
+text-align: right;
+}
+
+@media (max-width:1024px){
+
+input{
+  display:block;
+}
+}
+
+@media (min-width:1025px){
+input{
+    display:inline-block;
+
+}
+}

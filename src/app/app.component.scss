@@ -1,0 +1,9 @@
+::ng-deep mat-form-field{
+    width: calc(50% - 16px);
+    margin-left: 16px;
+    flex: 1 1 50%;
+}
+::ng-deep .mat-raised-button {
+    display: block !important;
+    margin: 0 auto !important;
+}
