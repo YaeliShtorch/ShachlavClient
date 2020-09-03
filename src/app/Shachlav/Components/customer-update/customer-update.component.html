@@ -126,6 +126,7 @@
                name="password"  
                formControlName="Password">
           </mat-form-field> 
+          <mat-slide-toggle formControlName="IsActive" (change)="onChange($event)" color="primary"> פעיל /לא פעיל</mat-slide-toggle>  
           <button mat-raised-button type="submit" [disabled]='updateForm.invalid'  [mat-dialog-close]='updateForm' id="Ok" value="אישור">אישור</button>
       </form>
     </mat-card-content>

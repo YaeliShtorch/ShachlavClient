@@ -3,6 +3,7 @@ import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular
 import {ValidationService} from 'src/app/Shachlav/Services/validation.service'
 import { CustomerService } from 'src/app/Shachlav/Services/customer.service';
 import { Customer } from 'src/app/Shachlav/Models/customer.models';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-customer-register',
@@ -11,7 +12,7 @@ import { Customer } from 'src/app/Shachlav/Models/customer.models';
 })
 export class CustomerRegisterComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,public customerService:CustomerService) { }
+  constructor(private fb:FormBuilder,public customerService:CustomerService, public snackbar:MatSnackBar) { }
   customerRegisterForm:FormGroup;
   // IdentityNumber:string;
   //  FirstName:string;
@@ -56,10 +57,10 @@ export class CustomerRegisterComponent implements OnInit {
       this.customerRegisterForm.value.Address,
       this.customerRegisterForm.value.UserName,
       this.customerRegisterForm.value.Password,
-      this.customerRegisterForm.value.BirthDate)
+      this.customerRegisterForm.value.BirthDate,
+      true);
     this.customerService.AddCustomer(this.CustomerAdd).subscribe(
-      suc=>{console.log(this.CustomerAdd.FirstName)},
-      err=>{console.log("didnt reach")}
-    )
+      suc=>{this.snackbar.open('הוסף נהג למערכת',null,{duration:4000}) },
+      err=>{this.snackbar.open('שגיאה, נסה מאוחר יותר',null,{duration:4000})})
   }
 }
