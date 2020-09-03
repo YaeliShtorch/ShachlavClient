@@ -66,6 +66,7 @@
               name="cellphone" 
                formControlName="CellNumber"
               >
+              <mat-hint  align="end" >{{driverRegisterForm.get('CellNumber').value?.length}}/10</mat-hint>
         </mat-form-field>
         <mat-form-field>
             <input 
@@ -92,14 +93,14 @@
           <mat-form-field >
             <input 
             matInput
-             [matDatepicker]="picker" 
+             [matDatepicker]="picker1" 
            
              id="EntryToWorkDate"
               placeholder="תאריך תחילת עבודה"
                name="EntryToWorkDate"
                formControlName="EntryToWorkDate">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker  #picker></mat-datepicker>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker  #picker1></mat-datepicker>
           </mat-form-field>
       
         <mat-form-field>
@@ -131,7 +132,7 @@
               formControlName="CheckPassword">
               <mat-error *ngIf="!driverRegisterForm.get('CheckPassword').hasError('isMatching')" >סיסמאות אינן תואמות</mat-error>
         </mat-form-field>
-        <button mat-raised-button type="submit" [disabled]="driverRegisterForm.invalid" id="Ok" value="אישור">אישור</button>
+        <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
     </form>
   </mat-card-content>
 </mat-card>

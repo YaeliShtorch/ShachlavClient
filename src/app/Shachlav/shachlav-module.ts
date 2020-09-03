@@ -63,6 +63,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {ContainerModule} from "../../@vex/directives/container/container.module";
+import{MatSnackBarModule}from '@angular/material/snack-bar';
+import{MatSlideToggleModule}from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -139,6 +141,8 @@ import {ContainerModule} from "../../@vex/directives/container/container.module"
         CustomerUpdateComponent,
         DriverUpdateComponent,
         ProviderUpdateComponent,
+        MatSnackBarModule,
+        MatSlideToggleModule,
     ],
     imports: [
         HttpClientModule,
@@ -168,7 +172,9 @@ import {ContainerModule} from "../../@vex/directives/container/container.module"
         MatRadioModule,
         RouterModule,
         ContainerModule,
-        FlexModule
+        FlexModule,
+        MatSnackBarModule,
+        MatSlideToggleModule,
     ],
     entryComponents: [DialogBoxComponent],
 })

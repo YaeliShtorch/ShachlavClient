@@ -8,6 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatSnackBar,MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-driver-show',
@@ -28,14 +29,17 @@ export class DriverShowComponent implements OnInit {
   displayedColumns=['Id','IdentityNumber','FirstName','LastName','Email','PhoneNumber','CellNumber','Address','BirthDate','EntryToWorkDate','UserName','Password','IsActive', 'EditDelete'];
   DriverUpdate:Driver;
   show:boolean=false;
-  constructor(public driverService:DriverService, private dialog:MatDialog) { }
+
+  constructor(public snackbar:MatSnackBar,public driverService:DriverService, private dialog:MatDialog) { }
   @ViewChild('deleteVT') deleteVT: TemplateRef<any>;
 
   isExpansionDetailRow = (i: number, row: any) => row.hasOwnProperty('detailRow');
 
   getAllDrivers(){
     // this.show=true;
-    this.driverService.GetAllDrivers().subscribe(suc=>{this.dataSource.data=[...suc];console.log(this.dataSource.data);this.show=true;},err=>{console.log('error')});
+    this.driverService.GetAllDrivers().subscribe(suc=>{this.dataSource.data=[...suc];console.log(this.dataSource.data);
+    this.show=true;},
+    err=>{console.log('error')});
     // console.log(this.dataSource.data);
   }
 
@@ -58,7 +62,9 @@ export class DriverShowComponent implements OnInit {
      if (result !== undefined) {
          if (result === true) {
              console.log(row.Id);
-        this.driverService.DeleteDriver(row.Id).subscribe(suc=>{console.log('done'); this.dataSource.data = this.dataSource.data.filter(function(el) { return el.Id != row.Id; }); },err=>console.log('failed'));
+        this.driverService.DeleteDriver(row.Id).subscribe(suc=>{this.snackbar.open('נהג הוספר מהמערכת',null,{duration:3000}); 
+        this.dataSource.data = this.dataSource.data.filter(function(el) { return el.Id != row.Id; }); },
+        err=>this.snackbar.open('שגיאה, נסה מאוחר יותר', null, {duration:3000}));
          } 
          
      }
@@ -88,7 +94,8 @@ export class DriverShowComponent implements OnInit {
       result.value.IsActive)
 
         // console.log(this.ManagerUpdate);
-        this.driverService.UpdateDriver(this.DriverUpdate).subscribe(suc=> this.getAllDrivers());
+        this.driverService.UpdateDriver(this.DriverUpdate).subscribe(suc=> {this.getAllDrivers();this.snackbar.open('פרטי נהג עודכנו במערכת',null,{duration:3000}) },
+        err=>{this.snackbar.open('שגיאה, נסה מאוחר יותר',null,{duration:3000})});
       
           
       }

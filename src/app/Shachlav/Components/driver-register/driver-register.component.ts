@@ -3,6 +3,7 @@ import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular
 import{Driver} from 'src/app/Shachlav/Models/driver.models'
 import {ValidationService} from 'src/app/Shachlav/Services/validation.service'
 import { DriverService } from 'src/app/Shachlav/Services/driver.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-driver-register',
@@ -12,7 +13,7 @@ import { DriverService } from 'src/app/Shachlav/Services/driver.service';
 export class DriverRegisterComponent implements OnInit {
 DriverAdd:Driver;
 driverRegisterForm:FormGroup;
-  constructor(private fb:FormBuilder,public driverService:DriverService) { }
+  constructor(private fb:FormBuilder,public driverService:DriverService,public snackbar:MatSnackBar) { }
 
  
 
@@ -35,6 +36,7 @@ driverRegisterForm:FormGroup;
     });
 
   }
+
   
 onSubmit(){
 
@@ -50,11 +52,12 @@ onSubmit(){
     this.driverRegisterForm.value.EntryToWorkDate,
     this.driverRegisterForm.value.UserName,
     this.driverRegisterForm.value.Password,
-    this.driverRegisterForm.value.IsActive);
+    true);
   this.driverService.AddDriver(this.DriverAdd).subscribe(
-    suc=>{console.log(this.DriverAdd.FirstName)},
-    err=>{console.log("didnt reach")}
-  )
+    suc=>suc=>{this.snackbar.open('הוסף נהג למערכת',null,{duration:4000}) },
+    err=>{this.snackbar.open('שגיאה, נסה מאוחר יותר',null,{duration:4000})})
 
 }
 }
+
+

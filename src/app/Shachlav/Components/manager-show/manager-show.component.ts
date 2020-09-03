@@ -9,6 +9,7 @@ import {MatSort} from "@angular/material/sort";
 import {MatDialog} from "@angular/material/dialog";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class ManagerShowComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns=['Id','IdentityNumber','FirstName','LastName','Email','PhoneNumber','CellNumber','Address','BirthDate','UserName','Password', 'EditDelete'];
-  constructor(public ManagerService:ManagerService, private dialog: MatDialog) { }
+  constructor(public snackbar:MatSnackBar, public ManagerService:ManagerService, private dialog: MatDialog) { }
 show:boolean=false;
 ManagerUpdate:Manager;
 @ViewChild('deleteVT') deleteVT: TemplateRef<any>;
@@ -62,7 +63,8 @@ isExpansionDetailRow = (i: number, row: any) => row.hasOwnProperty('detailRow');
      if (result !== undefined) {
          if (result === true) {
              console.log(row.Id);
-        this.ManagerService.DeleteManager(row.Id).subscribe(suc=>{console.log("done"); this.dataSource.data = this.dataSource.data.filter(function(el) { return el.Id != row.Id; }); },err=>console.log("failed"));
+        this.ManagerService.DeleteManager(row.Id).subscribe(suc=>{this.snackbar.open('מנהל הוסר מהמערכת',null,{duration:3000}); this.dataSource.data = this.dataSource.data.filter(function(el) { return el.Id != row.Id; }); },
+        err=>{this.snackbar.open('שגיאה, נסה מאוחר יותר',null,{duration:3000})});
          } 
          
      }
@@ -89,7 +91,8 @@ isExpansionDetailRow = (i: number, row: any) => row.hasOwnProperty('detailRow');
     result.value.Password);
 
         // console.log(this.ManagerUpdate);
-        this.ManagerService.UpdateManager(this.ManagerUpdate).subscribe(suc=> this.getAllManagers());
+        this.ManagerService.UpdateManager(this.ManagerUpdate).subscribe(suc=> {this.getAllManagers();this.snackbar.open('פרטי מנהל עודכנו במערכת',null,{duration:3000}); this.dataSource.data = this.dataSource.data.filter(function(el) { return el.Id != row.Id; }); },
+        err=>{this.snackbar.open('שגיאה, נסה מאוחר יותר',null,{duration:3000})});
       
           
       }

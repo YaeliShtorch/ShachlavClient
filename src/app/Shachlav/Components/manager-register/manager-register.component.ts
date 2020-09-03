@@ -6,6 +6,7 @@ import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular
 
 import {ValidationService} from 'src/app/Shachlav/Services/validation.service'
 import {isIsraeliIdValid} from 'israeli-id-validator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-manager-register',
   templateUrl: './manager-register.component.html',
@@ -13,7 +14,7 @@ import {isIsraeliIdValid} from 'israeli-id-validator';
 })
 export class ManagerRegisterComponent implements OnInit {
 registerForm:FormGroup;
-  constructor(public managerService:ManagerService,private fb: FormBuilder) { }
+  constructor(public managerService:ManagerService,private fb: FormBuilder,public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     
@@ -50,7 +51,7 @@ ManagerAdd:Manager;
     this.registerForm.value.UserName,
     this.registerForm.value.Password)
   this.managerService.AddManager(this.ManagerAdd).subscribe(
-    suc=>{console.log(this.ManagerAdd.FirstName); alert("מנהל הוסף"); this.registerForm.reset();},
+    suc=>{this.snackBar.open('פרטי מהנל התעדכנו במערכת בהצלחה', null, { duration: 3000 }); this.registerForm.reset()},
     err=>{console.log("didnt reach")}
   )
 }

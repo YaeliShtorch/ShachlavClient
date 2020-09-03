@@ -23,6 +23,7 @@ import {OrderAddComponent} from './Shachlav/Components/order-add/order-add.compo
 import {ProviderRegisterComponent} from './Shachlav/Components/provider-register/provider-register.component';
 import {LogInComponent} from './Shachlav/Components/log-in/log-in.component';
 import {AddVehicleComponent} from './Shachlav/Components/add-vehicle/add-vehicle.component';
+import { DriverTaskShowComponent } from './Shachlav/Components/driver-task-show/driver-task-show.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/home/subHome', pathMatch: 'full'},
@@ -47,7 +48,13 @@ const routes: Routes = [
             {path: 'home/customerin', component: CustomerInComponent},
             {path: 'home/custdetails', component: CustDetailsComponent},
             {path: 'home/provider', component: ProviderComponent},
-            {path: 'home/driver', component: DriverComponent},
+            {   
+                path: 'home/driver', component: DriverComponent,
+                children:[
+                    {path:'driverTaskShow',component:DriverTaskShowComponent},
+                    {path:'driverTaskDone',component:DriverTaskShowComponent},
+                ]
+                      },
             {path: 'home/driverTask', component: DriverTaskComponent},
             {path: 'home/newOrder', component: OrderAddComponent},
             {

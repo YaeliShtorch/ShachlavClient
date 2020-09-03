@@ -12,15 +12,26 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 export class DriverUpdateComponent implements OnInit {
   updateForm:FormGroup;
   constructor(private fb:FormBuilder,public driverService:DriverService, @Inject(MAT_DIALOG_DATA) public passObj:any) { }
-
+  IsActive:boolean;
   ngOnInit(): void {
   this.validation();
   }
 
   ngOnChange(){
     this.validation();
+    console.log(this.IsActive);
    
    }
+
+     // On Change event of Toggle Button  
+  onChange(event:any)  
+  {  
+    if (event.checked == true) {  
+      this.IsActive = true;  
+    } else {  
+      this.IsActive = false;  
+    }  
+  }  
 
    validation(){
     this.updateForm = this.fb.group({
