@@ -7,11 +7,19 @@ import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-driver-show',
   templateUrl: './driver-show.component.html',
-  styleUrls: ['./driver-show.component.css']
+  styleUrls: ['./driver-show.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('*', style({ height: '*', visibility: 'visible' })),
+      transition('void <=> *', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class DriverShowComponent implements OnInit {
   dataSource=new MatTableDataSource<Driver>();
@@ -21,9 +29,9 @@ export class DriverShowComponent implements OnInit {
   DriverUpdate:Driver;
   show:boolean=false;
   constructor(public driverService:DriverService, private dialog:MatDialog) { }
-
-  
   @ViewChild('deleteVT') deleteVT: TemplateRef<any>;
+
+  isExpansionDetailRow = (i: number, row: any) => row.hasOwnProperty('detailRow');
 
   getAllDrivers(){
     // this.show=true;
@@ -57,23 +65,22 @@ export class DriverShowComponent implements OnInit {
 })
 } else if(action ==='edit'){
   let dialogRef = this.dialog.open(DriverUpdateComponent,{
-    height: '700px',
-    width:'400px',
+    // width:'400px',
       data:{
         passData:row
       }
   });
   dialogRef.afterClosed().subscribe(result => {
-    console.log(result)
       //Note: If the user clicks outside the dialog or presses the escape key, there'll be no result
       if (result !== undefined) {
+        console.log(row.Id);
     this.DriverUpdate=new Driver(row.Id,result.value.IdentityNumber,
       result.value.FirstName,
       result.value.LastName,
-      result.value.Address,
+      result.value.Email,
       result.value.PhoneNumber,
       result.value.CellNumber,
-      result.value.Email,
+      result.value.Address,
       result.value.BirthDate,
       result.value.EntryToWorkDate,
       result.value.UserName,
@@ -91,15 +98,12 @@ export class DriverShowComponent implements OnInit {
 }
 }
 
-  ngAfterViewInit(){
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    
-  }
 
   ngOnInit() {
     this.show=false;
     this. getAllDrivers();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
 }

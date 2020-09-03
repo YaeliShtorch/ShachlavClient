@@ -14,6 +14,15 @@ export class DriverUpdateComponent implements OnInit {
   constructor(private fb:FormBuilder,public driverService:DriverService, @Inject(MAT_DIALOG_DATA) public passObj:any) { }
 
   ngOnInit(): void {
+  this.validation();
+  }
+
+  ngOnChange(){
+    this.validation();
+   
+   }
+
+   validation(){
     this.updateForm = this.fb.group({
       IdentityNumber: [this.passObj.passData.IdentityNumber, [Validators.required,Validators.minLength(9),Validators.maxLength(9),ValidationService.IdentityOk()]],
       FirstName:[this.passObj.passData.FirstName,Validators.required],
@@ -28,6 +37,7 @@ export class DriverUpdateComponent implements OnInit {
       UserName:[this.passObj.passData.UserName,[Validators.required,ValidationService.NewDriver(this.driverService)]],
       Password:[this.passObj.passData.Password,Validators.required],
     });
-  }
+
+   }
 
 }

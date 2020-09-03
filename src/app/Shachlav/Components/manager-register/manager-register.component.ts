@@ -50,7 +50,7 @@ ManagerAdd:Manager;
     this.registerForm.value.UserName,
     this.registerForm.value.Password)
   this.managerService.AddManager(this.ManagerAdd).subscribe(
-    suc=>{console.log(this.ManagerAdd.FirstName)},
+    suc=>{console.log(this.ManagerAdd.FirstName); alert("מנהל הוסף"); this.registerForm.reset();},
     err=>{console.log("didnt reach")}
   )
 }

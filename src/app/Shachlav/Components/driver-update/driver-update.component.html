@@ -11,9 +11,8 @@
                  placeholder="תעודת זהות"
                   name="tz"  
                   formControlName="IdentityNumber"
-              
-  
                 >
+                <mat-label>תעודת זהות</mat-label>
            <mat-hint >הקש תעודת זהות כולל ספרת ביקןרת</mat-hint>
         <mat-hint  align="end" >{{updateForm.get('IdentityNumber').value?.length}}/9</mat-hint>
         <mat-error *ngIf="updateForm.get('IdentityNumber').hasError('required')" >נא הכנס ת"ז</mat-error> 
@@ -28,6 +27,8 @@
                placeholder="שם פרטי" 
                name="fname" 
                 formControlName="FirstName">
+                <mat-label>שם פרטי</mat-label>
+                <mat-error *ngIf="updateForm.get('FirstName').hasError('required')" >נא הכנס שם פרטי</mat-error> 
           </mat-form-field>
           <mat-form-field>
               <input 
@@ -36,6 +37,7 @@
               placeholder="שם משפחה" 
               name="lname"
                 formControlName="LastName">
+                <mat-label>שם משפחה</mat-label>
           </mat-form-field>
           <mat-form-field>
               <input
@@ -46,6 +48,7 @@
                 
              
                 formControlName="Email">
+                <mat-label>אימייל</mat-label>
           </mat-form-field>
           <mat-form-field>
               <input 
@@ -57,6 +60,7 @@
                name="phone"
                 formControlName="PhoneNumber" 
               >
+              <mat-label>מספר טלפון</mat-label>
           </mat-form-field>
           <mat-form-field>
               <input 
@@ -65,7 +69,9 @@
                placeholder="פלאפון"
                 name="cellphone" 
                  formControlName="CellNumber"
-                >
+                > 
+                <mat-hint  align="end" >{{updateForm.get('IdentityNumber').value?.length}}/9</mat-hint>
+                <mat-label>מספר פלאפון</mat-label>
           </mat-form-field>
           <mat-form-field>
               <input 
@@ -75,6 +81,7 @@
                  placeholder="כתובת"
                   name="adress" 
                    formControlName="Address">
+                   <mat-label>כתובת</mat-label>
           </mat-form-field>
           <mat-form-field >
               <input 
@@ -87,6 +94,7 @@
                  formControlName="BirthDate">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker  #picker></mat-datepicker>
+              <mat-label>תאריך לידה</mat-label>
             </mat-form-field>
         
           <mat-form-field>
@@ -97,6 +105,7 @@
                 placeholder="שם משתמש" 
                 name="username"
                   formControlName="UserName">
+                  <mat-label>שם משתמש</mat-label>
                   <mat-error *ngIf="!updateForm.get('UserName').hasError('required')||updateForm.get('UserName').hasError('UserNameDValid')">שם משתמש כבר קיים במערכת</mat-error>
           </mat-form-field> 
            <mat-form-field>
@@ -107,6 +116,7 @@
                placeholder="סיסמא" 
                name="password"  
                formControlName="Password">
+               <mat-label>סיסמא</mat-label>
           </mat-form-field> 
           <button mat-raised-button type="submit" [disabled]="updateForm.invalid" [mat-dialog-close]="updateForm" id="Ok" value="אישור">אישור</button>
       </form>

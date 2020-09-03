@@ -43,6 +43,7 @@ isExpansionDetailRow = (i: number, row: any) => row.hasOwnProperty('detailRow');
 
    //filter
    applyFilter(filterValue: string) {
+     console.log(filterValue);
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
@@ -79,10 +80,10 @@ isExpansionDetailRow = (i: number, row: any) => row.hasOwnProperty('detailRow');
     this.ManagerUpdate=new Manager(row.Id,result.value.IdentityNumber,
     result.value.FirstName,
     result.value.LastName,
-    result.value.Address,
     result.value.Email,
     result.value.PhoneNumber,
     result.value.CellNumber,
+    result.value.Address,
     result.value.BirthDate,
     result.value.UserName,
     result.value.Password);
@@ -99,16 +100,11 @@ isExpansionDetailRow = (i: number, row: any) => row.hasOwnProperty('detailRow');
 
 }
 
-
-  ngAfterViewInit(){
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    
-  }
-
   ngOnInit(){
     this.show=false;
   this. getAllManagers();
+  this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
 
   }
 
