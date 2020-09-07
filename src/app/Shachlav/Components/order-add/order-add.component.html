@@ -58,25 +58,28 @@
                   name="StartTime"  
                   formControlName="StartTime"
                />
+
+         
                
                <ngx-material-timepicker #defaultValue >
                </ngx-material-timepicker>
                <label>זמן התחלה</label>
           </mat-form-field>
 
-          <mat-form-field>
-            <input
-                matInput
-                aria-label="default time"
-                [ngxTimepicker]="defaultValue"
-                [value]="'0:00 am'"
-                id="EndTime" 
-                name="EndTime"  
-                formControlName="EndTime"
-             />
-             <ngx-material-timepicker #defaultValue1>
+          <mat-form-field>   
+
+              <input
+              matInput
+              aria-label="default time"
+              [ngxTimepicker]="defaultValue"
+              [value]="'0:00 am'"
+              id="EndTime" 
+              name="EndTime"  
+              formControlName="EndTime"
+           />
+           <ngx-material-timepicker #defaultValue1>
              </ngx-material-timepicker>
-  <label>זמן סיום</label>
+      <label>זמן סיום</label>
         </mat-form-field>
 
 

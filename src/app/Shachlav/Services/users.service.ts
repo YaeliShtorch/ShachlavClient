@@ -13,18 +13,24 @@ import { Observable } from 'rxjs';
 })
 
 export class UsersService {
-  constructor(public customerService:CustomerService,public managerService:ManagerServiceMService,
-
-  public  providerService:ProviderService,public driverService:DriverService) {
 
 
-}
 type:string;
 found:boolean;
 ManagerL:Manager;
 CustomerL:Customer;
 ProviderL:Provider;
 DriverL:Driver;
+username:string;
+password:string;
+
+  constructor(public customerService:CustomerService,public managerService:ManagerServiceMService,
+
+  public  providerService:ProviderService,public driverService:DriverService) {
+
+
+}
+
 
 
 
@@ -45,6 +51,28 @@ setCurrentUser(username:string, password:string,type:string):Observable<any>{
   }
 
 }
+}
+
+getLoggedInUser():Observable<any>{
+
+  this.username=localStorage.getItem('name');
+  this.password=localStorage.getItem('password');
+  this.type=localStorage.getItem('type');
+  switch(this.type){
+    case 'Manager':{
+      return this.managerService.GetManagerUP(this.username,this.password);
+  }
+    case 'Customer':{
+      return this.customerService.GetCustomerUP(this.username,this.password);
+    }
+    case 'Provider':{
+      return this.providerService.GetProviderUP(this.username,this.password)
+    }
+    case 'Driver':{
+      return this.driverService.GetDriverUP(this.username,this.password)
+  }
+  }
+
 }
 
 getCurrentUser(s:object,type:string){

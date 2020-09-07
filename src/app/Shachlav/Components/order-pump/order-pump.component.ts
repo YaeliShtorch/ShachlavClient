@@ -24,16 +24,15 @@ export class OrderPumpComponent implements OnInit {
     ;
     this.newPumpForm = this.fb.group({
     
-    
-    
-      PumpType:['']
+      VehicleType:['']
 
     });
   
   }
-  change(){
-    
-        this.newItemEvent.emit({Pump:this.VehiclesTypes[this.newPumpForm.value.PumpTypeId]});
+  Change(){
+    console.log("hi");
+    console.log(this.VehiclesTypes[this.newPumpForm.value.VehicleType]);
+        this.newItemEvent.emit({Pump:this.VehiclesTypes[this.newPumpForm.value.VehicleType]});
       }
 
 }

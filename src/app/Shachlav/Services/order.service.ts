@@ -20,11 +20,12 @@ export class OrderService {
     return this.Http.get<Order>(environment.baseUrl+this.thisController+"GetId?id="+id)
 }
 
- AddOrder(o:Order,Mt:Array<MaterialTypeOrder>){
-   return this.Http.post(environment.baseUrl+this.thisController+"AddOrder",[o,Mt]);
- }
+//  AddOrder(o:Order,Mt:Array<MaterialTypeOrder>){
+//    return this.Http.post(environment.baseUrl+this.thisController+"AddOrder",[o,Mt]);
+//  }
 
- AddOrder2(o:Order){
+
+ AddOrder(o:Order){
   return this.Http.post(environment.baseUrl+this.thisController+"AddOrder",o);
 }
 

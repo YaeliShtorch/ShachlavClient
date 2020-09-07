@@ -1,15 +1,15 @@
-<form [formGroup]="newPumpForm" (ngChange)="change()"  autocomplete="off">
+<form [formGroup]="newPumpForm"  (change)="Change()" autocomplete="off">
 
   <mat-form-field appearance="fill" >
   <mat-label>כלי רכב</mat-label>
   <mat-select
   
-  id="VehicleTypeId" 
+  id="VehicleType" 
   placeholder="סוג משאבה"
-  name="VehicleTypeId"  
-  formControlName="VehicleTypeId"    
+  name="VehicleType"  
+  formControlName="VehicleType"    
   >
-  <mat-option *ngFor="let vehicle of VehiclesTypes,let i"[value]="i" >{{vehicle.Name}}</mat-option>
+  <mat-option *ngFor="let vehicle of VehiclesTypes,let i" [value]="vehicle">{{vehicle.Name}}</mat-option>
   
   </mat-select>
   </mat-form-field>  

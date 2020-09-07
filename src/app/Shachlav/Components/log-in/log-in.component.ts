@@ -49,7 +49,6 @@ onSubmit(){
   this.router.navigate([`home/${this.type.toLowerCase()}`]);
 }
 },err=>{alert("לא רשום במערכת"),  this.form.reset()})
-
 }
 
 }

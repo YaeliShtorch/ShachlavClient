@@ -50,7 +50,6 @@ onOrderSubmitted(event:{data:Array<Material>,Type:string}){
   }
   else if(event.Type=="Clay")
   this.Materials[5]=event.data[0]; 
-  //למה במקום החמישי? כשזה IF
 this.change();
   }
 
