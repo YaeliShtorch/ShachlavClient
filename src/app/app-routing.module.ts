@@ -39,7 +39,7 @@ const routes: Routes = [
             {
                 path: 'home/customer', component: CustomerComponent,
                 children: [
-                    {path: 'addOrder', component: OrderAddComponent},
+                    {path: 'newOrder', component: OrderAddComponent},
                     {path: 'order/getAllOrders', component: OrderComponent},
                     {path: 'order/getOrderbyId', component: OrderComponent},
                     {path: 'order', component: OrderComponent}

@@ -1,8 +1,7 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
-
-import { OrderService } from 'src/app/Shachlav/Services/order.service';
+import { OrderService } from 'src/app/Shachlav/services/order.service';
+import { Material } from 'src/app/Shachlav/Models/material.models';
 
 @Component({
   selector: 'app-order-pump',
@@ -10,33 +9,32 @@ import { OrderService } from 'src/app/Shachlav/Services/order.service';
   styleUrls: ['./order-pump.component.css']
 })
 export class OrderPumpComponent implements OnInit {
-  constructor(private fb:FormBuilder,orderService:OrderService ) { }
-  newOrderForm:FormGroup;
-  VehiclesTypes:Array<String>;
- MorePumps:Array<boolean>=[true];
+  constructor(private fb:FormBuilder,private orderService:OrderService ) { }
+  newPumpForm:FormGroup;
+  VehiclesTypes:Array<Material>;
+  @Output() newItemEvent = new EventEmitter<{Pump:Material}>();
   ngOnInit(): void {
-    this.VehiclesTypes=["משאבה 62 מטר","משאבה 56 מטר","משאבה 52 מטר","משאבה 42 מטר","משאבה 36 מטר","משאבה 32 מטר","משאבה 28 מטר","משאבה 24 מטר","משאבת מייקו עם זרוע","משאבת מייקו"];
-    this.newOrderForm = this.fb.group({
+ 
+    this.VehiclesTypes=new Array<Material>();
+    this.orderService.GetVehicleType().subscribe(
+      suc=>{
+        this.VehiclesTypes=(suc as Array<Material>);  
+      },
+      err=>{console.log("errGetVehicleType")})
+    ;
+    this.newPumpForm = this.fb.group({
     
     
-      PumpNeeded:[''],
+    
       PumpType:['']
-     
-     
-    
+
     });
   
   }
-onSubmit()
-{
-  
-}
-AddPump(){
-  this.MorePumps.push(true);
+  change(){
+    
+        this.newItemEvent.emit({Pump:this.VehiclesTypes[this.newPumpForm.value.PumpTypeId]});
+      }
 
 }
-RemovePump(){
-  this.MorePumps.pop();
 
-}
-}

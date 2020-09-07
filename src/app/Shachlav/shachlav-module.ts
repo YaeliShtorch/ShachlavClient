@@ -65,6 +65,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {ContainerModule} from "../../@vex/directives/container/container.module";
 import{MatSnackBarModule}from '@angular/material/snack-bar';
 import{MatSlideToggleModule}from '@angular/material/slide-toggle';
+import { MatTimepickerModule } from 'mat-timepicker';
 
 
 @NgModule({
@@ -143,6 +144,7 @@ import{MatSlideToggleModule}from '@angular/material/slide-toggle';
         ProviderUpdateComponent,
         MatSnackBarModule,
         MatSlideToggleModule,
+        MatTimepickerModule,
     ],
     imports: [
         HttpClientModule,
@@ -175,6 +177,7 @@ import{MatSlideToggleModule}from '@angular/material/slide-toggle';
         FlexModule,
         MatSnackBarModule,
         MatSlideToggleModule,
+        MatTimepickerModule,
     ],
     entryComponents: [DialogBoxComponent],
 })

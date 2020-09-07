@@ -1,7 +1,8 @@
 import { Optional } from '@angular/core';
 
 export class Customer{
-    private Id:number;
+    // private Id:number;
+
     // public get Id(): number {
     //     return this._Id;
     // }
@@ -9,7 +10,7 @@ export class Customer{
     //     this._Id = value;
     // }
     constructor(
-     public _Id:number,
+     public Id:number,
      public IdentityNumber:string,
      public FirstName:string,
      public LastName:string,
@@ -26,6 +27,6 @@ export class Customer{
 
      ){
 
-        this.Id=_Id;
+        // this.Id=_Id;
      }
 }

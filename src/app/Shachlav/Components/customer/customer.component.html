@@ -8,6 +8,9 @@
     <mat-nav-list fxLayout="column">
       <!-- fxFlex.sm="35"  fxFlex.md="30" fxFlex.xs="50"  fxFlex.lt-lg="50" -->
       <mat-list-item class="sidelink">
+        <a matLine [routerLink]="['newOrder']" routerLinkActive="active">הזמנה חדשה</a>
+      </mat-list-item>
+      <mat-list-item class="sidelink">
         <a matLine [routerLink]="['order']" routerLinkActive="active">הזמנות פתוחות</a>
       </mat-list-item>
       <mat-list-item class="sidelink">
@@ -30,12 +33,15 @@
 
   <mat-sidenav-container>
     <mat-sidenav-content class="content">
-      <p class="text-orange display-4">
+      <p>
         שלום לקוח
         <br />
       </p>
       <mat-sidenav #sidenav>
         <mat-nav-list>
+          <mat-list-item class="sidelink" fxLayoutAlign="start">
+            <a matLine [routerLink]="['newOrder']" routerLinkActive="active">הזמנה חדשה</a>
+          </mat-list-item>
           <mat-list-item class="sidelink" fxLayoutAlign="start">
             <a matLine [routerLink]="['order']" routerLinkActive="active">הזמנות פתוחות</a>
           </mat-list-item>
@@ -59,7 +65,7 @@
 
       </mat-sidenav>
 
-
+<router-outlet></router-outlet>
 
     </mat-sidenav-content>
   </mat-sidenav-container>

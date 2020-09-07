@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { NgForm, FormControl, Validators, FormGroup,FormBuilder } from '@angular/forms';
 import {ValidationService} from 'src/app/Shachlav/Services/validation.service'
-
 import { Vehicle } from 'src/app/Shachlav/Models/vehicle.models';
-import { OrderService } from 'src/app/Shachlav/Services/order.service';
+import { OrderService } from 'src/app/Shachlav/services/order.service';
 import { Material } from 'src/app/Shachlav/Models/material.models';
 @Component({
   selector: 'app-add-materials',
@@ -17,6 +15,7 @@ export class AddMaterialsComponent implements OnInit {
 addMaterialForm:FormGroup;
 Types:Array<String>;
 Material:Material;
+add:number;
 
 
 
@@ -33,7 +32,7 @@ ngOnInit(): void {
 
 }
 onSubmit(){
-  this.Material=new Material(this.addMaterialForm.value.Name);
+  this.Material=new Material(null,this.addMaterialForm.value.Name);
 switch(this.addMaterialForm.value.Type){
   case 0:{this.orderService.AddVehicleType(this.Material).subscribe(
     suc=>{console.log((suc as Material).Name)},
@@ -72,3 +71,4 @@ switch(this.addMaterialForm.value.Type){
     
 }
 }
+

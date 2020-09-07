@@ -94,11 +94,12 @@ export class CustomerShowComponent implements OnInit {
               result.value.UserName,
               result.value.Password,
               result.value.BirthDate,
-              result.value.IsActive)
-              console.log(this.CustomerUpdate.Id);
+              result.value.IsActive);
+
 
             // console.log(this.ManagerUpdate);
-            this.customerService.UpdateCustomer(this.CustomerUpdate).subscribe(suc => { this.snackbar.open('פרטי לקוח עודכנו במערכת', null, { duration: 4000 }); this.getAllCustomers() },
+            this.customerService.UpdateCustomer(this.CustomerUpdate).subscribe(suc => 
+              { this.snackbar.open('פרטי לקוח עודכנו במערכת', null, { duration: 4000 }); this.getAllCustomers() },
               err => this.snackbar.open('שגיאה, נסה מאוחר יותר', null, { duration: 4000 }));
 
 
@@ -110,15 +111,11 @@ export class CustomerShowComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-
-  }
-
   ngOnInit() {
     this.show = false;
     this.getAllCustomers();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
 
   }
 
