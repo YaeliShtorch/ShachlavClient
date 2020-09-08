@@ -51,7 +51,7 @@ export class OrderComponent implements OnInit {
 
     getAllOrders() {
         // this.show=true;
-        this.orderService.getAllCustOrders(this.userService.CustomerL.Id).subscribe(suc => {
+        this.orderService.GetCustOrders(this.userService.CustomerL.Id).subscribe(suc => {
             this.dataSource.data = [...suc];
             console.log(this.dataSource.data)
         }, err => {

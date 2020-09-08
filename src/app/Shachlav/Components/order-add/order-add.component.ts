@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,Validators } from '@angular/forms';
-import {ValidationService} from 'src/app/Shachlav/Services/validation.service'
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { ValidationService } from 'src/app/Shachlav/Services/validation.service'
 import { DriverWork } from 'src/app/Shachlav/Models/driverWork.models'
 import { Vehicle } from 'src/app/Shachlav/Models/vehicle.models';
 import { DriverService } from 'src/app/Shachlav/services/driver.service';
@@ -11,6 +11,8 @@ import { Material } from 'src/app/Shachlav/Models/material.models';
 import { UsersService } from 'src/app/Shachlav/services/users.service';
 import { Customer } from 'src/app/Shachlav/Models/customer.models';
 import { materialize } from 'rxjs/operators';
+import { MaterialCategory } from '../../Models/materialCategory.models';
+
 
 @Component({
   selector: 'app-order-add',
@@ -19,90 +21,125 @@ import { materialize } from 'rxjs/operators';
 })
 export class OrderAddComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,public orderService:OrderService,public userService:UsersService ) { }
-  newOrderForm:FormGroup;
-  CurrentCustomer:Customer;
-  VehiclesTypes:Array<String>;
-  OrderDetailBool:Array<boolean>=[false,false];
- PumpDetail:Array<Material>=new Array<Material>();
- OrderDetail:Array<Material>=new Array<Material>();
-//  OrderDetail:Array<{OrderType:string,Element:string,Amount:number,TypeId:Array<Material>}>=new Array<{OrderType:string,Element:string,Amount:number,TypeId:Array<Material>}>();
- o:Order;
- m:Array<MaterialTypeOrder>=new Array<MaterialTypeOrder>();
- createdOrder:Order;
+  constructor(private fb: FormBuilder, public orderService: OrderService, public userService: UsersService) { }
+  newOrderForm: FormGroup;
+  CurrentCustomer: Customer;
+  PumpDetail: Array<MaterialTypeOrder> = new Array<MaterialTypeOrder>();
+  OrderDetail: Array<MaterialTypeOrder> = new Array<MaterialTypeOrder>();
+  ConcreteTest: boolean;
+  orderDueDate = new FormControl();
+  minDate = new Date(new Date().getDay() + 1);
+  StartTime=new FormControl();
+  EndTime=new FormControl();
+  counterMaterial=[1];
+
+
 
   ngOnInit(): void {
 
-    this.userService.getLoggedInUser().subscribe(suc=>this.CurrentCustomer=suc);
-    this.PumpDetail.push(new Material(null,""));
-    this.OrderDetail.push(new Material(null,""));
+    this.userService.getLoggedInUser().subscribe(suc => this.CurrentCustomer = suc);
 
-  //   this.OrderDetail.push({OrderType:" ",Element:" ",Amount:0,TypeId:new Array<Material>()});
-  //   this.newOrderForm = this.fb.group({
-  //     SiteAdress:[''],
-  //     OrderDate: [''],
-  //     OrderDueDate:[''],
-  //     StartTime:[''],
-  //     EndTime:[''],
-  //     ConcreteTest:[''],
-  //     IsPump:[''],
-  //     Comment:['']
-    
-  //   });
-  
+    //למה צריך לאתחל??
+    // this.PumpDetail.push(new MaterialTypeOrder(null,null,"",0,0,0));
+    // this.OrderDetail.push(new MaterialTypeOrder(null,null,"",0,0,0));
+
+    this.newOrderForm = this.fb.group({
+      SiteAdress: [''],
+      CustomerId: [''],
+      OrderDate: [''],
+      OrderDueDate: [''],
+      StartTime: [''],
+      EndTime: [''],
+      IsApproved: [''],
+      IsDone: [''],
+      ManagerComment: [''],
+      ConcreteTest: [''],
+      Comment: [''],
+      MaterialOrderL: [''],
+
+
+    });
+
   }
-  addItem(event:Material,index:number){
-    console.log(index,event);
-this.OrderDetail[index].Id=event.Id;
-this.OrderDetail[index].Name=event.Name;
-// for (let i = 0; i < event.TypeId.length; i++) {
-//   this.OrderDetail[index].TypeId[i]=event.TypeId[i];
-// }
+  addItem(event: MaterialTypeOrder) {
+    if(event)
+    this.OrderDetail.push(event);
+    console.log(this.OrderDetail);
+    // this.OrderDetail.push(event);
+    //     console.log(index,event);
+    // this.OrderDetail[index].Id=event.Id;
+    // this.OrderDetail[index].Name=event.Name;
+    // for (let i = 0; i < event.TypeId.length; i++) {
+    //   this.OrderDetail[index].TypeId[i]=event.TypeId[i];
+    // }
+
   }
-onSubmit()
-{
-  
-  const order={
-    ...this.newOrderForm.value
+  onSubmit() {
+
+
+    const order = {
+      ...this.newOrderForm.value
+    }
+ 
+    order["OrderDate"] = new Date();
+    order["IsApproved"] = false;
+    order["IsDone"] = false;
+    order["CustomerId"] = this.CurrentCustomer?.Id;
+    order["MaterialOrderL"] = (this.OrderDetail);
+    // order["MaterialOrderL"].push(this.PumpDetail);
+    console.log("order", order);
+
+
+
+    this.orderService.AddOrder(order).subscribe(
+      suc => { console.log("great") },
+      err => { console.log("errAddOrder") }
+    )
   }
-order["OrderDate"]=new Date();
-order["CustomerId"]=this.CurrentCustomer?.Id;
-order["listMaterial"].push(this.OrderDetail);
-order["listMaterial"].push(this.PumpDetail);
+
+  checkboxVal(event) {
+    this.ConcreteTest = event;
+  }
+
+  setTime(event){
+    this.StartTime;
+  }
+
+  setTime2(event){
+    this.EndTime
+  }
+
+  //איך זה מכפיל את הקומפוננטה?
+  AddMaterial() {
+this.counterMaterial.push(1); 
+    //למה אובייקט ריק?
+    //  this.OrderDetail.push(new MaterialTypeOrder(null,null,"",0,0,0));
+  }
+  RemoveMaterial() {
+    this.counterMaterial.pop();
+    this.OrderDetail.pop();
+  }
+  title = 'demo';
+  exportTime = { minute: 15, hour: 7, meriden: 'PM', format: 24 };
+
+  onChangeHour(event) {
+    console.log(event);
+  }
 
 
-
-  this.orderService.AddOrder(order as Order).subscribe(
-    suc=>{;console.log("great", this.createdOrder)},
-    err=>{console.log("errAddOrder")}
-  )
-}
-
-//איך זה מכפיל את הקומפוננטה?
-AddMaterial(){
-  // this.OrderDetail.push({OrderType:" ",Element:" ",Amount:0,TypeId:new Array<Material>()});
-}
-RemoveMaterial(){
-  this.OrderDetail.pop();
-}
-title = 'demo';
-exportTime = {  minute: 15,hour: 7, meriden: 'PM', format: 24 };
-
-onChangeHour(event) {
- console.log('event', event);
-}
-AddPump(){
- this.PumpDetail.push(new Material(null,""));
+  // AddPump() {
+  //   //למה אובייקט ריק?
+  //   this.PumpDetail.push(new MaterialTypeOrder(null, null, "", 0, 0, 0));
 
 
-}
-RemovePump(){
-  this.PumpDetail.pop();
+  // }
+  // RemovePump() {
+  //   this.PumpDetail.pop();
 
-}
-addPump(event:Material,i:number){
-this.PumpDetail[i]=event;
-console.log(event);
-console.log(this.PumpDetail);
-}
+  // }
+  // addPump(event: MaterialTypeOrder, i: number) {
+  //   this.PumpDetail[i] = event;
+  //   console.log(event);
+  //   console.log(this.PumpDetail);
+  // }
 }

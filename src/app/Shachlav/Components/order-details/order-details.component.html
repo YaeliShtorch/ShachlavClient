@@ -1,31 +1,60 @@
 
-     <form [formGroup]="newOrderDetailsForm" (ngChange)="change()" autocomplete="off">
-      <label id="example-radio-group-label">בחר מה רצונך להזמין</label>
-          <mat-radio-group
+     <form [formGroup]="newOrderDetailsForm" autocomplete="off">
+      <label id="example-radio-group-label">הזמנת כלי רכב וחומרים</label>
+          <!-- <mat-radio-group
           (change)="Chosen()"
           aria-labelledby="example-radio-group-label"
           class="example-radio-group"
           id="OrderType" 
           name="OrderType"  
-          formControlName="OrderType"
- >
+          formControlName="OrderType" -->
   <!-- <mat-radio-button class="example-radio-button" value="Concrete1">
     ב-30 ללא פוליה שקיעה 5
   </mat-radio-button>
   <mat-radio-button class="example-radio-button" value="Concrete2">
     ב-30 מייקו שקיעה 6
   </mat-radio-button> -->
-  <mat-radio-button class="example-radio-button" value="Concrete">
+  <!-- //קטגוריות -->
+  <!-- <mat-radio-button  class="example-radio-button" value="Concrete" (select)>
   בטון
   </mat-radio-button>
   <mat-radio-button class="example-radio-button" value="Clay">
    טיט
   </mat-radio-button>
-</mat-radio-group>
-<app-order-concrete *ngIf="Concrete"  (addOrderDetails)="onOrderSubmitted($event)"></app-order-concrete>
+</mat-radio-group> -->
+<!-- <app-order-concrete *ngIf="Concrete"  (addOrderDetails)="onOrderSubmitted($event)"></app-order-concrete>
 <app-order-clay *ngIf="Clay" (addOrderDetails)="onOrderSubmitted($event)"></app-order-clay>
-       
-       
+        -->
+
+        <!-- //מערך לפי קטוגריה -->
+        <mat-form-field appearance="fill" >
+          <!-- id="MaterialCategory" 
+          name="MaterialCategory"  
+          formControlName="MaterialCategory"     -->
+          <mat-label>קטגוריות</mat-label>
+          <mat-select
+          
+         
+          >
+          <mat-option *ngFor="let category of CategoryL,let i" [value]="category.Id" (click)="selected(category.Id)">{{category.Name}}</mat-option>
+          
+          </mat-select>
+          </mat-form-field>  
+
+ <!-- //הערכים-->
+     
+    <mat-form-field appearance="fill">
+    <mat-label>בחירת חומר</mat-label>
+     <mat-select
+  
+    id="MaterialId" 
+     name="MaterialId"  
+     formControlName="MaterialId"    
+  >
+    <mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material" (click)="selectedMaterial(material.Id)">{{material.Name}}</mat-option>
+  
+  </mat-select>
+  </mat-form-field>
   
            <mat-form-field>
               <input
@@ -45,6 +74,7 @@
         placeholder="כמות"
                 name="amount"  
                 formControlName="Amount"
+                (change)="setVal($event)"
                 >
          <mat-hint ></mat-hint>
         </mat-form-field>

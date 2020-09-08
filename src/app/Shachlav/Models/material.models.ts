@@ -3,7 +3,8 @@ export class Material
         constructor(
        
             public Id:number,
-            public Name:string
+            public MaterialCategoryId:number,
+            public Name:string,
         )
 {}       
      

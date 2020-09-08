@@ -8,10 +8,11 @@ import {VexModule} from '../@vex/vex.module';
 import {HttpClientModule} from '@angular/common/http';
 import {CustomLayoutModule} from './custom-layout/custom-layout.module';
 import {ShachlavModule} from './Shachlav/shachlav-module';
-import { DriverTaskShowComponent } from './Shachlav/Components/driver-task-show/driver-task-show.component';
+
+
 
 @NgModule({
-    declarations: [AppComponent, DriverTaskShowComponent],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

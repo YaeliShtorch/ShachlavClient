@@ -66,6 +66,8 @@ import {ContainerModule} from "../../@vex/directives/container/container.module"
 import{MatSnackBarModule}from '@angular/material/snack-bar';
 import{MatSlideToggleModule}from '@angular/material/slide-toggle';
 import { MatTimepickerModule } from 'mat-timepicker';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
+import { DriverTaskShowComponent } from './Components/driver-task-show/driver-task-show.component';
 
 
 @NgModule({
@@ -105,7 +107,8 @@ import { MatTimepickerModule } from 'mat-timepicker';
         CustomerUpdateComponent,
         DriverUpdateComponent,
         ProviderUpdateComponent,
-        CdkDetailRowDirective],
+        CdkDetailRowDirective,
+        DriverTaskShowComponent],
     exports: [ManagerRegisterComponent,
         ManagerComponent,
         CustomerComponent,
@@ -145,6 +148,8 @@ import { MatTimepickerModule } from 'mat-timepicker';
         MatSnackBarModule,
         MatSlideToggleModule,
         MatTimepickerModule,
+        NgxMatTimepickerModule,
+        NgxMatDatetimePickerModule,
     ],
     imports: [
         HttpClientModule,
@@ -178,7 +183,17 @@ import { MatTimepickerModule } from 'mat-timepicker';
         MatSnackBarModule,
         MatSlideToggleModule,
         MatTimepickerModule,
-    ],
+        NgxMatTimepickerModule,
+        NgxMatDatetimePickerModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        NgxMatNativeDateModule, 
+        
+     ],
+     providers: [  
+        MatDatepickerModule,
+        MatNativeDateModule,  
+      ],
     entryComponents: [DialogBoxComponent],
 })
 export class ShachlavModule {

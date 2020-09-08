@@ -9,28 +9,28 @@ import { OrderService } from 'src/app/Shachlav/services/order.service';
   styleUrls: ['./order-clay.component.css']
 })
 export class OrderClayComponent implements OnInit {
-  newClayForm:FormGroup;
-  ClayTypes:Array<Material>;
- ClayChosen:Array<Material>;
-  constructor(private fb:FormBuilder,private orderService:OrderService ) { }
+//   newClayForm:FormGroup;
+//   ClayTypes:Array<Material>;
+//  ClayChosen:Array<Material>;
+//   constructor(private fb:FormBuilder,private orderService:OrderService ) { }
   ngOnInit(): void {
-    this.ClayTypes=new Array<Material>();
-    this.orderService.GetClay().subscribe(
-      suc=>{
-        this.ClayTypes=(suc as Array<Material>);  
-      },
-      err=>{console.log("errGetClayTypes")})
-    ;
+    // this.ClayTypes=new Array<Material>();
+    // this.orderService.GetClay().subscribe(
+    //   suc=>{
+    //     this.ClayTypes=(suc as Array<Material>);  
+    //   },
+    //   err=>{console.log("errGetClayTypes")})
+    // ;
  
-    this.newClayForm = this.fb.group({
-      ClayType: ['']
-    });
+    // this.newClayForm = this.fb.group({
+    //   ClayType: ['']
+    // });
   }
-  @Output() addOrderDetails = new EventEmitter<{data:Array<Material>,Type:string}>();
-change(){
+//   @Output() addOrderDetails = new EventEmitter<{data:Array<Material>,Type:string}>();
+// change(){
 
-  this.ClayChosen[0]=this.ClayTypes[this.newClayForm.value.ClayType];
-  this.addOrderDetails.emit({data:this.ClayChosen,Type:"Clay"});
-}
+//   this.ClayChosen[0]=this.ClayTypes[this.newClayForm.value.ClayType];
+//   this.addOrderDetails.emit({data:this.ClayChosen,Type:"Clay"});
+// }
 
 }

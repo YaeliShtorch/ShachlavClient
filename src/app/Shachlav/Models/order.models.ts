@@ -1,4 +1,6 @@
 import { Time } from "@angular/common";
+import{MaterialTypeOrder} from '../Models/materialTypeOrder.models'
+import { DateTime } from 'luxon';
 
 export class Order
 {
@@ -8,13 +10,14 @@ export class Order
         public SiteAdress:string,
         public OrderDate:Date,
         public OrderDueDate:Date,
-        public StartTime:Time,
-        public EndTime:Time,
+        public StartTime:DateTime,
+        public EndTime:DateTime,
         public IsApproved:boolean,
         public IsDone:boolean,
         public ManagerComment:string,
         public Comment:string,
         public ConcreteTest:boolean,
+        public MaterialOrderL:Array<MaterialTypeOrder>,
      
  ){}
     
