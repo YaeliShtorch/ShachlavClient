@@ -4,6 +4,7 @@ import {ValidationService} from 'src/app/Shachlav/Services/validation.service'
 import { Vehicle } from 'src/app/Shachlav/Models/vehicle.models';
 import { OrderService } from 'src/app/Shachlav/services/order.service';
 import { Material } from 'src/app/Shachlav/Models/material.models';
+import { MaterialCategory } from '../../Models/materialCategory.models';
 @Component({
   selector: 'app-add-materials',
   templateUrl: './add-materials.component.html',
@@ -13,62 +14,49 @@ export class AddMaterialsComponent implements OnInit {
 
   constructor(private fb:FormBuilder,public orderService:OrderService ) { }
 addMaterialForm:FormGroup;
-Types:Array<String>;
 Material:Material;
-add:number;
-
+CategoryL:Array<MaterialCategory>;
+MaterialL:Array<Material>;
+EzerMaterialL:Array<Material>;
+category:MaterialCategory;
+materialName=new FormControl();
+categoryName= new FormControl();
 
 
 
 
 ngOnInit(): void {
-  this.Types=["תוספת","חשיפה","שקיעה","תאור לבטון","סוג בטון","טיט","סוג כלי רכב"];
+  
   this.addMaterialForm = this.fb.group({
-  Name:[''],
-  Type:[''] 
+  materialName:[''],
+  categoryName:[''] 
    
   
   });
+  this.orderService.getAllCategories().subscribe(suc=>{this.CategoryL=suc,console.log("cat")},err=>console.log("caterr"));
+  this.orderService.GetAllMaterial().subscribe(suc=>{this.MaterialL=suc;console.log("material")}, err=>console.log("materialerr"));
 
 }
+
+selected(id)
+{
+   this.EzerMaterialL=this.MaterialL.filter(el=>el.MaterialCategoryId===id)
+}
+
+selectedMaterial(m){
+  
+}
+
+addCategory(categoryname){
+  console.log(categoryname);
+  this.category=new MaterialCategory(null,categoryname);
+  this.orderService.addCategory(this.category);
+  // this.categoryName = '';
+}
 onSubmit(){
-  // this.Material=new Material(null,this.addMaterialForm.value.Name);
-switch(this.addMaterialForm.value.Type){
-  case 0:{this.orderService.AddVehicleType(this.Material).subscribe(
-    suc=>{console.log((suc as Material).Name)},
-    error=>{console.log("errAddNewMaterial")})
-    break;}
-  case 1:{this.orderService.AddClay(this.Material).subscribe(
-    suc=>{console.log((suc as Material).Name)},
-    error=>{console.log("errAddNewMaterial")})
-    break;}
-  case 2:{this.orderService.AddConcrete(this.Material).subscribe(
-    suc=>{console.log((suc as Material).Name)},
-    error=>{console.log("errAddNewMaterial")})
-    break;}
-  case 3:{this.orderService.AddConcDesc(this.Material).subscribe(
-    suc=>{console.log((suc as Material).Name)},
-    error=>{console.log("errAddNewMaterial")})
-    break;}
-  case 4:{this.orderService.AddDeep(this.Material).subscribe(
-    suc=>{console.log((suc as Material).Name)},
-    error=>{console.log("errAddNewMaterial")})
-    break;}
-  case 5:{this.orderService.AddExposue(this.Material).subscribe(
-    suc=>{console.log((suc as Material).Name)},
-    error=>{console.log("errAddNewMaterial")})
-    break;}
-  case 6:{this.orderService.AddExtension(this.Material).subscribe(
-    suc=>{console.log((suc as Material).Name)},
-    error=>{console.log("errAddNewMaterial")})
-    break;}
  
 }
 
 
-
-
-    
-}
 }
 

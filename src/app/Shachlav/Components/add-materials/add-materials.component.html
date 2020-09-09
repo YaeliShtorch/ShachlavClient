@@ -2,36 +2,59 @@
 
 <section id="AddMaterial">
     <mat-card>
-        <mat-card-title >הוסף חומר</mat-card-title>
+        <mat-card-title >עריכת חומרים כלי רכב וקטגוריות</mat-card-title>
     <mat-card-content>
-    <form  [formGroup]="addMaterialForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <form  [formGroup]="addMaterialForm" autocomplete="off" fxLayout="column">
+           
+<mat-form-field>
+        <mat-label>קטגוריות</mat-label>
+        <mat-select>
+        <mat-option *ngFor="let category of CategoryL,let i" [value]="category.Id" (click)="selected(category.Id)" #category>{{category.Name}}</mat-option>
+        
+        </mat-select>
+    </mat-form-field>
+<!-- //הערכים-->
+   
+<mat-form-field>
+  <mat-label>בחירת חומר</mat-label>
+   <mat-select>
+  <mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material" (click)="selectedMaterial(material)" #material>{{material.Name}}</mat-option>
+</mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <input
+     type="text" 
+     matInput
+      id="materialName" 
+     placeholder="הוסף כלי רכב או חומר"
+      name="materialName"  
+      formControlName="materialName">
     
+</mat-form-field>
+
+<mat-form-field>
+    <input
+     type="text" 
+     matInput
+      id="categoryName" 
+     placeholder="הוסף קטגוריה"
+      name="categoryName"  
+      formControlName="categoryName">
     
-        <mat-form-field>
-            <input
-             type="text" 
-             matInput
-              id="Name" 
-             placeholder=" חומר"
-              name="name"  
-              formControlName="Name">
-            
-        </mat-form-field>
-        <mat-form-field appearance="fill" >
-            <mat-label>סוג חומר </mat-label>
-            <mat-select
-            
-            id="Type" 
-            placeholder="סוג חומר"
-            name="Type"  
-            formControlName="Type"
-            
-            >
-            <mat-option *ngFor="let type of Types,let index" value=index >{{type}}</mat-option>
-            
-            </mat-select>
-            </mat-form-field> 
-        <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button>
+</mat-form-field>
+<div fxLayout="row">
+  <button mat-raised-button  color="primary" (click)="addCategory(this.categoryName.value)">הוספת קטגוריה</button>
+  <button mat-raised-button  color="primary" >עריכת קטגוריה</button> 
+  <button mat-raised-button  color="primary" >הסרת קטגוריה</button> 
+  <button mat-raised-button  color="primary" >הוספת חומר</button>
+  <button mat-raised-button  color="primary" >עריכת חומר</button> 
+  <button mat-raised-button  color="primary" >הסרת חומר</button> 
+</div>
+  
+       
+    
+        <!-- <button mat-raised-button type="submit" id="Ok" value="אישור">אישור</button> -->
     </form>
 </mat-card-content>
 </mat-card>

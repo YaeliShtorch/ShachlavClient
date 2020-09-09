@@ -24,6 +24,7 @@ import {ProviderRegisterComponent} from './Shachlav/Components/provider-register
 import {LogInComponent} from './Shachlav/Components/log-in/log-in.component';
 import {AddVehicleComponent} from './Shachlav/Components/add-vehicle/add-vehicle.component';
 import { DriverTaskShowComponent } from './Shachlav/Components/driver-task-show/driver-task-show.component';
+import { AddMaterialsComponent } from './Shachlav/Components/add-materials/add-materials.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/home/subHome', pathMatch: 'full'},
@@ -71,7 +72,8 @@ const routes: Routes = [
                     {path: 'showDriver', component: DriverShowComponent},
                     {path: 'showProvider', component: ProviderShowComponent},
                     {path: 'showCustomer', component: CustomerShowComponent},
-                    {path: 'showVehicle', component: VehicleShowComponent}
+                    {path: 'showVehicle', component: VehicleShowComponent},
+                    {path: 'addMaterial', component:AddMaterialsComponent}
 
                 ]
             }
