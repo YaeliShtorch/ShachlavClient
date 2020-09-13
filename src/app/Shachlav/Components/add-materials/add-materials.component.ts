@@ -20,7 +20,7 @@ MaterialL:Array<Material>;
 EzerMaterialL:Array<Material>;
 category:MaterialCategory;
 materialName=new FormControl();
-categoryName= new FormControl();
+categoryName=new FormControl();
 
 
 
@@ -29,7 +29,7 @@ ngOnInit(): void {
   
   this.addMaterialForm = this.fb.group({
   materialName:[''],
-  categoryName:[''] 
+  categoryName:['']
    
   
   });
@@ -38,17 +38,27 @@ ngOnInit(): void {
 
 }
 
-selected(id)
+selected(cat)
 {
-   this.EzerMaterialL=this.MaterialL.filter(el=>el.MaterialCategoryId===id)
+   this.EzerMaterialL=this.MaterialL.filter(el=>el.MaterialCategoryId===cat.Id)
+   this.addMaterialForm.patchValue({
+    categoryName:cat.Name,
+   })
+ 
 }
 
 selectedMaterial(m){
-  
+  this.addMaterialForm.patchValue({
+    materialName:m.Name,
+   })
+}
+
+editCategory(e){
+  console.log(e.value);
 }
 
 addCategory(categoryname){
-  console.log(categoryname);
+  console.log(categoryname.value);
   this.category=new MaterialCategory(null,categoryname);
   this.orderService.addCategory(this.category);
   // this.categoryName = '';

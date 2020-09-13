@@ -9,7 +9,7 @@
 <mat-form-field>
         <mat-label>קטגוריות</mat-label>
         <mat-select>
-        <mat-option *ngFor="let category of CategoryL,let i" [value]="category.Id" (click)="selected(category.Id)" #category>{{category.Name}}</mat-option>
+        <mat-option *ngFor="let category of CategoryL,let i" [value]="category" (click)="selected(category)" #category>{{category.Name}}</mat-option>
         
         </mat-select>
     </mat-form-field>
@@ -22,30 +22,35 @@
 </mat-select>
 </mat-form-field>
 
-<mat-form-field>
-    <input
-     type="text" 
-     matInput
-      id="materialName" 
-     placeholder="הוסף כלי רכב או חומר"
-      name="materialName"  
-      formControlName="materialName">
-    
-</mat-form-field>
 
 <mat-form-field>
+    <mat-label>הוספת/עריכת קטגוריה</mat-label>
     <input
      type="text" 
      matInput
       id="categoryName" 
-     placeholder="הוסף קטגוריה"
+     placeholder="{{'categoryName'}}"
       name="categoryName"  
-      formControlName="categoryName">
+      formControlName="categoryName"
+      #categoryName>
     
 </mat-form-field>
+
+<mat-form-field>
+    <mat-label>הוספת/עריכת חומר וכלי רכב</mat-label>
+    <input
+     type="text" 
+     matInput
+      id="materialName" 
+      name="materialName"  
+      formControlName="materialName"
+    >
+    
+</mat-form-field>
+
 <div fxLayout="row">
-  <button mat-raised-button  color="primary" (click)="addCategory(this.categoryName.value)">הוספת קטגוריה</button>
-  <button mat-raised-button  color="primary" >עריכת קטגוריה</button> 
+  <button mat-raised-button  color="primary" (click)="addCategory(this.categoryName)">הוספת קטגוריה</button>
+  <button mat-raised-button  color="primary" (click)="editCategory(this.category)">עריכת קטגוריה</button> 
   <button mat-raised-button  color="primary" >הסרת קטגוריה</button> 
   <button mat-raised-button  color="primary" >הוספת חומר</button>
   <button mat-raised-button  color="primary" >עריכת חומר</button> 
