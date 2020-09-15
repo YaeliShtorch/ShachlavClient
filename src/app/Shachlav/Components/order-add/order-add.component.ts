@@ -44,18 +44,18 @@ export class OrderAddComponent implements OnInit {
     // this.OrderDetail.push(new MaterialTypeOrder(null,null,"",0,0,0));
 
     this.newOrderForm = this.fb.group({
-      SiteAdress: [''],
+      SiteAdress: ['', Validators.required],
       CustomerId: [''],
-      OrderDate: [''],
-      OrderDueDate: [''],
-      StartTime: [''],
-      EndTime: [''],
+      OrderDate: ['',Validators.required],
+      OrderDueDate: ['',Validators.required],
+      StartTime: ['',Validators.required],
+      EndTime: ['',Validators.required],
       IsApproved: [''],
       IsDone: [''],
       ManagerComment: [''],
       ConcreteTest: [''],
       Comment: [''],
-      MaterialOrderL: [''],
+      MaterialOrderL: ['',Validators.required],
 
 
     });

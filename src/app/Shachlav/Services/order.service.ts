@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment } from 'src/environments/environment';
 import {Order} from '../Models/order.models';
@@ -16,13 +16,23 @@ export class OrderService {
   curCustomerId;
   userOrders=new Array<Order>();
   materialL=new Array<Material>();
+  materialLEvent=new EventEmitter< Array<Material>>();
   categoiesL=new Array<MaterialCategory>();
+  categoriesLEvent=new EventEmitter<Array<MaterialCategory>>();
   thisController:string="Order/";
   constructor(public Http:HttpClient) {
 
-    this.Http.get<Material[]>(environment.baseUrl+this.thisController+"GetAllM").subscribe(suc=>this.materialL=suc);
-    this.Http.get<MaterialCategory[]>(environment.baseUrl+this.thisController+"GetMaterialCategories").subscribe(suc=>this.categoiesL=suc);
-    console.log("userLists", this.materialL,this.categoiesL)
+this.materialLEvent.subscribe(x=>{
+  this.materialL=x;
+});
+
+this.categoriesLEvent.subscribe(x=>{
+this.categoiesL=x;
+});
+    this.Http.get<Material[]>(environment.baseUrl+this.thisController+"GetAllM").subscribe(suc=>this.materialLEvent.emit(suc));
+    this.Http.get<MaterialCategory[]>(environment.baseUrl+this.thisController+"GetMaterialCategories")
+    .subscribe(suc=>this.categoriesLEvent.emit(suc));
+    // console.log("userLists", this.materialL,this.categoiesL)
 
   }
  
@@ -54,6 +64,7 @@ export class OrderService {
  }
 
  AddOrder(o:Order){
+  //  console.log(o);
   return this.Http.post(environment.baseUrl+this.thisController+"AddOrder",o);
  }
 

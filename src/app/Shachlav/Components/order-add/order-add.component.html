@@ -100,11 +100,11 @@
 
    <app-order-details *ngFor="let counter of  counterMaterial,let i"  (newItemEvent)="addItem($event)"></app-order-details>  
 <div class="example-button-container">
-  <button mat-mini-fab color="primary" aria-label="Example icon button with an add icon" (click)="AddMaterial()">
+  <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with an add icon" (click)="AddMaterial()">
     <mat-icon>add_circle</mat-icon>
   </button>
 
-  <button mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemoveMaterial()">
+  <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemoveMaterial()">
     <mat-icon>remove_circle</mat-icon>
   </button>
 </div>

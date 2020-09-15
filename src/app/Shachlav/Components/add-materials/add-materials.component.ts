@@ -33,8 +33,10 @@ ngOnInit(): void {
    
   
   });
-  this.orderService.getAllCategories().subscribe(suc=>{this.CategoryL=suc,console.log("cat")},err=>console.log("caterr"));
-  this.orderService.GetAllMaterial().subscribe(suc=>{this.MaterialL=suc;console.log("material")}, err=>console.log("materialerr"));
+  this.MaterialL=this.orderService.materialL;
+  this.orderService.materialLEvent.subscribe(suc=>this.MaterialL=suc);
+  // this.orderService.getAllCategories().subscribe(suc=>{this.CategoryL=suc,console.log("cat")},err=>console.log("caterr"));
+  // this.orderService.GetAllMaterial().subscribe(suc=>{this.MaterialL=suc;console.log("material")}, err=>console.log("materialerr"));
 
 }
 

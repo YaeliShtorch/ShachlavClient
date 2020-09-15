@@ -1,13 +1,13 @@
 
-     <form [formGroup]="newOrderDetailsForm" autocomplete="off">
+     <form [formGroup]="newOrderDetailsForm" autocomplete="off" (change)="selectedMaterial()">
       <label id="example-radio-group-label">הזמנת כלי רכב וחומרים</label>
         <!-- //מערך לפי קטוגריה -->
         <mat-form-field appearance="fill" >
           <mat-label>קטגוריות</mat-label>
-          <mat-select
+          <mat-select>
           
          
-          >
+          
           <mat-option *ngFor="let category of CategoryL,let i" [value]="category.Id" (click)="selected(category.Id)">{{category.Name}}</mat-option>
           
           </mat-select>
@@ -23,7 +23,7 @@
      name="MaterialId"  
      formControlName="MaterialId"    
   >
-    <mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material" (click)="selectedMaterial(material.Id)">{{material.Name}}</mat-option>
+    <mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material.Id">{{material.Name}}</mat-option>
   
   </mat-select>
   </mat-form-field>
@@ -36,6 +36,7 @@
                   name="Element"  
                   formControlName="Element"
                   >
+                  <mat-error *ngIf="newOrderDetailsForm.get('Element').hasError('required')" >שדה חובה</mat-error> 
            <mat-hint ></mat-hint>
           </mat-form-field>
           <mat-form-field>
@@ -48,6 +49,7 @@
                 formControlName="Amount"
                 (change)="setVal($event)"
                 >
+                <mat-error *ngIf="newOrderDetailsForm.get('Amount').hasError('required')" >בחר כמות חומר</mat-error> 
          <mat-hint ></mat-hint>
         </mat-form-field>
    

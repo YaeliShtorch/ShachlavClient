@@ -39,10 +39,10 @@ export class OrderDetailsComponent implements OnInit {
     this.MaterialL=this.orderService.materialL;
    
     this.newOrderDetailsForm = this.fb.group({
-      Element:[''],    
-      Amount:[''],
+      Element:['',Validators.required],    
+      Amount:['', Validators.required],
       StatusMaterialId:[''],
-      MaterialId:[''],
+      MaterialId:['', Validators.required],
     
     });
 
@@ -61,16 +61,24 @@ export class OrderDetailsComponent implements OnInit {
   
   }
 
-  selectedMaterial(i){
-console.log();
+  ngOnChange(){
+    // if(this.newOrderDetailsForm.valid==true)
+
+  }
+
+  selectedMaterial(){
+
+      if(this.newOrderDetailsForm.valid==true){
     const materialOrder={
       ...this.newOrderDetailsForm.value
     }
      materialOrder["StatusMaterialId"]=1;
-     materialOrder["MaterialId"]=i; 
-  
+    //  materialOrder["MaterialId"]=i; 
+    materialOrder["MaterialId"]=this.newOrderDetailsForm.get('MaterialId').value;
+  console.log(this.newOrderDetailsForm.get('MaterialId').value)
       console.log("pppppp");
       this.newItemEvent.emit(materialOrder);
+    }
   }
 
   
