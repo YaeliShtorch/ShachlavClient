@@ -64,7 +64,7 @@ this.categoiesL=x;
  }
 
  AddOrder(o:Order){
-  //  console.log(o);
+  console.log(o);
   return this.Http.post(environment.baseUrl+this.thisController+"AddOrder",o);
  }
 

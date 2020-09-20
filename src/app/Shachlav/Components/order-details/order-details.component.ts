@@ -38,6 +38,12 @@ export class OrderDetailsComponent implements OnInit {
     this.CategoryL=this.orderService.categoiesL;
     this.MaterialL=this.orderService.materialL;
    
+    this.orderService.materialLEvent.subscribe(x=>{
+      this.MaterialL=x;
+    });
+    this.orderService.categoriesLEvent.subscribe(x=>{
+      this.CategoryL=x;
+    });
     this.newOrderDetailsForm = this.fb.group({
       Element:['',Validators.required],    
       Amount:['', Validators.required],

@@ -12,6 +12,7 @@ import { UsersService } from 'src/app/Shachlav/services/users.service';
 import { Customer } from 'src/app/Shachlav/Models/customer.models';
 import { materialize } from 'rxjs/operators';
 import { MaterialCategory } from '../../Models/materialCategory.models';
+import { DateTime } from 'luxon';
 
 
 @Component({
@@ -75,20 +76,22 @@ export class OrderAddComponent implements OnInit {
 
   }
   onSubmit() {
-
-
+    
     const order = {
       ...this.newOrderForm.value
     }
- 
-    order["OrderDate"] = new Date();
+    //  order["OrderDueDate"]=new DateTime(order.OrderDueDate);
+//לשבת על תאריך הזמנה- לבדוק תשובות בstackoverflow
+//ולהעביר כמה שיותר לC#
+   const date= new Date(order.OrderDueDate).toISOString();
+    // order["OrderDate"] = new DateTime();
     order["IsApproved"] = false;
     order["IsDone"] = false;
     order["CustomerId"] = this.CurrentCustomer?.Id;
     order["MaterialOrderL"] = (this.OrderDetail);
     // order["MaterialOrderL"].push(this.PumpDetail);
     console.log("order", order);
-
+console.log(date)
 
 
     this.orderService.AddOrder(order).subscribe(
