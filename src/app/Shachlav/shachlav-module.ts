@@ -59,7 +59,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {ContainerModule} from "../../@vex/directives/container/container.module";
@@ -193,6 +193,7 @@ import { DriverTaskShowComponent } from './Components/driver-task-show/driver-ta
      providers: [  
         MatDatepickerModule,
         MatNativeDateModule,  
+        {provide: MAT_DATE_LOCALE, useValue: `he-IL`}
       ],
     entryComponents: [DialogBoxComponent],
 })

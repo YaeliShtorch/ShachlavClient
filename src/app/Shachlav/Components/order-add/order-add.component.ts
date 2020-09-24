@@ -33,6 +33,8 @@ export class OrderAddComponent implements OnInit {
   StartTime=new FormControl();
   EndTime=new FormControl();
   counterMaterial=[1];
+  counter=0;
+  OrderDate=new FormControl();
 
 
 
@@ -47,7 +49,7 @@ export class OrderAddComponent implements OnInit {
     this.newOrderForm = this.fb.group({
       SiteAdress: ['', Validators.required],
       CustomerId: [''],
-      OrderDate: ['',Validators.required],
+      OrderDate: ['',new Date()],
       OrderDueDate: ['',Validators.required],
       StartTime: ['',Validators.required],
       EndTime: ['',Validators.required],
@@ -66,13 +68,6 @@ export class OrderAddComponent implements OnInit {
     if(event)
     this.OrderDetail.push(event);
     console.log(this.OrderDetail);
-    // this.OrderDetail.push(event);
-    //     console.log(index,event);
-    // this.OrderDetail[index].Id=event.Id;
-    // this.OrderDetail[index].Name=event.Name;
-    // for (let i = 0; i < event.TypeId.length; i++) {
-    //   this.OrderDetail[index].TypeId[i]=event.TypeId[i];
-    // }
 
   }
   onSubmit() {
@@ -80,18 +75,15 @@ export class OrderAddComponent implements OnInit {
     const order = {
       ...this.newOrderForm.value
     }
-    //  order["OrderDueDate"]=new DateTime(order.OrderDueDate);
-//לשבת על תאריך הזמנה- לבדוק תשובות בstackoverflow
-//ולהעביר כמה שיותר לC#
-   const date= new Date(order.OrderDueDate).toISOString();
-    // order["OrderDate"] = new DateTime();
+
     order["IsApproved"] = false;
     order["IsDone"] = false;
     order["CustomerId"] = this.CurrentCustomer?.Id;
     order["MaterialOrderL"] = (this.OrderDetail);
-    // order["MaterialOrderL"].push(this.PumpDetail);
+    const date1=new Date(order.OrderDueDate).toLocaleDateString();
+    order["OrderDueDate"]= date1;
     console.log("order", order);
-console.log(date)
+console.log(date1)
 
 
     this.orderService.AddOrder(order).subscribe(
@@ -112,37 +104,39 @@ console.log(date)
     this.EndTime
   }
 
-  //איך זה מכפיל את הקומפוננטה?
+
   AddMaterial() {
 this.counterMaterial.push(1); 
-    //למה אובייקט ריק?
-    //  this.OrderDetail.push(new MaterialTypeOrder(null,null,"",0,0,0));
+  
   }
-  RemoveMaterial() {
+  RemoveMaterial(i) {
+     const index: number = this.OrderDetail.findIndex(el=>el.MaterialId==i.MaterialId && el.Amount==i.Amount && el.Element==i.Element);
+     console.log(index);
+    console.log(this.OrderDetail);
+    // if (index !== -1) {
+     
+      //  this.OrderDetail= this.OrderDetail.slice(index, 1);
+    // } 
+
+    // this.OrderDetail=this.OrderDetail.filter(x=>x===i);
+    console.log(this.OrderDetail);
+    console.log(this.counterMaterial);
+
+    if(this.counterMaterial.length>1)
     this.counterMaterial.pop();
     this.OrderDetail.pop();
   }
-  title = 'demo';
-  exportTime = { minute: 15, hour: 7, meriden: 'PM', format: 24 };
+
+  
+  dateFilter = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    const date=(new Date());
+    // Prevent Saturday and previous dates from being selected.
+    return day !== 6 && d>date;
+  }
 
   onChangeHour(event) {
     console.log(event);
   }
 
-
-  // AddPump() {
-  //   //למה אובייקט ריק?
-  //   this.PumpDetail.push(new MaterialTypeOrder(null, null, "", 0, 0, 0));
-
-
-  // }
-  // RemovePump() {
-  //   this.PumpDetail.pop();
-
-  // }
-  // addPump(event: MaterialTypeOrder, i: number) {
-  //   this.PumpDetail[i] = event;
-  //   console.log(event);
-  //   console.log(this.PumpDetail);
-  // }
 }

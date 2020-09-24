@@ -4,6 +4,7 @@ import { ManagerService } from './manager.service';
 import { CustomerService } from './customer.service';
 import { ProviderService } from './provider.service';
 import { DriverService } from './driver.service';
+import { DateTime } from 'luxon';
 
 
 @Injectable({
@@ -73,6 +74,26 @@ export class ValidationService {
   else
     return null;
       }
+    }
+
+    static checkDate():ValidationErrors{
+      return (c:AbstractControl):{[key:string]:boolean}|null=>{
+               let date=new Date(Date.parse(c.value));
+               if(date>new Date()) return {checkDate:true};
+     
+          else return {checkDate:false};
+    };
+    }
+
+
+    static checkhour(hour1:any):ValidationErrors{
+      return (c:AbstractControl):{[key:string]:boolean}|null=>{
+        let hour2=new DateTime();
+        hour2=c.value;
+        if(hour1<hour2) return {checkhour:true};
+        else return {checkhour:false};
+      }
+
     }
    
      static NewManager( ManagerService:ManagerService):ValidationErrors {

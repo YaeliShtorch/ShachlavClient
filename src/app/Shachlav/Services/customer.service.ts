@@ -14,9 +14,6 @@ export class CustomerService {
 
 constructor(public Http:HttpClient) { }
 
-  // GetCustomerExample(){
-  //   return this.Http.get(environment.baseUrl+this.thisController+"GetExample?id=5")
-  // }
   GetCustomerId(id:number){
     return this.Http.get(environment.baseUrl+this.thisController+"GetId?id="+id)
   }

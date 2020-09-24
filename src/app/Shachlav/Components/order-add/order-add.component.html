@@ -23,10 +23,12 @@
              [matDatepicker]="picker" 
              id="OrderDueDate"
                name="orderDueDate"
+               [matDatepickerFilter]="dateFilter"
                formControlName="OrderDueDate">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker  #picker></mat-datepicker>
             <label>הזמנה לתאריך</label>
+            <!-- <mat-error *ngIf="newOrderForm.get('OrderDueDate').hasError('checkDate')" >על התאריך להיות גדול מהיום</mat-error>  -->
           </mat-form-field>
 
           <!-- [min]="minDate" -->
@@ -39,33 +41,39 @@
                   [ngxTimepicker]="defaultValue"
                   (timeSet)="setTime($event)"
                   [ngxMaterialTimepickerTheme]
+                  aria-label="12hr format"
+                  min="06:00 am"
                   [value]="'0:00 am'"
                   id="StartTime" 
                   name="StartTime"  
                   formControlName="StartTime"
                />
 
-        
-               <ngx-material-timepicker #defaultValue >
+               <ngx-material-timepicker-toggle [for]="defaultValue"></ngx-material-timepicker-toggle>
+               <ngx-material-timepicker #defaultValue>
                </ngx-material-timepicker>
                <label>זמן התחלה</label>
           </mat-form-field> 
 
           <mat-form-field>   
-
+           
               <input
               matInput
               (timeSet)="setTime2($event)"
               aria-label="default time"
+              aria-label="12hr format"
+              max="10:00 pm"
               [ngxTimepicker]="defaultValue1"
               [value]="'0:00 am'"
               id="EndTime" 
               name="EndTime"  
               formControlName="EndTime"
            />
+           <ngx-material-timepicker-toggle [for]="defaultValue1"></ngx-material-timepicker-toggle>
            <ngx-material-timepicker #defaultValue1>
              </ngx-material-timepicker>
       <label>זמן סיום</label>
+     <!-- <mat-error *ngIf="newOrderForm.get('OrderDueDate').hasError('checkhour')" >על השעה להיות גדולה משעת התחלה</mat-error> -->
         </mat-form-field>
 
 
@@ -88,7 +96,6 @@
       
 
         <mat-checkbox
-         
            id="ConcreteTest" 
             name="ConcreteTest"  
             formControlName="ConcreteTest"
@@ -98,38 +105,18 @@
       
       <br>
 
-   <app-order-details *ngFor="let counter of  counterMaterial,let i"  (newItemEvent)="addItem($event)"></app-order-details>  
-<div class="example-button-container">
-  <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with an add icon" (click)="AddMaterial()">
+  <div *ngFor="let counter of counterMaterial, let i">
+   <app-order-details   (newItemEvent)="addItem($event)" #mat></app-order-details>  
+   <!-- <div class="example-button-container"> -->
+  <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with an add icon" (click)="AddMaterial()"> 
     <mat-icon>add_circle</mat-icon>
   </button>
 
-  <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemoveMaterial()">
+  <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemoveMaterial(mat.newOrderDetailsForm.value)">
     <mat-icon>remove_circle</mat-icon>
   </button>
 </div>
 
-<!-- <mat-checkbox
-
- id="IsPump"  
- name="IsPump"  
- >האם נדרשת משאבה
-
-</mat-checkbox>
-<div *ngIf="newOrderForm.get('IsPump').value">
-<app-order-details *ngFor="let PumpType of PumpDetail,let i"  (newItemEvent)="addPump($event,i)" ></app-order-details> -->
-
-<!-- <div class="example-button-container" >
-  <button mat-mini-fab color="primary" aria-label="Example icon button with a add icon" (click)="AddPump()">
-    <mat-icon>add_circle</mat-icon>
-  </button>
-
-  <button mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemovePump()">
-    <mat-icon>remove_circle
-    </mat-icon>
-  </button>
-</div>
-</div> -->
 <mat-form-field>
   <input
     matInput 

@@ -23,10 +23,21 @@
      name="MaterialId"  
      formControlName="MaterialId"    
   >
-    <mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material.Id">{{material.Name}}</mat-option>
+  <!-- (click)="selectMayko(material)" -->
+    <mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material.Id" >{{material.Name}}</mat-option>
   
   </mat-select>
   </mat-form-field>
+  <!-- <mat-form-field>
+    <input 
+    *ngIf="show!=false"
+    matInput 
+    id="PipeLength" 
+    placeholder="אורך צינור"
+     name="PipeLength"  
+     formControlName="PipeLength"
+    type="number">
+  </mat-form-field> -->
   
            <mat-form-field>
               <input
