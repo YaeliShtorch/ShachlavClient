@@ -105,14 +105,14 @@
       
       <br>
 
-  <div *ngFor="let counter of counterMaterial, let i">
-   <app-order-details   (newItemEvent)="addItem($event)" #mat></app-order-details>  
+  <div *ngFor="let counter of OrderDetail, let i=index">
+   <app-order-details  [material]="counter" (newItemEvent)="addItem($event,i)" #mat></app-order-details>  
    <!-- <div class="example-button-container"> -->
   <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with an add icon" (click)="AddMaterial()"> 
     <mat-icon>add_circle</mat-icon>
   </button>
 
-  <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemoveMaterial(mat.newOrderDetailsForm.value)">
+  <button  type="button" mat-mini-fab color="primary" aria-label="Example icon button with a remove icon" (click)="RemoveMaterial(counter)">
     <mat-icon>remove_circle</mat-icon>
   </button>
 </div>

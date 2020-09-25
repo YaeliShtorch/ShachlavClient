@@ -22,9 +22,9 @@ export class OrderDetailsComponent implements OnInit {
   show:boolean=false;
   Element=new FormControl();
   Amount=new FormControl();
+  @Input() material:MaterialTypeOrder;
   @Output() newItemEvent= new EventEmitter<MaterialTypeOrder>();
   constructor(private fb:FormBuilder,public orderService:OrderService ) { }
- 
 
 
   ngOnInit() {
@@ -38,12 +38,14 @@ export class OrderDetailsComponent implements OnInit {
     this.orderService.categoriesLEvent.subscribe(x=>{
       this.CategoryL=x;
     });
+
     this.newOrderDetailsForm = this.fb.group({
-      Element:['',Validators.required],    
-      Amount:['', Validators.required],
+      Element:[this.material.Element,Validators.required],    
+      Amount:[this.material.Amount, Validators.required],
       StatusMaterialId:[''],
-      MaterialId:['', Validators.required],
-      // PipeLength:[''],
+      MaterialId:[this.material.MaterialId, Validators.required],
+      PipeLength:[this.material.PipeLength],
+      CategoryId:[this.material.CategoryId],
     
     });
 
@@ -74,15 +76,16 @@ export class OrderDetailsComponent implements OnInit {
     //גם בSERVER
      //materialOrder["StatusMaterialId"]=1;
      //אולי לא צריך חוזר על עצמו
-    materialOrder["MaterialId"]=this.newOrderDetailsForm.get('MaterialId').value;
+    // materialOrder["MaterialId"]=this.newOrderDetailsForm.get('MaterialId').value;
     this.newItemEvent.emit(materialOrder);
     }
   }
 
-  // selectMayko(material){
-  //   console.log(material);
-  //   if(material.get('Name').match('Mayko')==true) this.show=true;
-  // }
+  selectMayko(material){
+    console.log(material);
+    if(material['Name'].includes('מייקו')==true) this.show=true;
+    else this.show=false;
+  }
 
 
 }

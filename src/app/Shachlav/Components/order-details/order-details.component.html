@@ -4,12 +4,15 @@
         <!-- //מערך לפי קטוגריה -->
         <mat-form-field appearance="fill" >
           <mat-label>קטגוריות</mat-label>
-          <mat-select>
-          
+          <mat-select
+          id="CategoryId" 
+            name="CategoryId"  
+          >
+             
          
           
-          <mat-option *ngFor="let category of CategoryL,let i" [value]="category.Id" (click)="selected(category.Id)">{{category.Name}}</mat-option>
-          
+          <mat-option *ngFor="let category of CategoryL,let i=index" [value]="category.Id" (click)="selected(category.Id)">{{category.Name}}</mat-option>
+           
           </mat-select>
           </mat-form-field>  
 
@@ -21,23 +24,24 @@
   
     id="MaterialId" 
      name="MaterialId"  
-     formControlName="MaterialId"    
+     formControlName="MaterialId" 
+    
   >
-  <!-- (click)="selectMayko(material)" -->
-    <mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material.Id" >{{material.Name}}</mat-option>
+  
+    <mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material.Id" (click)="selectMayko(material)"> {{material.Name}}</mat-option>
   
   </mat-select>
   </mat-form-field>
-  <!-- <mat-form-field>
-    <input 
-    *ngIf="show!=false"
+  <mat-form-field *ngIf="show!=false">
+    <input
     matInput 
-    id="PipeLength" 
-    placeholder="אורך צינור"
-     name="PipeLength"  
-     formControlName="PipeLength"
-    type="number">
-  </mat-form-field> -->
+    type="number"
+     id="PipeLength" 
+placeholder="אורך צינור"
+      name="PipeLength"  
+      formControlName="PipeLength"
+      >
+  </mat-form-field>
   
            <mat-form-field>
               <input
@@ -58,8 +62,8 @@
         placeholder="כמות"
                 name="amount"  
                 formControlName="Amount"
-                (change)="setVal($event)"
                 >
+                <!-- (change)="setVal($event)" -->
                 <mat-error *ngIf="newOrderDetailsForm.get('Amount').hasError('required')" >בחר כמות חומר</mat-error> 
          <mat-hint ></mat-hint>
         </mat-form-field>

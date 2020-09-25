@@ -16,7 +16,7 @@ export class ValidationService {
   static IdentityOk():ValidationErrors{
   
     return (c:AbstractControl):{[key:string]:boolean}|null=>{
-  
+   
       if(c.value.length==9){
         var IdNumber:number;
         IdNumber=0;
@@ -55,14 +55,15 @@ export class ValidationService {
   
     static BirthDate():ValidationErrors{
   
-   
- 
+  
       return (c:AbstractControl):{[key:string]:boolean}|null=>{
+        //storing the input value in a date type variable
         let BirthDate=new Date(Date.parse(c.value));
    
-    
+    //checking it's a logical date in a calender year and bigger than current date
       if(BirthDate.getDay()<=31&&BirthDate.getDay()>=1&&BirthDate.getMonth()<=12&&BirthDate.getDay()>=1)
       {
+        //comparing the years of the date- if it's bigger than today's date minus 18
        if(BirthDate.getFullYear()>=new Date().getFullYear()-18){
     
       return {userOldEnough:false};

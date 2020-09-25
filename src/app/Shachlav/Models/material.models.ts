@@ -5,7 +5,7 @@ export class Material
             public Id:number,
             public MaterialCategoryId:number,
             public Name:string,
-            public PipeLength:string,
+            
         )
 {}       
      

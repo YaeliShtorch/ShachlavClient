@@ -26,14 +26,12 @@ export class OrderAddComponent implements OnInit {
   newOrderForm: FormGroup;
   CurrentCustomer: Customer;
   PumpDetail: Array<MaterialTypeOrder> = new Array<MaterialTypeOrder>();
-  OrderDetail: Array<MaterialTypeOrder> = new Array<MaterialTypeOrder>();
+  OrderDetail: MaterialTypeOrder[] =[new MaterialTypeOrder(0,0,"",0,0,0,"","",0)];
   ConcreteTest: boolean;
   orderDueDate = new FormControl();
   minDate = new Date(new Date().getDay() + 1);
   StartTime=new FormControl();
   EndTime=new FormControl();
-  counterMaterial=[1];
-  counter=0;
   OrderDate=new FormControl();
 
 
@@ -64,11 +62,13 @@ export class OrderAddComponent implements OnInit {
     });
 
   }
-  addItem(event: MaterialTypeOrder) {
-    if(event)
-    this.OrderDetail.push(event);
+  addItem(event: MaterialTypeOrder,id:number) {
+    console.log(event, id, this.OrderDetail)
+    if(event){
+    this.OrderDetail[id]=event;
+    
+    }
     console.log(this.OrderDetail);
-
   }
   onSubmit() {
     
@@ -106,25 +106,29 @@ console.log(date1)
 
 
   AddMaterial() {
-this.counterMaterial.push(1); 
-  
+// this.counterMaterial.push(1); 
+console.log(this.OrderDetail);
+  this.OrderDetail.push(new MaterialTypeOrder(0,0,"",0,0,0,"","",0));
   }
   RemoveMaterial(i) {
-     const index: number = this.OrderDetail.findIndex(el=>el.MaterialId==i.MaterialId && el.Amount==i.Amount && el.Element==i.Element);
-     console.log(index);
-    console.log(this.OrderDetail);
+    console.log(i);
+    //  const index: number = this.OrderDetail.findIndex(el=>el.MaterialId==i.MaterialId && el.Amount==i.Amount && el.Element==i.Element);
+    //  console.log(index);
+    // console.log(this.OrderDetail);
     // if (index !== -1) {
      
-      //  this.OrderDetail= this.OrderDetail.slice(index, 1);
+      //   this.OrderDetail.slice(index, 1);
     // } 
 
-    // this.OrderDetail=this.OrderDetail.filter(x=>x===i);
-    console.log(this.OrderDetail);
-    console.log(this.counterMaterial);
-
-    if(this.counterMaterial.length>1)
-    this.counterMaterial.pop();
-    this.OrderDetail.pop();
+    this.OrderDetail=this.OrderDetail.filter(x=>x!==i);
+    if(this.OrderDetail.length<1)
+    this.OrderDetail.push(new MaterialTypeOrder(0,0,"",0,0,0,"","",0));
+    // console.log(this.counterMaterial);
+// this.OrderDetail.slice(i,1);
+    // console.log(this.OrderDetail);
+    // if(this.counterMaterial.length>1)
+    // this.counterMaterial.pop();
+    // this.OrderDetail.pop();
   }
 
   

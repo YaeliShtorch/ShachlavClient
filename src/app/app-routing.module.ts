@@ -5,10 +5,8 @@ import {OrderComponent} from './Shachlav/Components/order/order.component';
 import {VehicleShowComponent} from './Shachlav/Components/vehicle-show/vehicle-show.component';
 import {DriverTaskComponent} from './Shachlav/Components/driver-task/driver-task.component';
 import {ProviderShowComponent} from './Shachlav/Components/provider-show/provider-show.component';
-import {CustDetailsComponent} from './Shachlav/Components/cust-details/cust-details.component';
 import {DriverComponent} from './Shachlav/Components/driver/driver.component';
 import {SubHomeComponent} from './Shachlav/Components/sub-home/sub-home.component';
-import {CustomerInComponent} from './Shachlav/Components/customer-in/customer-in.component';
 import {AddVehicleTypeComponent} from './Shachlav/Components/add-vehicle/add-PumpTypeVehicle.component';
 import {DriverRegisterComponent} from './Shachlav/Components/driver-register/driver-register.component';
 import {CustomerComponent} from './Shachlav/Components/customer/customer.component';
@@ -46,8 +44,6 @@ const routes: Routes = [
                     {path: 'order', component: OrderComponent}
                 ]
             },
-            {path: 'home/customerin', component: CustomerInComponent},
-            {path: 'home/custdetails', component: CustDetailsComponent},
             {path: 'home/provider', component: ProviderComponent},
             {   
                 path: 'home/driver', component: DriverComponent,

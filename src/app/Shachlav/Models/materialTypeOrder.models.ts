@@ -7,6 +7,9 @@ export class MaterialTypeOrder {
     public Amount: number,
     public StatusMaterialId: number,
     public MaterialId:number,
+    public ManagerComment:string,
+    public PipeLength:string,
+    public CategoryId:number,
   ) { }
 
 
