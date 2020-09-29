@@ -20,8 +20,9 @@ export class OrderDetailsComponent implements OnInit {
   MaterialL:Array<Material>;
   EzerMaterialL:Array<Material>;
   show:boolean=false;
-  Element=new FormControl();
-  Amount=new FormControl();
+  // Element=new FormControl();
+  // Amount=new FormControl();
+  CategoryId;
   @Input() material:MaterialTypeOrder;
   @Output() newItemEvent= new EventEmitter<MaterialTypeOrder>();
   constructor(private fb:FormBuilder,public orderService:OrderService ) { }
@@ -45,44 +46,63 @@ export class OrderDetailsComponent implements OnInit {
       StatusMaterialId:[''],
       MaterialId:[this.material.MaterialId, Validators.required],
       PipeLength:[this.material.PipeLength],
-      CategoryId:[this.material.CategoryId],
+      // CategoryId:[this.material.CategoryId],
     
     });
 
+    // this.OnChanges();
+
   
   }
+
+
 
   setVal(event){
 
   }
 
   selected(i){
-    console.log(this.MaterialL);;
+    this.CategoryId=i;
     this.EzerMaterialL=this.MaterialL.filter(el=>el.MaterialCategoryId==i);
   
   }
 
-  ngOnChange(){
-    // if(this.newOrderDetailsForm.valid==true)
+  ngOnChanges(){
+
 
   }
 
-  selectedMaterial(){
+  OnChanges(){
+    // this.newOrderDetailsForm.valueChanges.subscribe(val=>{
+    //   const materialOrder={
+    //     ...this.newOrderDetailsForm.value
+    //   }
+    //   materialOrder["CategoryId"]=this.CategoryId;
+    //   this.newItemEvent.emit(materialOrder);
+     
+    // })
+  }
+  
 
-      if(this.newOrderDetailsForm.valid==true){
-    const materialOrder={
-      ...this.newOrderDetailsForm.value
-    }
-    //גם בSERVER
-     //materialOrder["StatusMaterialId"]=1;
-     //אולי לא צריך חוזר על עצמו
-    // materialOrder["MaterialId"]=this.newOrderDetailsForm.get('MaterialId').value;
-    this.newItemEvent.emit(materialOrder);
-    }
+  selectedMaterial(){
+  
+
+    if(this.newOrderDetailsForm.valid==true){
+      const materialOrder={
+        ...this.newOrderDetailsForm.value
+      }
+  
+      // console.log("check obj", materialOrder);
+      //גם בSERVER
+       //materialOrder["StatusMaterialId"]=1;
+       //אולי לא צריך חוזר על עצמו
+      // materialOrder["CategoryId"]=this.CategoryId;
+      this.newItemEvent.emit(materialOrder);
+      }
   }
 
   selectMayko(material){
-    console.log(material);
+
     if(material['Name'].includes('מייקו')==true) this.show=true;
     else this.show=false;
   }

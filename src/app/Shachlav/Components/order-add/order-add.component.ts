@@ -26,7 +26,7 @@ export class OrderAddComponent implements OnInit {
   newOrderForm: FormGroup;
   CurrentCustomer: Customer;
   PumpDetail: Array<MaterialTypeOrder> = new Array<MaterialTypeOrder>();
-  OrderDetail: MaterialTypeOrder[] =[new MaterialTypeOrder(0,0,"",0,0,0,"","",0)];
+  OrderDetail: MaterialTypeOrder[] =[new MaterialTypeOrder(0,0,"",0,0,0,"","")];
   ConcreteTest: boolean;
   orderDueDate = new FormControl();
   minDate = new Date(new Date().getDay() + 1);
@@ -108,7 +108,7 @@ console.log(date1)
   AddMaterial() {
 // this.counterMaterial.push(1); 
 console.log(this.OrderDetail);
-  this.OrderDetail.push(new MaterialTypeOrder(0,0,"",0,0,0,"","",0));
+  this.OrderDetail.push(new MaterialTypeOrder(0,0,"",0,0,0,"",""));
   }
   RemoveMaterial(i) {
     console.log(i);
@@ -122,7 +122,7 @@ console.log(this.OrderDetail);
 
     this.OrderDetail=this.OrderDetail.filter(x=>x!==i);
     if(this.OrderDetail.length<1)
-    this.OrderDetail.push(new MaterialTypeOrder(0,0,"",0,0,0,"","",0));
+    this.OrderDetail.push(new MaterialTypeOrder(0,0,"",0,0,0,"",""));
     // console.log(this.counterMaterial);
 // this.OrderDetail.slice(i,1);
     // console.log(this.OrderDetail);
