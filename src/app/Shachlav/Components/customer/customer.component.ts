@@ -4,7 +4,7 @@ import{Customer}from "../../models/customer.models";
 import { DatePipe } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { UsersService } from 'src/app/Shachlav/Services/users.service';
-import { OrderComponent } from '../order/order.component';
+import { OrderShowComponent } from '../order-show/order-show.component';
 
 
 

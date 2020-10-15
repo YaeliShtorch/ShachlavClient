@@ -87,7 +87,7 @@ console.log(date1)
 
 
     this.orderService.AddOrder(order).subscribe(
-      suc => { console.log("great") },
+      suc => { console.log("great"); this.newOrderForm.reset(); },
       err => { console.log("errAddOrder") }
     )
   }

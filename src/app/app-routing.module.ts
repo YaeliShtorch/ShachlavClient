@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CustomLayoutComponent} from './custom-layout/custom-layout.component';
-import {OrderComponent} from './Shachlav/Components/order/order.component';
+import {OrderShowComponent} from './Shachlav/Components/order-show/order-show.component';
 import {VehicleShowComponent} from './Shachlav/Components/vehicle-show/vehicle-show.component';
 import {DriverTaskComponent} from './Shachlav/Components/driver-task/driver-task.component';
 import {ProviderShowComponent} from './Shachlav/Components/provider-show/provider-show.component';
@@ -30,7 +30,7 @@ const routes: Routes = [
         path: '',
         component: CustomLayoutComponent,
         children: [
-            {path: 'home/order', component: OrderComponent},
+            {path: 'home/order', component: OrderShowComponent},
             {path: 'home/subHome', component: SubHomeComponent},
 
 
@@ -39,9 +39,9 @@ const routes: Routes = [
                 path: 'home/customer', component: CustomerComponent,
                 children: [
                     {path: 'newOrder', component: OrderAddComponent},
-                    {path: 'order/getAllOrders', component: OrderComponent},
-                    {path: 'order/getOrderbyId', component: OrderComponent},
-                    {path: 'order', component: OrderComponent}
+                    {path: 'order/getAllOrders', component: OrderShowComponent},
+                    {path: 'order/getOrderbyId', component: OrderShowComponent},
+                    {path: 'order', component: OrderShowComponent}
                 ]
             },
             {path: 'home/provider', component: ProviderComponent},

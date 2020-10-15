@@ -8,17 +8,18 @@ import {Customer} from 'src/app/Shachlav/Models/customer.models';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {DataSource} from '@angular/cdk/table';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogBoxComponent} from 'src/app/Shachlav/Components/order/dialog-box';
+import {DialogBoxComponent} from 'src/app/Shachlav/Components/order-show/dialog-box';
 import {DriverService} from 'src/app/Shachlav/Services/driver.service';
 import {PumpType} from 'src/app/Shachlav/Models/pumpType.model';
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
+import { orderViewDTO } from '../../Models/orderViewDTO.models';
 
 @Component({
-    selector: 'app-order',
-    templateUrl: './order.component.html',
-    styleUrls: ['./order.component.css'],
+    selector: 'app-order-show',
+    templateUrl: './order-show.component.html',
+    styleUrls: ['./order-show.component.css'],
     animations: [
         trigger('detailExpand', [
             state('collapsed', style({height: '0px', minHeight: '0', visibility: 'hidden'})),
@@ -29,18 +30,18 @@ import {MatTableDataSource} from "@angular/material/table";
 })
 
 
-export class OrderComponent implements OnInit {
+export class OrderShowComponent implements OnInit {
 
     orderFunc = "";
     orderNum: number;
     customer: string = "p";
-    OrderList = new Array<Order>();
-    dataSource = new MatTableDataSource<Order>();
+    dataSource = new MatTableDataSource<orderViewDTO>();
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;
-    displayedColumns = ['Id', 'OrderDate', 'SiteAdress', 'PumpNeeded', 'PumpType', 'StartTime', 'ConcreteCheck', 'Status', 'edit'];
+    displayedColumns = ['Id', 'CustomerName', 'SiteAdress', 'OrderDate', 'OrderDueDate', 'StartTime', 'EndTime', 'IsApproved', 'IsDone', 'ManagerComment',
+    'Comment', 'ConcreteTest'];
+    displaydColumns1=['Id', 'OrderId','Element','Amount','StatusMaterial','MaterialName','ManagerComment','PipeLength'];
     datepipe: any;
-    PumpTypeArr = [];
 
 
     constructor(public customerService: CustomerService, public orderService: OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService: UsersService
@@ -72,14 +73,14 @@ export class OrderComponent implements OnInit {
         this.dataSource.filter = filterValue;
     }
 
-    getPumpTypeName(pumpId) {
-        if (pumpId != 0) {
-            return this.PumpTypeArr.find(x => x.Id == pumpId).PType;
-        } else {
-            return "no Pump";
-        }
+    // getPumpTypeName(pumpId) {
+    //     if (pumpId != 0) {
+    //         return this.PumpTypeArr.find(x => x.Id == pumpId).PType;
+    //     } else {
+    //         return "no Pump";
+    //     }
 
-    }
+    // }
 
 
     ngAfterViewInit() {
@@ -136,7 +137,7 @@ export class OrderComponent implements OnInit {
 
         //saving all pumpnames in an array
         this.driverService.GetAllPumpTypes().subscribe(suc => {
-            this.PumpTypeArr = suc
+            // this.PumpTypeArr = suc
         });
         this.activatedRoute.params.subscribe(params => {
             this.orderFunc = this.activatedRoute.snapshot.routeConfig.path.split('/')[1];

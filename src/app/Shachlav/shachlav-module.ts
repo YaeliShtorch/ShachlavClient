@@ -21,9 +21,9 @@ import {AddVehicleTypeComponent} from './Components/add-vehicle/add-PumpTypeVehi
 import {ProviderOrderComponent} from './Components/provider-order/provider-order.component';
 import {ManagerComponent} from './Components/manager/manager.component';
 import {ProviderUpdateComponent} from './Components/provider-update/provider-update.component';
-import {OrderComponent} from './Components/order/order.component';
+import {OrderShowComponent} from './Components/order-show/order-show.component';
 import {ManagerShowComponent} from './Components/manager-show/manager-show.component';
-import {DialogBoxComponent} from './Components/order/dialog-box';
+import {DialogBoxComponent} from './Components/order-show/dialog-box';
 import {DriverShowComponent} from './Components/driver-show/driver-show.component';
 import {ManagerRegisterComponent} from './Components/manager-register/manager-register.component';
 import {OrderDetailsComponent} from './Components/order-details/order-details.component';
@@ -75,7 +75,7 @@ import { DriverTaskShowComponent } from './Components/driver-task-show/driver-ta
         DriverRegisterComponent,
         DriverTaskComponent,
         HomeComponent,
-        OrderComponent,
+        OrderShowComponent,
         OrderDetailsComponent,
         ProviderOrderComponent,
         ProviderRegisterComponent,
@@ -107,7 +107,7 @@ import { DriverTaskShowComponent } from './Components/driver-task-show/driver-ta
         DriverRegisterComponent,
         DriverTaskComponent,
         HomeComponent,
-        OrderComponent,
+        OrderShowComponent,
         OrderDetailsComponent,
         ProviderOrderComponent,
         ProviderRegisterComponent,

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Material } from '../Models/material.models';
 import { MaterialTypeOrder } from '../Models/materialTypeOrder.models';
 import { MaterialCategory } from '../Models/materialCategory.models';
+import { orderViewDTO } from '../Models/orderViewDTO.models';
 
 @Injectable({
   providedIn: 'root'
@@ -45,9 +46,9 @@ this.categoiesL=x;
   return this.Http.get<Order[]>(environment.baseUrl+this.thisController+"GetAll")
  }
 
- GetCustOrders(id:number):Observable<Order[]>
+ GetCustOrders(id:number):Observable<orderViewDTO[]>
  {
-   return this.Http.get<Order[]>(environment.baseUrl+this.thisController+"GetAllCO?id="+id)
+   return this.Http.get<orderViewDTO[]>(environment.baseUrl+this.thisController+"GetAllCO?id="+id)
  }
  GetOrdersTwoMonthAgo(){
   return this.Http.get(environment.baseUrl+this.thisController+"GetOrdersTwoMonthAgo")
