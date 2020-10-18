@@ -22,9 +22,9 @@ import { orderViewDTO } from '../../Models/orderViewDTO.models';
     styleUrls: ['./order-show.component.css'],
     animations: [
         trigger('detailExpand', [
-            state('collapsed', style({height: '0px', minHeight: '0', visibility: 'hidden'})),
-            state('expanded', style({height: '*', visibility: 'visible'})),
-            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+          state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+          state('*', style({ height: '*', visibility: 'visible' })),
+          transition('void <=> *', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
         ]),
     ],
 })
@@ -33,15 +33,14 @@ import { orderViewDTO } from '../../Models/orderViewDTO.models';
 export class OrderShowComponent implements OnInit {
 
     orderFunc = "";
-    orderNum: number;
-    customer: string = "p";
     dataSource = new MatTableDataSource<orderViewDTO>();
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;
-    displayedColumns = ['Id', 'CustomerName', 'SiteAdress', 'OrderDate', 'OrderDueDate', 'StartTime', 'EndTime', 'IsApproved', 'IsDone', 'ManagerComment',
-    'Comment', 'ConcreteTest'];
-    displaydColumns1=['Id', 'OrderId','Element','Amount','StatusMaterial','MaterialName','ManagerComment','PipeLength'];
+    displayedColumns = ['Id', 'CustomerName', 'SiteAdress', 'OrderDate', 'OrderDueDate', 'StartTime', 'IsApproved', 'IsDone', 'ManagerComment',
+    'Comment', 'ConcreteTest', 'MaterialOrderL'];
+    // displaydColumns1=['Id', 'OrderId','Element','Amount','StatusMaterial','MaterialName','ManagerComment','PipeLength'];
     datepipe: any;
+    user:Customer;
 
 
     constructor(public customerService: CustomerService, public orderService: OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService: UsersService
@@ -52,13 +51,19 @@ export class OrderShowComponent implements OnInit {
 
     getAllOrders() {
         // this.show=true;
-        this.orderService.GetCustOrders(this.userService.CustomerL.Id).subscribe(suc => {
-            this.dataSource.data = [...suc];
-            console.log(this.dataSource.data)
-        }, err => {
-            console.log("error")
-        });
-        console.log(this.dataSource.data);
+        this.userService.getLoggedInUser().subscribe(suc=>{
+            this.user=suc;
+            console.log(this.user,"user");
+            this.orderService.GetCustOrders(this.user.Id).subscribe(suc => {
+                this.dataSource.data = [...suc];
+                console.log(this.dataSource.data)
+            }, err => {
+                console.log("error")
+            });
+            console.log(this.dataSource.data);
+            });
+
+        
     }
 
     getOrderbyId() {
@@ -134,19 +139,17 @@ export class OrderShowComponent implements OnInit {
 
         //this.activatedRoute.paramMap("")
         // console.log(this.activatedRoute.snapshot.routeConfig.path.split('/')[1]);
+      
 
-        //saving all pumpnames in an array
-        this.driverService.GetAllPumpTypes().subscribe(suc => {
-            // this.PumpTypeArr = suc
-        });
-        this.activatedRoute.params.subscribe(params => {
-            this.orderFunc = this.activatedRoute.snapshot.routeConfig.path.split('/')[1];
-            if (this.orderFunc.match('getAllOrders()'))
-                this.getAllOrders();
-            if (this.orderFunc.match('getOrderbyId()'))
-                this.getOrderbyId();
+    this.getAllOrders();
+        // this.activatedRoute.params.subscribe(params => {
+        //     this.orderFunc = this.activatedRoute.snapshot.routeConfig.path.split('/')[1];
+        //    if (this.orderFunc.match('getAllOrders'))
+        //         this.getAllOrders();
+        //     if (this.orderFunc.match('getOrderbyId()'))
+        //         this.getOrderbyId();
 
-        });
+        // });
 
     }
 
