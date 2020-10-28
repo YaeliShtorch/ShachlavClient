@@ -62,6 +62,7 @@ import{MatSlideToggleModule}from '@angular/material/slide-toggle';
 import { MatTimepickerModule } from 'mat-timepicker';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { DriverTaskShowComponent } from './Components/driver-task-show/driver-task-show.component';
+import { OrderDialogComponent } from './Components/order-dialog/order-dialog.component';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { DriverTaskShowComponent } from './Components/driver-task-show/driver-ta
         DriverUpdateComponent,
         ProviderUpdateComponent,
         CdkDetailRowDirective,
-        DriverTaskShowComponent],
+        DriverTaskShowComponent,
+        OrderDialogComponent],
     exports: [ManagerRegisterComponent,
         ManagerComponent,
         CustomerComponent,
@@ -132,6 +134,7 @@ import { DriverTaskShowComponent } from './Components/driver-task-show/driver-ta
         MatTimepickerModule,
         NgxMatTimepickerModule,
         NgxMatDatetimePickerModule,
+        OrderDialogComponent,
     ],
     imports: [
         HttpClientModule,

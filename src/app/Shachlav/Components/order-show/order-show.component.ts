@@ -9,6 +9,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {DataSource} from '@angular/cdk/table';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogBoxComponent} from 'src/app/Shachlav/Components/order-show/dialog-box';
+import{OrderDialogComponent} from 'src/app/Shachlav/Components/order-dialog/order-dialog.component';
 import {DriverService} from 'src/app/Shachlav/Services/driver.service';
 import {PumpType} from 'src/app/Shachlav/Models/pumpType.model';
 import {MatSort} from "@angular/material/sort";
@@ -38,9 +39,10 @@ export class OrderShowComponent implements OnInit {
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;
     displayedColumns = ['Id', 'CustomerName', 'SiteAdress', 'OrderDate', 'OrderDueDate', 'StartTime', 'IsApproved', 'IsDone', 'ManagerComment',
-    'Comment', 'ConcreteTest', 'MaterialOrderL'];
-    displaydColumns1=['Id','Element','Amount','StatusMaterial','MaterialName','ManagerComment','PipeLength'];
-    hebrewCol=['אורך צינור','הערת מנהל','שם חומר','סטטוס','כמות','אלמנט','קוד חומר'];
+    'Comment', 'ConcreteTest', 'MaterialOrderL', 'edit'];
+    displaydColumns1=['Id','Element','Amount','StatusMaterial','MaterialName','ManagerComment','PipeLength','edit'];
+    hebrewCol=['edit','קוד חומר','אלמנט','כמות','סטטוס','שם חומר','הערת מנהל','אורך צינור'];
+    //hebrewCol=['אורך צינור','הערת מנהל','שם חומר','סטטוס','כמות','אלמנט','קוד חומר'];
     datepipe: any;
     user:Customer;
    tmpData:orderViewDTO[]=[];
@@ -63,11 +65,12 @@ export class OrderShowComponent implements OnInit {
                         this.dataSource.data = [...this.dataSource.data, {...order, MaterialOrderL: new MatTableDataSource(order.MaterialOrderL)}];
                       } 
                 })
+                console.log(this.dataSource.data);
                // this.dataSource.data = [...suc];
             }, err => {
                 console.log("error")
             });
-            console.log(this.dataSource.data);
+           
             });
 
         
@@ -103,8 +106,8 @@ export class OrderShowComponent implements OnInit {
 
     //edit or delete order
     openDialog(action, element) {
-        const dialogRef = this.dialog.open(DialogBoxComponent, {
-            width: '400px',
+        const dialogRef = this.dialog.open(OrderDialogComponent, {
+
             data: {
                 passData: element,
                 passAction: action
