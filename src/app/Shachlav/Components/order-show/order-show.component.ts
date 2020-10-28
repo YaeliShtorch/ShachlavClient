@@ -15,6 +15,7 @@ import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import { orderViewDTO } from '../../Models/orderViewDTO.models';
+import { materialTypeOrderViewDTO } from '../../Models/MaterialTypeOrderView.models';
 
 @Component({
     selector: 'app-order-show',
@@ -33,14 +34,16 @@ import { orderViewDTO } from '../../Models/orderViewDTO.models';
 export class OrderShowComponent implements OnInit {
 
     orderFunc = "";
-    dataSource = new MatTableDataSource<orderViewDTO>();
+    dataSource = new MatTableDataSource<any>([]);
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;
     displayedColumns = ['Id', 'CustomerName', 'SiteAdress', 'OrderDate', 'OrderDueDate', 'StartTime', 'IsApproved', 'IsDone', 'ManagerComment',
     'Comment', 'ConcreteTest', 'MaterialOrderL'];
-    // displaydColumns1=['Id', 'OrderId','Element','Amount','StatusMaterial','MaterialName','ManagerComment','PipeLength'];
+    displaydColumns1=['Id','Element','Amount','StatusMaterial','MaterialName','ManagerComment','PipeLength'];
+    hebrewCol=['אורך צינור','הערת מנהל','שם חומר','סטטוס','כמות','אלמנט','קוד חומר'];
     datepipe: any;
     user:Customer;
+   tmpData:orderViewDTO[]=[];
 
 
     constructor(public customerService: CustomerService, public orderService: OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService: UsersService
@@ -55,8 +58,12 @@ export class OrderShowComponent implements OnInit {
             this.user=suc;
             console.log(this.user,"user");
             this.orderService.GetCustOrders(this.user.Id).subscribe(suc => {
-                this.dataSource.data = [...suc];
-                console.log(this.dataSource.data)
+                suc.forEach(order=>{
+                    if (order.MaterialOrderL && Array.isArray(order.MaterialOrderL) && order.MaterialOrderL.length) {
+                        this.dataSource.data = [...this.dataSource.data, {...order, MaterialOrderL: new MatTableDataSource(order.MaterialOrderL)}];
+                      } 
+                })
+               // this.dataSource.data = [...suc];
             }, err => {
                 console.log("error")
             });

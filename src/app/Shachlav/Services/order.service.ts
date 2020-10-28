@@ -117,47 +117,6 @@ updateCategory(cat:MaterialCategory){
 }
 //  }
  
- AddClay(m:Material){
-  return this.Http.post(environment.baseUrl+this.thisController+"AddClay",m);
- }
- AddVehicleType(m:Material){
-  return this.Http.post(environment.baseUrl+this.thisController+"AddVehicleType",m);
- }
- AddExposue(m:Material){
-  return this.Http.post(environment.baseUrl+this.thisController+"AddExposue",m);
- }
- AddDeep(m:Material){
-  return this.Http.post(environment.baseUrl+this.thisController+"AddDeep",m);
- }
- AddExtension(m:Material){
-  return this.Http.post(environment.baseUrl+this.thisController+"AddExtension",m);
- }
- AddConcDesc(m:Material){
-  return this.Http.post(environment.baseUrl+this.thisController+"AddConcDesc",m);
- }
- AddConcrete(m:Material){
-  return this.Http.post(environment.baseUrl+this.thisController+"AddConcrete",m);
- }
- GetClay(){
-  return this.Http.get(environment.baseUrl+this.thisController+"GetClay");
- }
- GetVehicleType(){
-  return this.Http.get(environment.baseUrl+this.thisController+"GetVehicleType");
- }
- GetExposue(){
-  return this.Http.get(environment.baseUrl+this.thisController+"GetExposue");
- }
- GetDeep(){
-  return this.Http.get(environment.baseUrl+this.thisController+"GetDeep");
- }
- GetExtension(){
-  return this.Http.get(environment.baseUrl+this.thisController+"GetExtension");
- }
- GetConcDesc(){
-  return this.Http.get(environment.baseUrl+this.thisController+"GetConcDesc");
- }
- GetConcrete(){
-  return this.Http.get(environment.baseUrl+this.thisController+"GetConcrete");
- }
+ 
 }
 // }

@@ -14,54 +14,54 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> מספר הזמנה </th> 
       <td mat-cell *matCellDef="let element"> {{element.Id}}</td>
     </ng-container>
-    <ng-container matColumnDef="CustomerName">
+    <ng-container matColumnDef="CustomerName" #custName>
       <th mat-header-cell 
       *matHeaderCellDef>  שם לקוח </th>
       <td mat-cell *matCellDef="let element">{{element.CustomerName}} </td>
     </ng-container>
     <ng-container matColumnDef="OrderDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  תאריך הזמנה </th>
-      <td mat-cell *matCellDef="let element"> {{element.OrderDate }}</td>
+      <td mat-cell *matCellDef="let element"> {{element.OrderDate|date: 'dd/MM/yyyy' }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="SiteAdress">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header hidden> כתובת אתר </th> 
+    <ng-container matColumnDef="SiteAdress" hidden>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > כתובת אתר </th> 
       <td mat-cell *matCellDef="let element"> {{element.SiteAdress}}</td>
     </ng-container>
-    <ng-container matColumnDef="OrderDueDate">
+    <ng-container matColumnDef="OrderDueDate" >
       <th mat-header-cell *matHeaderCellDef mat-sort-header hidden> הזמנה לתאריך </th>
-      <td mat-cell *matCellDef="let element"> {{element.OrderDueDate }}</td>
+      <td mat-cell *matCellDef="let element" hidden> {{element.OrderDueDate|date: 'dd/MM/yyyy'}}</td>
     </ng-container>
 
     <ng-container matColumnDef="StartTime">
       <th mat-header-cell *matHeaderCellDef mat-sort-header hidden> שעות שימוש</th> 
-      <td mat-cell *matCellDef="let element"> {{element.StartTime- element.EndTime}}</td>
+      <td mat-cell *matCellDef="let element" hidden> {{element.StartTime- element.EndTime}}</td>
     </ng-container>
 
     <ng-container matColumnDef="IsApproved">
       <th mat-header-cell *matHeaderCellDef mat-sort-header hidden> מאושר </th> 
-      <td mat-cell *matCellDef="let element"> {{element.IsApproved}}</td>
+      <td mat-cell *matCellDef="let element" hidden> {{element.IsApproved}}</td>
     </ng-container>
     <ng-container matColumnDef="IsDone">
       <th mat-header-cell *matHeaderCellDef mat-sort-header hidden> בוצע </th> 
-      <td mat-cell *matCellDef="let element"> {{element.IsDone}}</td>
+      <td mat-cell *matCellDef="let element" hidden> {{element.IsDone}}</td>
     </ng-container>
     <ng-container matColumnDef="ManagerComment">
       <th mat-header-cell *matHeaderCellDef mat-sort-header hidden> הערות מנהל </th> 
-      <td mat-cell *matCellDef="let element"> {{element.ManagerComment}}</td>
+      <td mat-cell *matCellDef="let element" hidden> {{element.ManagerComment}}</td>
     </ng-container>
     <ng-container matColumnDef="Comment">
       <th mat-header-cell *matHeaderCellDef mat-sort-header hidden>הערות</th> 
-      <td mat-cell *matCellDef="let element"> {{element.Comment}}</td>
+      <td mat-cell *matCellDef="let element" hidden > {{element.Comment}}</td>
     </ng-container>
 
     <ng-container matColumnDef="ConcreteTest">
       <th mat-header-cell *matHeaderCellDef mat-sort-header hidden>בדיקת בטון</th> 
-      <td mat-cell *matCellDef="let element"> {{element.ConcreteTest}}</td>
+      <td mat-cell *matCellDef="let element" hidden> {{element.ConcreteTest}}</td>
     </ng-container>
     <ng-container matColumnDef="MaterialOrderL">
       <th mat-header-cell *matHeaderCellDef mat-sort-header hidden>חומרים</th> 
-      <td mat-cell *matCellDef="let element"> {{element.MaterialOrderL}}</td>
+      <td mat-cell *matCellDef="let element" hidden> {{element.MaterialOrderL}}</td>
     </ng-container>
 
     
@@ -90,70 +90,85 @@
 </div> -->
 
 <ng-template #tpl let-element>
-  <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden" fxLayout="row" fxLayoutAlign="center center" fxLayoutAlign.sm="center center" fxLayout.sm="column" fxLayout.xs="column">
-     
+  <!-- <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden" fxLayout="row" fxLayoutAlign="center center" fxLayoutAlign.sm="center center" fxLayout.sm="column" fxLayout.xs="column"> -->
+    <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden; width:100%; padding: 5px;" fxLayout="row" fxLayoutAlign="center center">
     <mat-card > 
   
       <mat-card-title >פרטים</mat-card-title>
       <mat-card-content >
 
         <ng-container >
-          <span>כתובת הזמנה</span> 
+          <span>:כתובת הזמנה</span> 
            {{element.SiteAdress}} 
         </ng-container>
-
+      <br>
         <ng-container>
-        <span> הזמנה לתאריך </span>
-          {{element.OrderDueDate }} 
+        <span> :הזמנה לתאריך </span>
+          {{element.OrderDueDate| date: 'dd/MM/yyyy' }} 
         </ng-container>   
-
+        <br>
         <ng-container>
-          <span>שעות שימוש</span>
+          <span>:שעות שימוש</span>
        {{element.StartTime }} - {{element.EndTime }}
         </ng-container> 
-
+        <br>
         <ng-container>
-         <span>בדיקת בטון </span>
+         <span>:בדיקת בטון </span>
          {{element.ConcreteCheck}}
         </ng-container>
-
+        <br>
         <ng-container>
-         <span> הזמנה מאושרת</span>
+         <span>הזמנה מאושרת:</span>
          {{element.IsApproved}}
         </ng-container>
-
+        <br>
         <mat-divider></mat-divider>
-      <span>חומרים וכלי רכב שהוזמנו</span>
-<table mat-table *ngIf="element.MaterialOrderL.length>0">
+        <h2>חומרים וכלי רכב שהוזמנו:</h2>
+        <!-- *ngIf="element.MaterialOrderL.length>0" -->
+        <table  mat-table [dataSource]="element.MaterialOrderL">
+          <ng-container matColumnDef="{{innerColumn}}" *ngFor="let innerColumn of displaydColumns1;let i=index">
+            <th mat-header-cell *matHeaderCellDef > {{hebrewCol[i]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element[innerColumn]}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displaydColumns1"></tr>
+          <tr mat-row *matRowDef="let row; columns: displaydColumns1;"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
 
-<ng-container *ngFor="let material of element.MaterialOrderL">
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> מספר הזמנת חומר </th> 
+   
+    
+
+<!-- <table mat-table [dataSource]="element.MaterialOrderL">
+<ng-container>
+  <th mat-header-cell *matHeaderCellDef="Id" mat-sort-header>: מספר הזמנת חומר </th> 
   <td mat-cell *matCellDef="let element"> {{element.MaterialOrderL.Id}}</td>
 
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> שם חומר/משאבה </th> 
+  <th mat-header-cell *matHeaderCellDef="MaterialName" mat-sort-header>: שם חומר/משאבה </th> 
   <td mat-cell *matCellDef="let element"> {{element.MaterialOrderL.MaterialName}}</td>
 
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> אלמנט </th> 
+  <th mat-header-cell *matHeaderCellDef="Element" mat-sort-header>: אלמנט </th> 
   <td mat-cell *matCellDef="let element"> {{element.MaterialOrderL.Element}}</td>
 
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> כמות </th> 
+  <th mat-header-cell *matHeaderCellDef="Amount" mat-sort-header>: כמות </th> 
   <td mat-cell *matCellDef="let element"> {{element.MaterialOrderL.Amount}}</td>
 
-  <th mat-header-cell *matHeaderCellDef mat-sort-header>אורך צינור </th> 
+  <th mat-header-cell *matHeaderCellDef="PipeLength" mat-sort-header>:אורך צינור </th> 
   <td mat-cell *matCellDef="let element"> {{element.MaterialOrderL.PipeLength}}</td>
 
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> סטטוס </th> 
+  <th mat-header-cell *matHeaderCellDef="StatusMaterial" mat-sort-header>: סטטוס </th> 
   <td mat-cell *matCellDef="let element"> {{element.MaterialOrderL.StatusMaterial}}</td>
 
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> הערות מנהל </th> 
+  <th mat-header-cell *matHeaderCellDef="ManagerComment" mat-sort-header>: הערות מנהל </th> 
   <td mat-cell *matCellDef="let element"> {{element.MaterialOrderL.ManagerComment}}</td>
 </ng-container>
 
-</table>
+<tr mat-header-row *matHeaderRowDef="displaydColumns1" class="mheader"></tr>
+<tr mat-row *matRowDef="let row; columns: displaydColumns1;"></tr>
+</table> -->
 
   
-      </mat-card-content>
-    </mat-card>
+    
      
     </div>
   </ng-template>

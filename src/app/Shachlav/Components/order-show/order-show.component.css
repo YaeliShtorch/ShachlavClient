@@ -60,14 +60,14 @@ th.mat-header-cell {
     max-width: 300px;
 }
 td.mat-cell{
-  background-color: lawngreen;
+  background-color: rgb(252, 172, 0);
   margin:10px;
   text-align: right;
 }
 
 @media (max-width:1024px){
   td.mat-cell{
-    background-color: lawngreen;
+    background-color:rgb(252, 172, 0);
     text-align: center;
   }
 }
