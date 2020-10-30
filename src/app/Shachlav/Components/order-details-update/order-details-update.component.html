@@ -1,0 +1,110 @@
+<form [formGroup]="updateOrderDetailsForm" autocomplete="off" (ngSubmit)="onSubmit()">
+  
+  <mat-form-field>
+    <mat-label>חומר או משאבה</mat-label>
+    <input
+      disabled
+      matInput
+      type="text"
+       id="MaterialName" 
+        name="MaterialName"  
+        formControlName="MaterialName"
+        > 
+        
+      </mat-form-field>
+      <button mat-button-rise (click)="setNewMaterial()">בחירת חומר חדש</button>
+
+  <div *ngIf="showCategories!=false">
+ <mat-form-field appearance="fill">
+        <mat-label>קטגוריות</mat-label>
+        <mat-select
+        id="CategoryId" 
+          name="CategoryId" 
+          formControlName="CategoryId" 
+        >
+           
+        <mat-option *ngFor="let category of CategoryL,let i=index" [value]="category.Id" (click)="selected(category.Id)"  selected hidden>{{category.Name}}</mat-option>
+         
+        </mat-select>
+        </mat-form-field>  
+
+<!-- //הערכים-->
+   
+<mat-form-field appearance="fill" >
+  <mat-label>בחירת חומר</mat-label>
+   <mat-select
+  id="MaterialId" 
+   name="MaterialId"
+   formControlName="MaterialId"  
+>
+<!-- selected="material.selected==true" -->
+<mat-option *ngFor="let material of EzerMaterialL,let i" [value]="material.Id" (click)="selectMayko(material)"    selected="material.selected==true" > {{material.Name}}</mat-option>
+
+</mat-select>
+</mat-form-field>
+</div>
+
+<mat-form-field *ngIf="showMayko!=false" appearance="fill">
+  <mat-label>אורך צינור</mat-label>
+  <input
+  matInput 
+  type="number"
+   id="PipeLength" 
+    name="PipeLength"  
+    formControlName="PipeLength"
+    >
+</mat-form-field> 
+<mat-form-field>
+  <mat-label>אלמנט</mat-label>
+  <input
+    matInput 
+     id="Element" 
+      name="Element"  
+      formControlName="Element"
+      >
+      <mat-error *ngIf="updateOrderDetailsForm.get('Element').hasError('required')" >שדה חובה</mat-error> 
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>כמות</mat-label>
+      <input
+        matInput 
+        type="number"
+         id="Amount" 
+          name="amount"  
+          formControlName="Amount"
+          > 
+        </mat-form-field>
+
+     
+          <mat-form-field>
+            <mat-label>סטטוס</mat-label>
+          <input 
+          disabled 
+         matInput 
+          type="text"
+           id="StatusMaterial" 
+          name="StatusMaterial"  
+           formControlName="StatusMaterial">
+          </mat-form-field>
+          <mat-form-field>
+          <mat-label>הערות מנהל</mat-label>
+          <input
+            matInput 
+            type="text"
+             id="ManagerComment" 
+              name="ManagerComment"  
+              formControlName="ManagerComment"
+              > 
+            </mat-form-field>
+
+        
+            <br>
+ 
+      </form> 
+<!-- selected="material.selected==true" -->
+  <!-- <mat-option [value]="StatusM.Id" *ngFor="let statusM of StatusMaterialL,let i" [value]="material.Id"  selected> {{statusMat.Name}}</mat-option>
+
+</mat-select>
+</mat-form-field>     
+</form>  -->

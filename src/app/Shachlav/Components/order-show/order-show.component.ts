@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, ViewChild} from '@angular/core';
+import {Component, OnInit, Input, ViewChild, ChangeDetectorRef} from '@angular/core';
 import {Order} from '../../models/order.models';
 import {UsersService} from 'src/app/Shachlav/Services/users.service';
 import {OrderService} from 'src/app/Shachlav/Services/order.service';
@@ -49,7 +49,7 @@ export class OrderShowComponent implements OnInit {
 
 
     constructor(public customerService: CustomerService, public orderService: OrderService, public route: Router, public activatedRoute: ActivatedRoute, public userService: UsersService
-        , public dialog: MatDialog, public driverService: DriverService) {
+        , public dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {
 
     }
 
@@ -106,6 +106,7 @@ export class OrderShowComponent implements OnInit {
 
     //edit or delete order
     openDialog(action, element) {
+        var tmp = element;
         const dialogRef = this.dialog.open(OrderDialogComponent, {
 
             data: {
@@ -117,7 +118,10 @@ export class OrderShowComponent implements OnInit {
         //what returns from dialog
         dialogRef.afterClosed().subscribe(result => {
             if (action === 'edit') {
-                var tmp = element;
+                
+                if(result==false){
+     
+                }
                 if (result != false) {
                     //check what if anything changed
                     console.log(element)
@@ -144,6 +148,8 @@ export class OrderShowComponent implements OnInit {
 
 
     }
+
+
 
     ngOnInit() {
 

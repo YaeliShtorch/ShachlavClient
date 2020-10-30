@@ -93,10 +93,55 @@
   <!-- <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden" fxLayout="row" fxLayoutAlign="center center" fxLayoutAlign.sm="center center" fxLayout.sm="column" fxLayout.xs="column"> -->
     <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden; width:100%; padding: 5px;" fxLayout="row" fxLayoutAlign="center center">
     <mat-card > 
-  
-      <mat-card-title >פרטים</mat-card-title>
-      <mat-card-content >
 
+      <mat-card-content >
+      <h2>חומרים וכלי רכב שהוזמנו:</h2>
+      <table mat-table [dataSource]="element.MaterialOrderL">
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef> מספר הזמנת חומר </th> 
+          <td mat-cell *matCellDef="let element"> {{element.Id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="MaterialName" >
+          <th mat-header-cell *matHeaderCellDef> שם חומר/משאבה </th> 
+          <td mat-cell *matCellDef="let element"> {{element.MaterialName}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Element">
+          <th mat-header-cell *matHeaderCellDef> אלמנט </th> 
+          <td mat-cell *matCellDef="let element"> {{element.Element}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Amount">
+          <th mat-header-cell *matHeaderCellDef> כמות </th> 
+          <td mat-cell *matCellDef="let element"> {{element.Amount}}</td>
+        </ng-container>
+        <ng-container matColumnDef="StatusMaterial">
+          <th mat-header-cell *matHeaderCellDef> סטטוס </th> 
+          <td mat-cell *matCellDef="let element"> {{element.StatusMaterial}}</td>
+        </ng-container>
+        <ng-container matColumnDef="ManagerComment">
+          <th mat-header-cell *matHeaderCellDef> הערות מנהל </th> 
+          <td mat-cell *matCellDef="let element"> {{element.ManagerComment}}</td>
+        </ng-container>
+        <ng-container matColumnDef="PipeLength">
+          <th mat-header-cell *matHeaderCellDef >אורך צינור </th> 
+          <td mat-cell *matCellDef="let element"> {{element.PipeLength}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef > עריכה/מחיקה</th>
+          <td mat-cell *matCellDef="let row">
+              <a mat-button matTooltip="Edit" (click)="openDialog('editm',row)" align="right"><mat-icon>create</mat-icon></a>
+              <a mat-button matTooltip="Delete" (click)="openDialog('deletem',row)" align="right"><mat-icon>delete</mat-icon></a>
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displaydColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displaydColumns1;"></tr>
+        </table> 
+  
+     
+        <br>
+        <mat-divider></mat-divider>
+        <h3>פרטי הזמנה</h3>
         <ng-container >
           <span>:כתובת הזמנה</span> 
            {{element.SiteAdress}} 
@@ -121,50 +166,8 @@
          <span>הזמנה מאושרת:</span>
          {{element.IsApproved}}
         </ng-container>
-        <br>
-        <mat-divider></mat-divider>
-        <h2>חומרים וכלי רכב שהוזמנו:</h2>
-        <table mat-table [dataSource]="element.MaterialOrderL">
-          <ng-container matColumnDef="Id">
-            <th mat-header-cell *matHeaderCellDef> מספר הזמנת חומר </th> 
-            <td mat-cell *matCellDef="let element"> {{element.Id}}</td>
-          </ng-container>
-          <ng-container matColumnDef="MaterialName" >
-            <th mat-header-cell *matHeaderCellDef> שם חומר/משאבה </th> 
-            <td mat-cell *matCellDef="let element"> {{element.MaterialName}}</td>
-          </ng-container>
-          <ng-container matColumnDef="Element">
-            <th mat-header-cell *matHeaderCellDef> אלמנט </th> 
-            <td mat-cell *matCellDef="let element"> {{element.Element}}</td>
-          </ng-container>
-          <ng-container matColumnDef="Amount">
-            <th mat-header-cell *matHeaderCellDef> כמות </th> 
-            <td mat-cell *matCellDef="let element"> {{element.Amount}}</td>
-          </ng-container>
-          <ng-container matColumnDef="StatusMaterial">
-            <th mat-header-cell *matHeaderCellDef> סטטוס </th> 
-            <td mat-cell *matCellDef="let element"> {{element.StatusMaterial}}</td>
-          </ng-container>
-          <ng-container matColumnDef="ManagerComment">
-            <th mat-header-cell *matHeaderCellDef> הערות מנהל </th> 
-            <td mat-cell *matCellDef="let element"> {{element.ManagerComment}}</td>
-          </ng-container>
-          <ng-container matColumnDef="PipeLength">
-            <th mat-header-cell *matHeaderCellDef >אורך צינור </th> 
-            <td mat-cell *matCellDef="let element"> {{element.PipeLength}}</td>
-          </ng-container>
-        
-          <ng-container matColumnDef="edit">
-            <th mat-header-cell *matHeaderCellDef > עריכה/מחיקה</th>
-            <td mat-cell *matCellDef="let row">
-                <a mat-button matTooltip="Edit" (click)="openDialog('editm',row)" align="right"><mat-icon>create</mat-icon></a>
-                <a mat-button matTooltip="Delete" (click)="openDialog('deletem',row)" align="right"><mat-icon>delete</mat-icon></a>
-            </td>
-          </ng-container>
-          
-          <tr mat-header-row *matHeaderRowDef="displaydColumns1"></tr>
-          <tr mat-row *matRowDef="let row; columns: displaydColumns1;"></tr>
-          </table> 
+     
+       
 
 
 

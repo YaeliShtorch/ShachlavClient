@@ -1,42 +1,93 @@
 <h1 mat-dialog-title> עריכת הזמנה</h1>
-<mat-dialog-content *ngIf="this.passObj.passAction==='edit'" fxLayout="column" fxLayoutAlign="center">
+<mat-dialog-content *ngIf="this.passObj.passAction==='edit'" fxLayout="column">
     <br>
-    <mat-form-field>
-        <mat-label>(כתובת הזמנה (עיר, רחוב ומיקוד</mat-label>
-        <input type="text" matInput placeholder="{{this.passObj.passData.SiteAdress}}"
-               [(ngModel)]="this.passObj.passData.SiteAdress" required>
+    <form [formGroup]="updateOrderForm" autocomplete="off">
+       
+        <mat-form-field>
+          <input
+            matInput 
+             id="SiteAdress" 
+              name="SiteAdress"  
+              formControlName="SiteAdress"
+              >
+              <mat-label>כתובת אתר</mat-label>
+       <mat-hint ></mat-hint>
     </mat-form-field>
-
+    
+    <mat-form-field >
+          <input 
+          matInput
+           [matDatepicker]="picker" 
+           id="OrderDueDate"
+             name="orderDueDate"
+             formControlName="OrderDueDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker  #picker></mat-datepicker>
+          <mat-label>הזמנה לתאריך</mat-label>
+          <!-- <mat-error *ngIf="newOrderForm.get('OrderDueDate').hasError('checkDate')" >על התאריך להיות גדול מהיום</mat-error>  -->
+        </mat-form-field>
+    
+        <!-- [min]="minDate" -->
+    
+    
+           <mat-form-field>
+            <input
+                matInput
+                type="time"
+                aria-label="12hr format"
+                min="06:00 am"
+                [value]="'0:00 am'"
+                id="StartTime" 
+                name="StartTime"  
+                formControlName="StartTime"
+             />
+             <mat-label>זמן התחלה</mat-label>
+        </mat-form-field> 
+    
+        <mat-form-field>   
+         
+            <input
+            matInput
+            max="10:00 pm"
+            type="time"
+            id="EndTime" 
+            name="EndTime"  
+            formControlName="EndTime"
+         />
+    <mat-label>זמן סיום</mat-label>
+    <!-- <mat-error *ngIf="newOrderForm.get('OrderDueDate').hasError('checkhour')" >על השעה להיות גדולה משעת התחלה</mat-error> -->
+      </mat-form-field>
+    
+    
+    
+      <mat-checkbox
+         id="ConcreteTest" 
+          name="ConcreteTest"  
+          formControlName="ConcreteTest"
+          >האם נדרשת בדיקת בטון
+        </mat-checkbox>
+    
+    <br>
+    
     <mat-form-field>
-        <mat-label>הזמנה לתאריך</mat-label>
-        <input type="datetime-local" matInput placeholder="{{this.passObj.passData.OrderDueDate}} | date:'dd/MM/yyyy'"
-               [(ngModel)]="this.passObj.passData.OrderDueDate" required>
+    <input
+    matInput 
+    id="Comment" 
+    placeholder="הערות "
+    name="comment"  
+    formControlName="Comment"
+    >
+    <mat-hint></mat-hint>
     </mat-form-field>
-    <mat-form-field>
-        <mat-label>שעת התחלת שימוש</mat-label>
-        <input type="time" matInput placeholder="{{this.passObj.passData.StartTime}}"
-               [(ngModel)]="this.passObj.passData.StartTime" required onfocusout="checkDate()">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>שעת סיום שימוש</mat-label>
-        <input type="time" matInput placeholder="{{this.passObj.passData.EndTime}}"
-               [(ngModel)]="this.passObj.passData.EndTime" required>
-    </mat-form-field>
-    <mat-checkbox [(ngModel)]="this.passObj.passData.ConcreteCheck" color="primary">
-        <mat-label>בדיקת בטון</mat-label>
-    </mat-checkbox>
-    <mat-form-field>
-        <mat-label>הערות</mat-label>
-        <input type="text" matInput placeholder="{{this.passObj.passData.Comment}}"
-               [(ngModel)]="this.passObj.passData.Comment" required>
-    </mat-form-field>
-
+    
+    </form>
     <mat-dialog-actions>
+    <br>
         <mat-label style="color:red">שים לב בעת שמירה תאריך ההזמנה ישתנה לתאריך של היום וכן אנו צריכים לאשר את
             ההזמנה מחדש*.
         </mat-label>
-        <br>
-        <button mat-button [mat-dialog-close]='this.passObj' color="primary"> שמירה</button>
+    <br>
+        <button mat-button [mat-dialog-close]='this.saveChange' color="primary"> שמירה</button>
         <button mat-button [mat-dialog-close]='false' color="primary"> ביטול</button>
     </mat-dialog-actions>
 </mat-dialog-content>
@@ -50,5 +101,45 @@
 </div>
 <mat-dialog-content *ngIf="this.passObj.passAction==='editm'">
 
-    <h2>חומר הזמנה</h2>
+    <order-details-update [materialView]="this.passObj.passData"></order-details-update>
+
+    <mat-dialog-actions>
+            <button mat-button [mat-dialog-close]='this.passObj' color="primary"> שמירה</button>
+            <button mat-button [mat-dialog-close]='false' color="primary"> ביטול</button>
+        </mat-dialog-actions>
 </mat-dialog-content>
+
+
+<!-- editOld -->
+<!-- <mat-form-field>
+    <mat-label>(כתובת הזמנה (עיר, רחוב ומיקוד</mat-label>
+    <input type="text" matInput placeholder="{{this.passObj.passData.SiteAdress}}"
+           [(ngModel)]="this.passObj.passData.SiteAdress" required>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>הזמנה לתאריך</mat-label>
+    <input type="datetime-local" matInput placeholder="{{this.passObj.passData.OrderDueDate}} | date:'dd/MM/yyyy'"
+           [(ngModel)]="this.passObj.passData.OrderDueDate" required>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>שעת התחלת שימוש</mat-label>
+    <input type="time" matInput placeholder="{{this.passObj.passData.StartTime}}"
+           [(ngModel)]="this.passObj.passData.StartTime" required onfocusout="checkDate()">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>שעת סיום שימוש</mat-label>
+    <input type="time" matInput placeholder="{{this.passObj.passData.EndTime}}"
+           [(ngModel)]="this.passObj.passData.EndTime" required>
+</mat-form-field>
+<mat-checkbox [(ngModel)]="this.passObj.passData.ConcreteCheck" color="primary">
+    <mat-label>בדיקת בטון</mat-label>
+</mat-checkbox>
+<mat-form-field>
+    <mat-label>הערות</mat-label>
+    <input type="text" matInput placeholder="{{this.passObj.passData.Comment}}"
+           [(ngModel)]="this.passObj.passData.Comment" required>
+</mat-form-field> -->
+
+
+

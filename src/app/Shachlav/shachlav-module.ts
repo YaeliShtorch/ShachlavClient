@@ -59,10 +59,11 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {ContainerModule} from "../../@vex/directives/container/container.module";
 import{MatSnackBarModule}from '@angular/material/snack-bar';
 import{MatSlideToggleModule}from '@angular/material/slide-toggle';
-import { MatTimepickerModule } from 'mat-timepicker';
+// import { MatTimepickerModule } from 'mat-timepicker';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { DriverTaskShowComponent } from './Components/driver-task-show/driver-task-show.component';
 import { OrderDialogComponent } from './Components/order-dialog/order-dialog.component';
+import { OrderDetailsUpdateComponent } from './Components/order-details-update/order-details-update.component';
 
 
 @NgModule({
@@ -98,7 +99,9 @@ import { OrderDialogComponent } from './Components/order-dialog/order-dialog.com
         ProviderUpdateComponent,
         CdkDetailRowDirective,
         DriverTaskShowComponent,
-        OrderDialogComponent],
+        OrderDialogComponent,
+        OrderDetailsUpdateComponent,
+ ],
     exports: [ManagerRegisterComponent,
         ManagerComponent,
         CustomerComponent,
@@ -131,10 +134,11 @@ import { OrderDialogComponent } from './Components/order-dialog/order-dialog.com
         ProviderUpdateComponent,
         MatSnackBarModule,
         MatSlideToggleModule,
-        MatTimepickerModule,
+        // MatTimepickerModule,
         NgxMatTimepickerModule,
         NgxMatDatetimePickerModule,
         OrderDialogComponent,
+        OrderDetailsUpdateComponent,
     ],
     imports: [
         HttpClientModule,
@@ -167,7 +171,7 @@ import { OrderDialogComponent } from './Components/order-dialog/order-dialog.com
         FlexModule,
         MatSnackBarModule,
         MatSlideToggleModule,
-        MatTimepickerModule,
+        //MatTimepickerModule,
         NgxMatTimepickerModule,
         NgxMatDatetimePickerModule,
         MatDatepickerModule,
