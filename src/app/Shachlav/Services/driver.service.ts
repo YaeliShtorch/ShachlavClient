@@ -63,7 +63,7 @@ export class DriverService {
   
    UpdateDriver(um:Driver)
    {
-    return this.Http.post(environment.baseUrl+this.thisController+"UpDate",um);
+    return this.Http.post(environment.baseUrl+this.thisController+"Update",um);
    }
    AddDriverTask(am:DriverWork){
     return this.Http.post(environment.baseUrl+this.thisController+"AddDriverWork",am);

@@ -61,7 +61,7 @@ constructor(public Http:HttpClient) { }
 
  UpdateManager(um:Manager)
  {
-  return this.Http.post(environment.baseUrl+this.thisController+"UpDate",um);
+  return this.Http.post(environment.baseUrl+this.thisController+"Update",um);
  }
 //  IsExistUP(UserName:string,Password:string){
 //   return this.Http.post(environment.baseUrl+this.thisController+"Exist",{UserName,Password});

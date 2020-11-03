@@ -29,7 +29,6 @@ constructor(public Http:HttpClient) { }
   }
   GetCustomerIN(identityNumber:string){
     return this.Http.get(environment.baseUrl+this.thisController+"GetIN?identityNumber="+identityNumber); 
-    // identityNumber
   }
   GetCustomersFLN(Name:string){
     return this.Http.get(environment.baseUrl+this.thisController+"GetFLN?Name="+Name); 
@@ -59,7 +58,7 @@ constructor(public Http:HttpClient) { }
 
  UpdateCustomer(um:Customer)
  {
-  return this.Http.post(environment.baseUrl+this.thisController+"UpDate",um);
+  return this.Http.post(environment.baseUrl+this.thisController+"Update",um);
  }
 //  IsExistUP(UserName:string,Password:string){
 //   return this.Http.post(environment.baseUrl+this.thisController+"Exist",{UserName,Password});
