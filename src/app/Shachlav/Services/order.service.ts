@@ -41,9 +41,9 @@ this.categoiesL=x;
     return this.Http.get<Order>(environment.baseUrl+this.thisController+"GetId?id="+id)
 }
 
- GetAllOrders():Observable<Order[]>
+ GetAllOrders():Observable<orderViewDTO[]>
  {
-  return this.Http.get<Order[]>(environment.baseUrl+this.thisController+"GetAll")
+  return this.Http.get<orderViewDTO[]>(environment.baseUrl+this.thisController+"GetAll")
  }
 
  GetCustOrders(id:number):Observable<orderViewDTO[]>
@@ -64,8 +64,12 @@ this.categoiesL=x;
   return this.Http.post(environment.baseUrl+this.thisController+"Update",o);
  }
 
+ UpdateOrderMaterial(m:MaterialTypeOrder){
+  return this.Http.post(environment.baseUrl+this.thisController+"UpdateMat",m);
+ }
+
  AddOrder(o:Order){
-  console.log(o);
+
   return this.Http.post(environment.baseUrl+this.thisController+"AddOrder",o);
  }
 

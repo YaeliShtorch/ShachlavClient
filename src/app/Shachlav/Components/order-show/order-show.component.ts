@@ -38,7 +38,7 @@ export class OrderShowComponent implements OnInit {
     dataSource = new MatTableDataSource<any>([]);
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;
-    displayedColumns = ['Id', 'CustomerName', 'SiteAdress', 'OrderDate', 'OrderDueDate', 'StartTime', 'IsApproved', 'IsDone', 'ManagerComment',
+    displayedColumns = ['Id', 'CustomerName', 'SiteAdress', 'OrderDate', 'OrderDueDate', 'StartTime', 'EndTime','IsApproved', 'IsDone', 'ManagerComment',
     'Comment', 'ConcreteTest', 'MaterialOrderL', 'edit'];
     displaydColumns1=['Id','Element','Amount','StatusMaterial','MaterialName','ManagerComment','PipeLength','edit'];
     hebrewCol=['edit','קוד חומר','אלמנט','כמות','סטטוס','שם חומר','הערת מנהל','אורך צינור'];
