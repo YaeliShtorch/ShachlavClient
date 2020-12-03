@@ -7,6 +7,7 @@ import { Material } from '../Models/material.models';
 import { MaterialTypeOrder } from '../Models/materialTypeOrder.models';
 import { MaterialCategory } from '../Models/materialCategory.models';
 import { orderViewDTO } from '../Models/orderViewDTO.models';
+import { DateTime } from 'luxon';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,15 @@ this.categoiesL=x;
  {
    return this.Http.get<orderViewDTO[]>(environment.baseUrl+this.thisController+"GetAllCO?id="+id)
  }
+ 
+ GetOrdersCity(city:string){
+  return this.Http.get<orderViewDTO[]>(environment.baseUrl+this.thisController+"GetCityOrders?city="+city)
+ }
+
+
+ GetOrdersByOrderDate(date:DateTime){
+  return this.Http.get<orderViewDTO[]>(environment.baseUrl+this.thisController+"GetOrdersByOrderDate?date="+date)
+ }
  GetOrdersTwoMonthAgo(){
   return this.Http.get(environment.baseUrl+this.thisController+"GetOrdersTwoMonthAgo")
  }
@@ -59,13 +69,20 @@ this.categoiesL=x;
   return this.Http.get(environment.baseUrl+this.thisController+"Delete?id="+id)
  }
 
+ DeleteMaterialOrder(id:number){
+  return this.Http.get(environment.baseUrl+this.thisController+"DeleteOrderMat?id="+id)
+ }
+
  UpdateOrder(o:Order)
  {
   return this.Http.post(environment.baseUrl+this.thisController+"Update",o);
  }
+ AddOrderMaterial(m:MaterialTypeOrder){
+  return this.Http.post(environment.baseUrl+this.thisController+"AddOrderMat",m);
+ }
 
  UpdateOrderMaterial(m:MaterialTypeOrder){
-  return this.Http.post(environment.baseUrl+this.thisController+"UpdateMat",m);
+  return this.Http.post(environment.baseUrl+this.thisController+"UpdateOrderMat",m);
  }
 
  AddOrder(o:Order){
