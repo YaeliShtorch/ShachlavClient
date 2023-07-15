@@ -37,7 +37,7 @@
     "date-fns": "^2.12.0",
     "highlight.js": "^10.0.0",
     "israeli-id-validator": "^1.0.1",
-    "luxon": "^1.23.0",
+    "luxon": "^1.28.1",
     "moment": "^2.27.0",
     "ng-pick-datetime": "^7.0.0",
     "ngx-material-timepicker": "^5.1.0",
